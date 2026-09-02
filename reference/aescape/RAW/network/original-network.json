@@ -1,0 +1,1785 @@
+{
+  "label": "original",
+  "url": "https://www.aescape.com/",
+  "capturedAt": "2026-08-27T12:40:08.018Z",
+  "requestCount": 75,
+  "responseCount": 75,
+  "fixtureCount": 3,
+  "requests": [
+    {
+      "url": "https://www.aescape.com/",
+      "method": "GET",
+      "resourceType": "document",
+      "headers": {
+        "upgrade-insecure-requests": "1",
+        "user-agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/141.0.7390.37 Safari/537.36",
+        "sec-ch-ua": "\"HeadlessChrome\";v=\"141\", \"Not?A_Brand\";v=\"8\", \"Chromium\";v=\"141\"",
+        "sec-ch-ua-mobile": "?0",
+        "sec-ch-ua-platform": "\"Linux\""
+      },
+      "postData": ""
+    },
+    {
+      "url": "https://www.googletagmanager.com/gtag/js?id=G-2NKYEK9YPQ",
+      "method": "GET",
+      "resourceType": "script",
+      "headers": {
+        "sec-ch-ua-platform": "\"Linux\"",
+        "referer": "https://www.aescape.com/",
+        "user-agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/141.0.7390.37 Safari/537.36",
+        "sec-ch-ua": "\"HeadlessChrome\";v=\"141\", \"Not?A_Brand\";v=\"8\", \"Chromium\";v=\"141\"",
+        "sec-ch-ua-mobile": "?0"
+      },
+      "postData": ""
+    },
+    {
+      "url": "https://frameship-backend.account-ba7.workers.dev/static/js/licence-management.js",
+      "method": "GET",
+      "resourceType": "script",
+      "headers": {
+        "sec-ch-ua-platform": "\"Linux\"",
+        "referer": "https://www.aescape.com/",
+        "user-agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/141.0.7390.37 Safari/537.36",
+        "sec-ch-ua": "\"HeadlessChrome\";v=\"141\", \"Not?A_Brand\";v=\"8\", \"Chromium\";v=\"141\"",
+        "sec-ch-ua-mobile": "?0"
+      },
+      "postData": ""
+    },
+    {
+      "url": "https://events.framer.com/script?v=2",
+      "method": "GET",
+      "resourceType": "script",
+      "headers": {
+        "sec-ch-ua-platform": "\"Linux\"",
+        "referer": "https://www.aescape.com/",
+        "user-agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/141.0.7390.37 Safari/537.36",
+        "sec-ch-ua": "\"HeadlessChrome\";v=\"141\", \"Not?A_Brand\";v=\"8\", \"Chromium\";v=\"141\"",
+        "sec-ch-ua-mobile": "?0"
+      },
+      "postData": ""
+    },
+    {
+      "url": "https://framerusercontent.com/images/aJ3c5JxhzHyjCI2s3jmqoOQFpNU.jpg?width=400&height=400",
+      "method": "GET",
+      "resourceType": "image",
+      "headers": {
+        "sec-ch-ua-platform": "\"Linux\"",
+        "referer": "https://www.aescape.com/",
+        "user-agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/141.0.7390.37 Safari/537.36",
+        "sec-ch-ua": "\"HeadlessChrome\";v=\"141\", \"Not?A_Brand\";v=\"8\", \"Chromium\";v=\"141\"",
+        "sec-ch-ua-mobile": "?0"
+      },
+      "postData": ""
+    },
+    {
+      "url": "https://framerusercontent.com/images/I3DX7zzNzLs74JmQtiewXU38TE.jpg?width=600&height=600",
+      "method": "GET",
+      "resourceType": "image",
+      "headers": {
+        "sec-ch-ua-platform": "\"Linux\"",
+        "referer": "https://www.aescape.com/",
+        "user-agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/141.0.7390.37 Safari/537.36",
+        "sec-ch-ua": "\"HeadlessChrome\";v=\"141\", \"Not?A_Brand\";v=\"8\", \"Chromium\";v=\"141\"",
+        "sec-ch-ua-mobile": "?0"
+      },
+      "postData": ""
+    },
+    {
+      "url": "https://framerusercontent.com/images/IQKbxIICx7MWi652sn5okgreOM.jpg?width=400&height=400",
+      "method": "GET",
+      "resourceType": "image",
+      "headers": {
+        "sec-ch-ua-platform": "\"Linux\"",
+        "referer": "https://www.aescape.com/",
+        "user-agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/141.0.7390.37 Safari/537.36",
+        "sec-ch-ua": "\"HeadlessChrome\";v=\"141\", \"Not?A_Brand\";v=\"8\", \"Chromium\";v=\"141\"",
+        "sec-ch-ua-mobile": "?0"
+      },
+      "postData": ""
+    },
+    {
+      "url": "https://framerusercontent.com/images/keMn8CicjFf6cdJomzOeKFTMKo.jpg?width=400&height=400",
+      "method": "GET",
+      "resourceType": "image",
+      "headers": {
+        "sec-ch-ua-platform": "\"Linux\"",
+        "referer": "https://www.aescape.com/",
+        "user-agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/141.0.7390.37 Safari/537.36",
+        "sec-ch-ua": "\"HeadlessChrome\";v=\"141\", \"Not?A_Brand\";v=\"8\", \"Chromium\";v=\"141\"",
+        "sec-ch-ua-mobile": "?0"
+      },
+      "postData": ""
+    },
+    {
+      "url": "https://framerusercontent.com/images/LHBHDl5tuNHQUV3gyiqBxC4Itcw.jpg?width=600&height=600",
+      "method": "GET",
+      "resourceType": "image",
+      "headers": {
+        "sec-ch-ua-platform": "\"Linux\"",
+        "referer": "https://www.aescape.com/",
+        "user-agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/141.0.7390.37 Safari/537.36",
+        "sec-ch-ua": "\"HeadlessChrome\";v=\"141\", \"Not?A_Brand\";v=\"8\", \"Chromium\";v=\"141\"",
+        "sec-ch-ua-mobile": "?0"
+      },
+      "postData": ""
+    },
+    {
+      "url": "https://framerusercontent.com/images/QXYBggsGKNZyhr0Qs3e1NXQonM.jpg?width=400&height=400",
+      "method": "GET",
+      "resourceType": "image",
+      "headers": {
+        "sec-ch-ua-platform": "\"Linux\"",
+        "referer": "https://www.aescape.com/",
+        "user-agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/141.0.7390.37 Safari/537.36",
+        "sec-ch-ua": "\"HeadlessChrome\";v=\"141\", \"Not?A_Brand\";v=\"8\", \"Chromium\";v=\"141\"",
+        "sec-ch-ua-mobile": "?0"
+      },
+      "postData": ""
+    },
+    {
+      "url": "https://framerusercontent.com/images/WHef2okgu8q9VqGIpqfgVSTQ.jpg?width=1920&height=1080",
+      "method": "GET",
+      "resourceType": "image",
+      "headers": {
+        "sec-ch-ua-platform": "\"Linux\"",
+        "referer": "https://www.aescape.com/",
+        "user-agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/141.0.7390.37 Safari/537.36",
+        "sec-ch-ua": "\"HeadlessChrome\";v=\"141\", \"Not?A_Brand\";v=\"8\", \"Chromium\";v=\"141\"",
+        "sec-ch-ua-mobile": "?0"
+      },
+      "postData": ""
+    },
+    {
+      "url": "https://framerusercontent.com/images/GOruLARxVnwZr2nesXCSVSqs.jpg?width=518&height=920",
+      "method": "GET",
+      "resourceType": "image",
+      "headers": {
+        "sec-ch-ua-platform": "\"Linux\"",
+        "referer": "https://www.aescape.com/",
+        "user-agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/141.0.7390.37 Safari/537.36",
+        "sec-ch-ua": "\"HeadlessChrome\";v=\"141\", \"Not?A_Brand\";v=\"8\", \"Chromium\";v=\"141\"",
+        "sec-ch-ua-mobile": "?0"
+      },
+      "postData": ""
+    },
+    {
+      "url": "https://framerusercontent.com/images/tuzHtQqZlGocLiGlSbJO5zEuTbM.jpg?width=518&height=920",
+      "method": "GET",
+      "resourceType": "image",
+      "headers": {
+        "sec-ch-ua-platform": "\"Linux\"",
+        "referer": "https://www.aescape.com/",
+        "user-agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/141.0.7390.37 Safari/537.36",
+        "sec-ch-ua": "\"HeadlessChrome\";v=\"141\", \"Not?A_Brand\";v=\"8\", \"Chromium\";v=\"141\"",
+        "sec-ch-ua-mobile": "?0"
+      },
+      "postData": ""
+    },
+    {
+      "url": "https://framerusercontent.com/images/v5laGNmNBlpvKzBoqneRHCQSs.jpg?width=350&height=350",
+      "method": "GET",
+      "resourceType": "image",
+      "headers": {
+        "sec-ch-ua-platform": "\"Linux\"",
+        "referer": "https://www.aescape.com/",
+        "user-agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/141.0.7390.37 Safari/537.36",
+        "sec-ch-ua": "\"HeadlessChrome\";v=\"141\", \"Not?A_Brand\";v=\"8\", \"Chromium\";v=\"141\"",
+        "sec-ch-ua-mobile": "?0"
+      },
+      "postData": ""
+    },
+    {
+      "url": "https://framerusercontent.com/images/eydG9WcBVknV4cjXt4eDLFyyXM.jpg?width=350&height=350",
+      "method": "GET",
+      "resourceType": "image",
+      "headers": {
+        "sec-ch-ua-platform": "\"Linux\"",
+        "referer": "https://www.aescape.com/",
+        "user-agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/141.0.7390.37 Safari/537.36",
+        "sec-ch-ua": "\"HeadlessChrome\";v=\"141\", \"Not?A_Brand\";v=\"8\", \"Chromium\";v=\"141\"",
+        "sec-ch-ua-mobile": "?0"
+      },
+      "postData": ""
+    },
+    {
+      "url": "https://framerusercontent.com/images/iPt2GIXV68owSIJ92B0QX2IgQ.jpg?width=350&height=350",
+      "method": "GET",
+      "resourceType": "image",
+      "headers": {
+        "sec-ch-ua-platform": "\"Linux\"",
+        "referer": "https://www.aescape.com/",
+        "user-agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/141.0.7390.37 Safari/537.36",
+        "sec-ch-ua": "\"HeadlessChrome\";v=\"141\", \"Not?A_Brand\";v=\"8\", \"Chromium\";v=\"141\"",
+        "sec-ch-ua-mobile": "?0"
+      },
+      "postData": ""
+    },
+    {
+      "url": "https://framerusercontent.com/images/q0A7sHfLClNsrDM3CGMeYUmI.jpg?width=350&height=350",
+      "method": "GET",
+      "resourceType": "image",
+      "headers": {
+        "sec-ch-ua-platform": "\"Linux\"",
+        "referer": "https://www.aescape.com/",
+        "user-agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/141.0.7390.37 Safari/537.36",
+        "sec-ch-ua": "\"HeadlessChrome\";v=\"141\", \"Not?A_Brand\";v=\"8\", \"Chromium\";v=\"141\"",
+        "sec-ch-ua-mobile": "?0"
+      },
+      "postData": ""
+    },
+    {
+      "url": "https://framerusercontent.com/images/6tTbkXggWgQCAJ4DO2QEdXXmgM.svg",
+      "method": "GET",
+      "resourceType": "image",
+      "headers": {
+        "sec-ch-ua-platform": "\"Linux\"",
+        "referer": "https://www.aescape.com/",
+        "user-agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/141.0.7390.37 Safari/537.36",
+        "sec-ch-ua": "\"HeadlessChrome\";v=\"141\", \"Not?A_Brand\";v=\"8\", \"Chromium\";v=\"141\"",
+        "sec-ch-ua-mobile": "?0"
+      },
+      "postData": ""
+    },
+    {
+      "url": "https://framerusercontent.com/images/11KSGbIZoRSg4pjdnUoif6MKHI.svg",
+      "method": "GET",
+      "resourceType": "image",
+      "headers": {
+        "sec-ch-ua-platform": "\"Linux\"",
+        "referer": "https://www.aescape.com/",
+        "user-agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/141.0.7390.37 Safari/537.36",
+        "sec-ch-ua": "\"HeadlessChrome\";v=\"141\", \"Not?A_Brand\";v=\"8\", \"Chromium\";v=\"141\"",
+        "sec-ch-ua-mobile": "?0"
+      },
+      "postData": ""
+    },
+    {
+      "url": "https://framerusercontent.com/assets/1DbxxDl08Gi1CrWg3xRQBIAEwnU.woff2",
+      "method": "GET",
+      "resourceType": "font",
+      "headers": {
+        "origin": "https://www.aescape.com",
+        "sec-ch-ua-platform": "\"Linux\"",
+        "referer": "https://www.aescape.com/",
+        "user-agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/141.0.7390.37 Safari/537.36",
+        "sec-ch-ua": "\"HeadlessChrome\";v=\"141\", \"Not?A_Brand\";v=\"8\", \"Chromium\";v=\"141\"",
+        "sec-ch-ua-mobile": "?0"
+      },
+      "postData": ""
+    },
+    {
+      "url": "https://framerusercontent.com/assets/oAAjtNNdFxG7z5VnSS75HXk0.woff2",
+      "method": "GET",
+      "resourceType": "font",
+      "headers": {
+        "origin": "https://www.aescape.com",
+        "sec-ch-ua-platform": "\"Linux\"",
+        "referer": "https://www.aescape.com/",
+        "user-agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/141.0.7390.37 Safari/537.36",
+        "sec-ch-ua": "\"HeadlessChrome\";v=\"141\", \"Not?A_Brand\";v=\"8\", \"Chromium\";v=\"141\"",
+        "sec-ch-ua-mobile": "?0"
+      },
+      "postData": ""
+    },
+    {
+      "url": "https://framerusercontent.com/assets/StKRVSnQD2oeS4lRm4CiBulEI.woff2",
+      "method": "GET",
+      "resourceType": "font",
+      "headers": {
+        "origin": "https://www.aescape.com",
+        "sec-ch-ua-platform": "\"Linux\"",
+        "referer": "https://www.aescape.com/",
+        "user-agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/141.0.7390.37 Safari/537.36",
+        "sec-ch-ua": "\"HeadlessChrome\";v=\"141\", \"Not?A_Brand\";v=\"8\", \"Chromium\";v=\"141\"",
+        "sec-ch-ua-mobile": "?0"
+      },
+      "postData": ""
+    },
+    {
+      "url": "https://framerusercontent.com/assets/mi2hheTH6Ht8L5q5k42QRYdeE.woff2",
+      "method": "GET",
+      "resourceType": "font",
+      "headers": {
+        "origin": "https://www.aescape.com",
+        "sec-ch-ua-platform": "\"Linux\"",
+        "referer": "https://www.aescape.com/",
+        "user-agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/141.0.7390.37 Safari/537.36",
+        "sec-ch-ua": "\"HeadlessChrome\";v=\"141\", \"Not?A_Brand\";v=\"8\", \"Chromium\";v=\"141\"",
+        "sec-ch-ua-mobile": "?0"
+      },
+      "postData": ""
+    },
+    {
+      "url": "https://framerusercontent.com/assets/Eu6fMcgxnT9ySle7s4LEQPJMaRY.woff2",
+      "method": "GET",
+      "resourceType": "font",
+      "headers": {
+        "origin": "https://www.aescape.com",
+        "sec-ch-ua-platform": "\"Linux\"",
+        "referer": "https://www.aescape.com/",
+        "user-agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/141.0.7390.37 Safari/537.36",
+        "sec-ch-ua": "\"HeadlessChrome\";v=\"141\", \"Not?A_Brand\";v=\"8\", \"Chromium\";v=\"141\"",
+        "sec-ch-ua-mobile": "?0"
+      },
+      "postData": ""
+    },
+    {
+      "url": "https://framerusercontent.com/images/h6jkqGk2RMeNjAzWxaToflEW6c.gif?width=920&height=920",
+      "method": "GET",
+      "resourceType": "image",
+      "headers": {
+        "sec-ch-ua-platform": "\"Linux\"",
+        "referer": "https://www.aescape.com/",
+        "user-agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/141.0.7390.37 Safari/537.36",
+        "sec-ch-ua": "\"HeadlessChrome\";v=\"141\", \"Not?A_Brand\";v=\"8\", \"Chromium\";v=\"141\"",
+        "sec-ch-ua-mobile": "?0"
+      },
+      "postData": ""
+    },
+    {
+      "url": "https://framerusercontent.com/images/QoVVcCpx33uQbbOFAToEQaJNhI.gif?width=400&height=400",
+      "method": "GET",
+      "resourceType": "image",
+      "headers": {
+        "sec-ch-ua-platform": "\"Linux\"",
+        "referer": "https://www.aescape.com/",
+        "user-agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/141.0.7390.37 Safari/537.36",
+        "sec-ch-ua": "\"HeadlessChrome\";v=\"141\", \"Not?A_Brand\";v=\"8\", \"Chromium\";v=\"141\"",
+        "sec-ch-ua-mobile": "?0"
+      },
+      "postData": ""
+    },
+    {
+      "url": "https://framerusercontent.com/images/Ywoka0BHkx8uE4zKnVMkaGFhXTM.jpg?width=500&height=500",
+      "method": "GET",
+      "resourceType": "image",
+      "headers": {
+        "sec-ch-ua-platform": "\"Linux\"",
+        "referer": "https://www.aescape.com/",
+        "user-agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/141.0.7390.37 Safari/537.36",
+        "sec-ch-ua": "\"HeadlessChrome\";v=\"141\", \"Not?A_Brand\";v=\"8\", \"Chromium\";v=\"141\"",
+        "sec-ch-ua-mobile": "?0"
+      },
+      "postData": ""
+    },
+    {
+      "url": "https://framerusercontent.com/images/PqtAbex1k0rqioY4uoyy370Z9dQ.jpg?width=500&height=500",
+      "method": "GET",
+      "resourceType": "image",
+      "headers": {
+        "sec-ch-ua-platform": "\"Linux\"",
+        "referer": "https://www.aescape.com/",
+        "user-agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/141.0.7390.37 Safari/537.36",
+        "sec-ch-ua": "\"HeadlessChrome\";v=\"141\", \"Not?A_Brand\";v=\"8\", \"Chromium\";v=\"141\"",
+        "sec-ch-ua-mobile": "?0"
+      },
+      "postData": ""
+    },
+    {
+      "url": "https://framerusercontent.com/images/WIS2UB0xVx9TyyxsHDN1ETwX8.svg?width=40&height=40",
+      "method": "GET",
+      "resourceType": "image",
+      "headers": {
+        "sec-ch-ua-platform": "\"Linux\"",
+        "referer": "https://www.aescape.com/",
+        "user-agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/141.0.7390.37 Safari/537.36",
+        "sec-ch-ua": "\"HeadlessChrome\";v=\"141\", \"Not?A_Brand\";v=\"8\", \"Chromium\";v=\"141\"",
+        "sec-ch-ua-mobile": "?0"
+      },
+      "postData": ""
+    },
+    {
+      "url": "https://framerusercontent.com/images/GjAK9XBUKmdOTtzDLMgk89Xo30.svg?width=40&height=40",
+      "method": "GET",
+      "resourceType": "image",
+      "headers": {
+        "sec-ch-ua-platform": "\"Linux\"",
+        "referer": "https://www.aescape.com/",
+        "user-agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/141.0.7390.37 Safari/537.36",
+        "sec-ch-ua": "\"HeadlessChrome\";v=\"141\", \"Not?A_Brand\";v=\"8\", \"Chromium\";v=\"141\"",
+        "sec-ch-ua-mobile": "?0"
+      },
+      "postData": ""
+    },
+    {
+      "url": "https://framerusercontent.com/images/Qtwk8LRhUu31IFlpwaKk30tno.svg?width=40&height=40",
+      "method": "GET",
+      "resourceType": "image",
+      "headers": {
+        "sec-ch-ua-platform": "\"Linux\"",
+        "referer": "https://www.aescape.com/",
+        "user-agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/141.0.7390.37 Safari/537.36",
+        "sec-ch-ua": "\"HeadlessChrome\";v=\"141\", \"Not?A_Brand\";v=\"8\", \"Chromium\";v=\"141\"",
+        "sec-ch-ua-mobile": "?0"
+      },
+      "postData": ""
+    },
+    {
+      "url": "https://framerusercontent.com/images/V1zaQvjcnnoaZTeqpgM49iYFsM.jpg?width=833&height=469",
+      "method": "GET",
+      "resourceType": "image",
+      "headers": {
+        "sec-ch-ua-platform": "\"Linux\"",
+        "referer": "https://www.aescape.com/",
+        "user-agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/141.0.7390.37 Safari/537.36",
+        "sec-ch-ua": "\"HeadlessChrome\";v=\"141\", \"Not?A_Brand\";v=\"8\", \"Chromium\";v=\"141\"",
+        "sec-ch-ua-mobile": "?0"
+      },
+      "postData": ""
+    },
+    {
+      "url": "https://framerusercontent.com/images/Px1ntNTtXnsu22eyse3HTIZ5uO0.jpg?width=400&height=400",
+      "method": "GET",
+      "resourceType": "image",
+      "headers": {
+        "sec-ch-ua-platform": "\"Linux\"",
+        "referer": "https://www.aescape.com/",
+        "user-agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/141.0.7390.37 Safari/537.36",
+        "sec-ch-ua": "\"HeadlessChrome\";v=\"141\", \"Not?A_Brand\";v=\"8\", \"Chromium\";v=\"141\"",
+        "sec-ch-ua-mobile": "?0"
+      },
+      "postData": ""
+    },
+    {
+      "url": "https://framerusercontent.com/images/K7uxZDimDRasLENOv6wCwtRVqaY.jpg?width=350&height=350",
+      "method": "GET",
+      "resourceType": "image",
+      "headers": {
+        "sec-ch-ua-platform": "\"Linux\"",
+        "referer": "https://www.aescape.com/",
+        "user-agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/141.0.7390.37 Safari/537.36",
+        "sec-ch-ua": "\"HeadlessChrome\";v=\"141\", \"Not?A_Brand\";v=\"8\", \"Chromium\";v=\"141\"",
+        "sec-ch-ua-mobile": "?0"
+      },
+      "postData": ""
+    },
+    {
+      "url": "https://framerusercontent.com/images/A5UPm9OOtpldSKMvyHQnE602V10.jpg?width=350&height=350",
+      "method": "GET",
+      "resourceType": "image",
+      "headers": {
+        "sec-ch-ua-platform": "\"Linux\"",
+        "referer": "https://www.aescape.com/",
+        "user-agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/141.0.7390.37 Safari/537.36",
+        "sec-ch-ua": "\"HeadlessChrome\";v=\"141\", \"Not?A_Brand\";v=\"8\", \"Chromium\";v=\"141\"",
+        "sec-ch-ua-mobile": "?0"
+      },
+      "postData": ""
+    },
+    {
+      "url": "https://framerusercontent.com/sites/1cMaxvkdRdtHT92I2ulLdx/rolldown-runtime.Dh6celcD.mjs",
+      "method": "GET",
+      "resourceType": "script",
+      "headers": {
+        "origin": "https://www.aescape.com",
+        "sec-ch-ua-platform": "\"Linux\"",
+        "referer": "",
+        "user-agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/141.0.7390.37 Safari/537.36",
+        "sec-ch-ua": "\"HeadlessChrome\";v=\"141\", \"Not?A_Brand\";v=\"8\", \"Chromium\";v=\"141\"",
+        "sec-ch-ua-mobile": "?0"
+      },
+      "postData": ""
+    },
+    {
+      "url": "https://framerusercontent.com/sites/1cMaxvkdRdtHT92I2ulLdx/react.BpKPsBQp.mjs",
+      "method": "GET",
+      "resourceType": "script",
+      "headers": {
+        "origin": "https://www.aescape.com",
+        "sec-ch-ua-platform": "\"Linux\"",
+        "referer": "",
+        "user-agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/141.0.7390.37 Safari/537.36",
+        "sec-ch-ua": "\"HeadlessChrome\";v=\"141\", \"Not?A_Brand\";v=\"8\", \"Chromium\";v=\"141\"",
+        "sec-ch-ua-mobile": "?0"
+      },
+      "postData": ""
+    },
+    {
+      "url": "https://framerusercontent.com/sites/1cMaxvkdRdtHT92I2ulLdx/motion.Cvxfuw3M.mjs",
+      "method": "GET",
+      "resourceType": "script",
+      "headers": {
+        "origin": "https://www.aescape.com",
+        "sec-ch-ua-platform": "\"Linux\"",
+        "referer": "",
+        "user-agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/141.0.7390.37 Safari/537.36",
+        "sec-ch-ua": "\"HeadlessChrome\";v=\"141\", \"Not?A_Brand\";v=\"8\", \"Chromium\";v=\"141\"",
+        "sec-ch-ua-mobile": "?0"
+      },
+      "postData": ""
+    },
+    {
+      "url": "https://framerusercontent.com/sites/1cMaxvkdRdtHT92I2ulLdx/framer.YfBnsACD.mjs",
+      "method": "GET",
+      "resourceType": "script",
+      "headers": {
+        "origin": "https://www.aescape.com",
+        "sec-ch-ua-platform": "\"Linux\"",
+        "referer": "",
+        "user-agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/141.0.7390.37 Safari/537.36",
+        "sec-ch-ua": "\"HeadlessChrome\";v=\"141\", \"Not?A_Brand\";v=\"8\", \"Chromium\";v=\"141\"",
+        "sec-ch-ua-mobile": "?0"
+      },
+      "postData": ""
+    },
+    {
+      "url": "https://framerusercontent.com/sites/1cMaxvkdRdtHT92I2ulLdx/TnFojKwMFUMhF2C06CBAP2ofOCAnS45zQ-sBgGF5Jbs.CBzgJXGy.mjs",
+      "method": "GET",
+      "resourceType": "script",
+      "headers": {
+        "origin": "https://www.aescape.com",
+        "sec-ch-ua-platform": "\"Linux\"",
+        "referer": "",
+        "user-agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/141.0.7390.37 Safari/537.36",
+        "sec-ch-ua": "\"HeadlessChrome\";v=\"141\", \"Not?A_Brand\";v=\"8\", \"Chromium\";v=\"141\"",
+        "sec-ch-ua-mobile": "?0"
+      },
+      "postData": ""
+    },
+    {
+      "url": "https://framerusercontent.com/sites/1cMaxvkdRdtHT92I2ulLdx/uAOtBB6Mc.utPeXnvd.mjs",
+      "method": "GET",
+      "resourceType": "script",
+      "headers": {
+        "origin": "https://www.aescape.com",
+        "sec-ch-ua-platform": "\"Linux\"",
+        "referer": "",
+        "user-agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/141.0.7390.37 Safari/537.36",
+        "sec-ch-ua": "\"HeadlessChrome\";v=\"141\", \"Not?A_Brand\";v=\"8\", \"Chromium\";v=\"141\"",
+        "sec-ch-ua-mobile": "?0"
+      },
+      "postData": ""
+    },
+    {
+      "url": "https://framerusercontent.com/sites/1cMaxvkdRdtHT92I2ulLdx/zvWo35Xx8._kxS6tjk.mjs",
+      "method": "GET",
+      "resourceType": "script",
+      "headers": {
+        "origin": "https://www.aescape.com",
+        "sec-ch-ua-platform": "\"Linux\"",
+        "referer": "",
+        "user-agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/141.0.7390.37 Safari/537.36",
+        "sec-ch-ua": "\"HeadlessChrome\";v=\"141\", \"Not?A_Brand\";v=\"8\", \"Chromium\";v=\"141\"",
+        "sec-ch-ua-mobile": "?0"
+      },
+      "postData": ""
+    },
+    {
+      "url": "https://framerusercontent.com/sites/1cMaxvkdRdtHT92I2ulLdx/shared-lib.B70Wc8xd.mjs",
+      "method": "GET",
+      "resourceType": "script",
+      "headers": {
+        "origin": "https://www.aescape.com",
+        "sec-ch-ua-platform": "\"Linux\"",
+        "referer": "",
+        "user-agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/141.0.7390.37 Safari/537.36",
+        "sec-ch-ua": "\"HeadlessChrome\";v=\"141\", \"Not?A_Brand\";v=\"8\", \"Chromium\";v=\"141\"",
+        "sec-ch-ua-mobile": "?0"
+      },
+      "postData": ""
+    },
+    {
+      "url": "https://framerusercontent.com/sites/1cMaxvkdRdtHT92I2ulLdx/Add_to_cart_button.Bq9VeOJ4.mjs",
+      "method": "GET",
+      "resourceType": "script",
+      "headers": {
+        "origin": "https://www.aescape.com",
+        "sec-ch-ua-platform": "\"Linux\"",
+        "referer": "",
+        "user-agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/141.0.7390.37 Safari/537.36",
+        "sec-ch-ua": "\"HeadlessChrome\";v=\"141\", \"Not?A_Brand\";v=\"8\", \"Chromium\";v=\"141\"",
+        "sec-ch-ua-mobile": "?0"
+      },
+      "postData": ""
+    },
+    {
+      "url": "https://framerusercontent.com/sites/1cMaxvkdRdtHT92I2ulLdx/Live_pricing_store.CMXkZ792.mjs",
+      "method": "GET",
+      "resourceType": "script",
+      "headers": {
+        "origin": "https://www.aescape.com",
+        "sec-ch-ua-platform": "\"Linux\"",
+        "referer": "",
+        "user-agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/141.0.7390.37 Safari/537.36",
+        "sec-ch-ua": "\"HeadlessChrome\";v=\"141\", \"Not?A_Brand\";v=\"8\", \"Chromium\";v=\"141\"",
+        "sec-ch-ua-mobile": "?0"
+      },
+      "postData": ""
+    },
+    {
+      "url": "https://framerusercontent.com/sites/1cMaxvkdRdtHT92I2ulLdx/Video.BXCJ84Bd.mjs",
+      "method": "GET",
+      "resourceType": "script",
+      "headers": {
+        "origin": "https://www.aescape.com",
+        "sec-ch-ua-platform": "\"Linux\"",
+        "referer": "",
+        "user-agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/141.0.7390.37 Safari/537.36",
+        "sec-ch-ua": "\"HeadlessChrome\";v=\"141\", \"Not?A_Brand\";v=\"8\", \"Chromium\";v=\"141\"",
+        "sec-ch-ua-mobile": "?0"
+      },
+      "postData": ""
+    },
+    {
+      "url": "https://framerusercontent.com/sites/1cMaxvkdRdtHT92I2ulLdx/XEXlSAzyi.D6NE7C_9.mjs",
+      "method": "GET",
+      "resourceType": "script",
+      "headers": {
+        "origin": "https://www.aescape.com",
+        "sec-ch-ua-platform": "\"Linux\"",
+        "referer": "",
+        "user-agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/141.0.7390.37 Safari/537.36",
+        "sec-ch-ua": "\"HeadlessChrome\";v=\"141\", \"Not?A_Brand\";v=\"8\", \"Chromium\";v=\"141\"",
+        "sec-ch-ua-mobile": "?0"
+      },
+      "postData": ""
+    },
+    {
+      "url": "https://framerusercontent.com/sites/1cMaxvkdRdtHT92I2ulLdx/jN27YHajw.BloBLtdA.mjs",
+      "method": "GET",
+      "resourceType": "script",
+      "headers": {
+        "origin": "https://www.aescape.com",
+        "sec-ch-ua-platform": "\"Linux\"",
+        "referer": "",
+        "user-agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/141.0.7390.37 Safari/537.36",
+        "sec-ch-ua": "\"HeadlessChrome\";v=\"141\", \"Not?A_Brand\";v=\"8\", \"Chromium\";v=\"141\"",
+        "sec-ch-ua-mobile": "?0"
+      },
+      "postData": ""
+    },
+    {
+      "url": "https://framerusercontent.com/sites/1cMaxvkdRdtHT92I2ulLdx/RzzgBuMPe.CXhmIyYE.mjs",
+      "method": "GET",
+      "resourceType": "script",
+      "headers": {
+        "origin": "https://www.aescape.com",
+        "sec-ch-ua-platform": "\"Linux\"",
+        "referer": "",
+        "user-agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/141.0.7390.37 Safari/537.36",
+        "sec-ch-ua": "\"HeadlessChrome\";v=\"141\", \"Not?A_Brand\";v=\"8\", \"Chromium\";v=\"141\"",
+        "sec-ch-ua-mobile": "?0"
+      },
+      "postData": ""
+    },
+    {
+      "url": "https://framerusercontent.com/sites/1cMaxvkdRdtHT92I2ulLdx/aEVNtis6o.CIG7Td4A.mjs",
+      "method": "GET",
+      "resourceType": "script",
+      "headers": {
+        "origin": "https://www.aescape.com",
+        "sec-ch-ua-platform": "\"Linux\"",
+        "referer": "",
+        "user-agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/141.0.7390.37 Safari/537.36",
+        "sec-ch-ua": "\"HeadlessChrome\";v=\"141\", \"Not?A_Brand\";v=\"8\", \"Chromium\";v=\"141\"",
+        "sec-ch-ua-mobile": "?0"
+      },
+      "postData": ""
+    },
+    {
+      "url": "https://framerusercontent.com/sites/1cMaxvkdRdtHT92I2ulLdx/IzJadI139.BLNo2Aa8.mjs",
+      "method": "GET",
+      "resourceType": "script",
+      "headers": {
+        "origin": "https://www.aescape.com",
+        "sec-ch-ua-platform": "\"Linux\"",
+        "referer": "",
+        "user-agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/141.0.7390.37 Safari/537.36",
+        "sec-ch-ua": "\"HeadlessChrome\";v=\"141\", \"Not?A_Brand\";v=\"8\", \"Chromium\";v=\"141\"",
+        "sec-ch-ua-mobile": "?0"
+      },
+      "postData": ""
+    },
+    {
+      "url": "https://framerusercontent.com/sites/1cMaxvkdRdtHT92I2ulLdx/JJfyo3O56.BscFwc7c.mjs",
+      "method": "GET",
+      "resourceType": "script",
+      "headers": {
+        "origin": "https://www.aescape.com",
+        "sec-ch-ua-platform": "\"Linux\"",
+        "referer": "",
+        "user-agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/141.0.7390.37 Safari/537.36",
+        "sec-ch-ua": "\"HeadlessChrome\";v=\"141\", \"Not?A_Brand\";v=\"8\", \"Chromium\";v=\"141\"",
+        "sec-ch-ua-mobile": "?0"
+      },
+      "postData": ""
+    },
+    {
+      "url": "https://framerusercontent.com/sites/1cMaxvkdRdtHT92I2ulLdx/MiCKYZP_s.D-Tu35jz.mjs",
+      "method": "GET",
+      "resourceType": "script",
+      "headers": {
+        "origin": "https://www.aescape.com",
+        "sec-ch-ua-platform": "\"Linux\"",
+        "referer": "",
+        "user-agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/141.0.7390.37 Safari/537.36",
+        "sec-ch-ua": "\"HeadlessChrome\";v=\"141\", \"Not?A_Brand\";v=\"8\", \"Chromium\";v=\"141\"",
+        "sec-ch-ua-mobile": "?0"
+      },
+      "postData": ""
+    },
+    {
+      "url": "https://framerusercontent.com/sites/1cMaxvkdRdtHT92I2ulLdx/OqE3gMYS_.Bv3aarEF.mjs",
+      "method": "GET",
+      "resourceType": "script",
+      "headers": {
+        "origin": "https://www.aescape.com",
+        "sec-ch-ua-platform": "\"Linux\"",
+        "referer": "",
+        "user-agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/141.0.7390.37 Safari/537.36",
+        "sec-ch-ua": "\"HeadlessChrome\";v=\"141\", \"Not?A_Brand\";v=\"8\", \"Chromium\";v=\"141\"",
+        "sec-ch-ua-mobile": "?0"
+      },
+      "postData": ""
+    },
+    {
+      "url": "https://framerusercontent.com/sites/1cMaxvkdRdtHT92I2ulLdx/jCOKHWw0M8q0_K-5JV4m0oq8fuFTxNd5fAXyRtVjzJ0.DIqvpSY7.mjs",
+      "method": "GET",
+      "resourceType": "script",
+      "headers": {
+        "origin": "https://www.aescape.com",
+        "sec-ch-ua-platform": "\"Linux\"",
+        "referer": "",
+        "user-agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/141.0.7390.37 Safari/537.36",
+        "sec-ch-ua": "\"HeadlessChrome\";v=\"141\", \"Not?A_Brand\";v=\"8\", \"Chromium\";v=\"141\"",
+        "sec-ch-ua-mobile": "?0"
+      },
+      "postData": ""
+    },
+    {
+      "url": "https://framerusercontent.com/sites/1cMaxvkdRdtHT92I2ulLdx/script_main.D1hYjLKk.mjs",
+      "method": "GET",
+      "resourceType": "script",
+      "headers": {
+        "origin": "https://www.aescape.com",
+        "sec-ch-ua-platform": "\"Linux\"",
+        "referer": "https://www.aescape.com/",
+        "user-agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/141.0.7390.37 Safari/537.36",
+        "sec-ch-ua": "\"HeadlessChrome\";v=\"141\", \"Not?A_Brand\";v=\"8\", \"Chromium\";v=\"141\"",
+        "sec-ch-ua-mobile": "?0"
+      },
+      "postData": ""
+    },
+    {
+      "url": "https://www.google-analytics.com/g/collect?v=2&tid=G-2NKYEK9YPQ&gtm=45je68p1v9259764095za200zd9259764095&_p=1787834398023&gcd=13l3l3l3l1l1&npa=0&dma=0&are=1&cid=319365777.1787834398&frm=0&ngs=1&pscdl=noapi&rcb=10&sr=1440x900&uaa=x86&uab=64&uafvl=HeadlessChrome%3B141.0.7390.37%7CNot%253FA_Brand%3B8.0.0.0%7CChromium%3B141.0.7390.37&uam=&uamb=0&uap=Linux&uapv=6.18.44&uaw=0&ul=en-us%40posix&_s=1&tag_exp=115938465~115938469~118897920~118897930~119367802~119367810~120385423&sid=1787834398&sct=1&seg=0&dl=https%3A%2F%2Fwww.aescape.com%2F&dt=Aescape%20%7C%20Book%20a%20Personalized%20Recovery%20Session%20Near%20You&en=page_view&_fv=1&_nsi=1&_ss=1&_ee=1&tfd=363",
+      "method": "POST",
+      "resourceType": "fetch",
+      "headers": {
+        "sec-ch-ua-platform": "\"Linux\"",
+        "referer": "https://www.aescape.com/",
+        "user-agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/141.0.7390.37 Safari/537.36",
+        "sec-ch-ua": "\"HeadlessChrome\";v=\"141\", \"Not?A_Brand\";v=\"8\", \"Chromium\";v=\"141\"",
+        "sec-ch-ua-mobile": "?0"
+      },
+      "postData": ""
+    },
+    {
+      "url": "https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap",
+      "method": "GET",
+      "resourceType": "stylesheet",
+      "headers": {
+        "sec-ch-ua-platform": "\"Linux\"",
+        "referer": "https://www.aescape.com/",
+        "user-agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/141.0.7390.37 Safari/537.36",
+        "sec-ch-ua": "\"HeadlessChrome\";v=\"141\", \"Not?A_Brand\";v=\"8\", \"Chromium\";v=\"141\"",
+        "sec-ch-ua-mobile": "?0"
+      },
+      "postData": ""
+    },
+    {
+      "url": "https://frameship-backend.account-ba7.workers.dev/license-check?url=https%3A%2F%2Fwww.aescape.com%2F&license_id=0afb3eaf-e118-49b1-a2a8-eb2f410d393a",
+      "method": "GET",
+      "resourceType": "fetch",
+      "headers": {
+        "sec-ch-ua-platform": "\"Linux\"",
+        "referer": "https://www.aescape.com/",
+        "user-agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/141.0.7390.37 Safari/537.36",
+        "sec-ch-ua": "\"HeadlessChrome\";v=\"141\", \"Not?A_Brand\";v=\"8\", \"Chromium\";v=\"141\"",
+        "content-type": "application/json",
+        "x-api-key": "9c170a2a758c830a7b191139343767cea3734f5e8c499e8f21d0dcc3a7979805",
+        "sec-ch-ua-mobile": "?0"
+      },
+      "postData": ""
+    },
+    {
+      "url": "https://framer.com/edit/init.mjs",
+      "method": "GET",
+      "resourceType": "script",
+      "headers": {
+        "origin": "https://www.aescape.com",
+        "sec-ch-ua-platform": "\"Linux\"",
+        "referer": "https://framerusercontent.com/",
+        "user-agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/141.0.7390.37 Safari/537.36",
+        "sec-ch-ua": "\"HeadlessChrome\";v=\"141\", \"Not?A_Brand\";v=\"8\", \"Chromium\";v=\"141\"",
+        "sec-ch-ua-mobile": "?0"
+      },
+      "postData": ""
+    },
+    {
+      "url": "https://app.framerstatic.com/chunk-GL6GZPCT.mjs",
+      "method": "GET",
+      "resourceType": "script",
+      "headers": {
+        "origin": "https://www.aescape.com",
+        "sec-ch-ua-platform": "\"Linux\"",
+        "referer": "https://framer.com/",
+        "user-agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/141.0.7390.37 Safari/537.36",
+        "sec-ch-ua": "\"HeadlessChrome\";v=\"141\", \"Not?A_Brand\";v=\"8\", \"Chromium\";v=\"141\"",
+        "sec-ch-ua-mobile": "?0"
+      },
+      "postData": ""
+    },
+    {
+      "url": "https://tqbtkd-1n.myshopify.com/api/2025-07/graphql.json",
+      "method": "POST",
+      "resourceType": "fetch",
+      "headers": {
+        "sec-ch-ua-platform": "\"Linux\"",
+        "referer": "https://www.aescape.com/",
+        "user-agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/141.0.7390.37 Safari/537.36",
+        "sec-ch-ua": "\"HeadlessChrome\";v=\"141\", \"Not?A_Brand\";v=\"8\", \"Chromium\";v=\"141\"",
+        "content-type": "application/json",
+        "x-shopify-storefront-access-token": "9ec17688275c2eb3bccb1bb349302417",
+        "sec-ch-ua-mobile": "?0"
+      },
+      "postData": "{\"query\":\"#graphql\\n  mutation cartCreate($country: CountryCode)\\n  @inContext(country: $country) {\\n    cartCreate {\\n      cart {\\n        id\\n        createdAt\\n        updatedAt\\n        checkoutUrl\\n        lines(first: 100) {\\n          edges {\\n            node {\\n              id\\n              quantity\\n              attributes {\\n                key\\n                value\\n              }\\n              merchandise {\\n                ... on ProductVariant {\\n                  id\\n                  title\\n                  product {\\n                    id\\n                    title\\n                    handle\\n                  }\\n                  image {\\n                    url\\n                    altText\\n                  }\\n                  price {\\n                    amount\\n                    currencyCode\\n                  }\\n                }\\n              }\\n              \\n            discountAllocations {\\n              discountedAmount {\\n                amount\\n                currencyCode\\n              }\\n              discountApplication {\\n                allocationMethod\\n                targetSelection\\n                targetType\\n              }\\n            }\\n            }\\n          }\\n          pageInfo {\\n            hasNextPage\\n            hasPreviousPage\\n          }\\n        }\\n        cost {\\n          totalAmount {\\n            amount\\n            currencyCode\\n          }\\n          subtotalAmount {\\n            amount\\n            currencyCode\\n          }\\n          totalTaxAmount {\\n            amount\\n            currencyCode\\n          }\\n        }\\n        discountAllocations {\\n          discountedAmount {\\n            amount\\n            currencyCode\\n          }\\n          discountApplication {\\n            allocationMethod\\n            targetSelection\\n            targetType\\n          }\\n        }\\n        discountCodes {\\n          code\\n          applicable\\n        }\\n      }\\n    }\\n  }\\n  \",\"variables\":{}}"
+    },
+    {
+      "url": "https://assets.aescape.com/videos/www/Homepage-Hero-1.mp4",
+      "method": "GET",
+      "resourceType": "media",
+      "headers": {
+        "sec-ch-ua-platform": "\"Linux\"",
+        "referer": "https://www.aescape.com/",
+        "accept-encoding": "identity;q=1, *;q=0",
+        "user-agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/141.0.7390.37 Safari/537.36",
+        "sec-ch-ua": "\"HeadlessChrome\";v=\"141\", \"Not?A_Brand\";v=\"8\", \"Chromium\";v=\"141\"",
+        "range": "bytes=0-",
+        "sec-ch-ua-mobile": "?0"
+      },
+      "postData": ""
+    },
+    {
+      "url": "https://assets.aescape.com/videos/www/Homepage-Hero-2.mp4",
+      "method": "GET",
+      "resourceType": "media",
+      "headers": {
+        "sec-ch-ua-platform": "\"Linux\"",
+        "referer": "https://www.aescape.com/",
+        "accept-encoding": "identity;q=1, *;q=0",
+        "user-agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/141.0.7390.37 Safari/537.36",
+        "sec-ch-ua": "\"HeadlessChrome\";v=\"141\", \"Not?A_Brand\";v=\"8\", \"Chromium\";v=\"141\"",
+        "range": "bytes=0-",
+        "sec-ch-ua-mobile": "?0"
+      },
+      "postData": ""
+    },
+    {
+      "url": "https://assets.aescape.com/videos/www/Homepage-Hero-2.mp4",
+      "method": "GET",
+      "resourceType": "media",
+      "headers": {
+        "sec-ch-ua-platform": "\"Linux\"",
+        "referer": "https://www.aescape.com/",
+        "accept-encoding": "identity;q=1, *;q=0",
+        "user-agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/141.0.7390.37 Safari/537.36",
+        "sec-ch-ua": "\"HeadlessChrome\";v=\"141\", \"Not?A_Brand\";v=\"8\", \"Chromium\";v=\"141\"",
+        "range": "bytes=4259840-",
+        "sec-ch-ua-mobile": "?0"
+      },
+      "postData": ""
+    },
+    {
+      "url": "https://events.framer.com/anonymous",
+      "method": "POST",
+      "resourceType": "ping",
+      "headers": {
+        "sec-ch-ua-platform": "\"Linux\"",
+        "referer": "https://www.aescape.com/",
+        "user-agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/141.0.7390.37 Safari/537.36",
+        "sec-ch-ua": "\"HeadlessChrome\";v=\"141\", \"Not?A_Brand\";v=\"8\", \"Chromium\";v=\"141\"",
+        "content-type": "text/plain;charset=UTF-8",
+        "sec-ch-ua-mobile": "?0"
+      },
+      "postData": "[{\"source\":\"framer.site\",\"timestamp\":1787834398357,\"sentTimestamp\":1787834398878,\"data\":{\"type\":\"track\",\"uuid\":\"84af8027-be3b-b39e-8114-90064aef912d\",\"event\":\"published_site_pageview\",\"framerSiteId\":\"9b86e1d23c9fbabbff9aa9e088d9f2991198c70c1bc6cb70dd90ff6d5002ef44\",\"version\":2,\"routePath\":\"/\",\"collectionItemId\":null,\"framerLocale\":\"en-US\",\"webPageId\":\"augiA20Il\",\"referrer\":null,\"url\":\"https://www.aescape.com/\",\"hostname\":\"www.aescape.com\",\"pathname\":\"/\",\"hash\":null,\"search\":null,\"timezone\":\"UTC\",\"locale\":\"en-US\",\"context\":{\"framerSiteId\":\"9b86e1d23c9fbabbff9aa9e088d9f2991198c70c1bc6cb70dd90ff6d5002ef44\",\"visitTimeOrigin\":1787834397867,\"origin\":\"https://www.aescape.com\",\"pathname\":\"/\",\"search\":\"\"}}}]"
+    },
+    {
+      "url": "https://framer.com/edit?framerSiteId=9b86e1d23c9fbabbff9aa9e088d9f2991198c70c1bc6cb70dd90ff6d5002ef44&source=www.aescape.com&features=%7B%22editorBarDisableFrameAncestorsSecurity%22%3Afalse%2C%22onPageLocalizationSupport%22%3Atrue%2C%22onPageMoveTool%22%3Atrue%2C%22onPageRichTextBlockSelection%22%3Atrue%7D&loadStart=1787834398759",
+      "method": "GET",
+      "resourceType": "document",
+      "headers": {
+        "referer": "https://www.aescape.com/",
+        "upgrade-insecure-requests": "1",
+        "user-agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/141.0.7390.37 Safari/537.36",
+        "sec-ch-ua": "\"HeadlessChrome\";v=\"141\", \"Not?A_Brand\";v=\"8\", \"Chromium\";v=\"141\"",
+        "sec-ch-ua-mobile": "?0",
+        "sec-ch-ua-platform": "\"Linux\""
+      },
+      "postData": ""
+    },
+    {
+      "url": "https://framer.com/bootstrap.eb3d845c2d0cf4e2bc060be30f16a4cdc5659d7b.js",
+      "method": "GET",
+      "resourceType": "script",
+      "headers": {
+        "sec-ch-ua-platform": "\"Linux\"",
+        "referer": "https://framer.com/edit?framerSiteId=9b86e1d23c9fbabbff9aa9e088d9f2991198c70c1bc6cb70dd90ff6d5002ef44&source=www.aescape.com&features=%7B%22editorBarDisableFrameAncestorsSecurity%22%3Afalse%2C%22onPageLocalizationSupport%22%3Atrue%2C%22onPageMoveTool%22%3Atrue%2C%22onPageRichTextBlockSelection%22%3Atrue%7D&loadStart=1787834398759",
+        "user-agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/141.0.7390.37 Safari/537.36",
+        "sec-ch-ua": "\"HeadlessChrome\";v=\"141\", \"Not?A_Brand\";v=\"8\", \"Chromium\";v=\"141\"",
+        "sec-ch-ua-mobile": "?0"
+      },
+      "postData": ""
+    },
+    {
+      "url": "https://app.framerstatic.com/chunk-U25MALL7.mjs",
+      "method": "GET",
+      "resourceType": "script",
+      "headers": {
+        "origin": "https://framer.com",
+        "sec-ch-ua-platform": "\"Linux\"",
+        "referer": "https://framer.com/",
+        "user-agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/141.0.7390.37 Safari/537.36",
+        "sec-ch-ua": "\"HeadlessChrome\";v=\"141\", \"Not?A_Brand\";v=\"8\", \"Chromium\";v=\"141\"",
+        "sec-ch-ua-mobile": "?0"
+      },
+      "postData": ""
+    },
+    {
+      "url": "https://app.framerstatic.com/chunk-YRQ7G4QH.mjs",
+      "method": "GET",
+      "resourceType": "script",
+      "headers": {
+        "origin": "https://framer.com",
+        "sec-ch-ua-platform": "\"Linux\"",
+        "referer": "https://framer.com/",
+        "user-agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/141.0.7390.37 Safari/537.36",
+        "sec-ch-ua": "\"HeadlessChrome\";v=\"141\", \"Not?A_Brand\";v=\"8\", \"Chromium\";v=\"141\"",
+        "sec-ch-ua-mobile": "?0"
+      },
+      "postData": ""
+    },
+    {
+      "url": "https://app.framerstatic.com/chunk-WOEOGJ2W.mjs",
+      "method": "GET",
+      "resourceType": "script",
+      "headers": {
+        "origin": "https://framer.com",
+        "sec-ch-ua-platform": "\"Linux\"",
+        "referer": "https://framer.com/",
+        "user-agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/141.0.7390.37 Safari/537.36",
+        "sec-ch-ua": "\"HeadlessChrome\";v=\"141\", \"Not?A_Brand\";v=\"8\", \"Chromium\";v=\"141\"",
+        "sec-ch-ua-mobile": "?0"
+      },
+      "postData": ""
+    },
+    {
+      "url": "https://app.framerstatic.com/chunk-WLHSDIGQ.mjs",
+      "method": "GET",
+      "resourceType": "script",
+      "headers": {
+        "origin": "https://framer.com",
+        "sec-ch-ua-platform": "\"Linux\"",
+        "referer": "https://framer.com/",
+        "user-agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/141.0.7390.37 Safari/537.36",
+        "sec-ch-ua": "\"HeadlessChrome\";v=\"141\", \"Not?A_Brand\";v=\"8\", \"Chromium\";v=\"141\"",
+        "sec-ch-ua-mobile": "?0"
+      },
+      "postData": ""
+    },
+    {
+      "url": "https://app.framerstatic.com/editorbar.DMP5PXTO.mjs",
+      "method": "GET",
+      "resourceType": "script",
+      "headers": {
+        "origin": "https://framer.com",
+        "sec-ch-ua-platform": "\"Linux\"",
+        "referer": "https://framer.com/",
+        "user-agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/141.0.7390.37 Safari/537.36",
+        "sec-ch-ua": "\"HeadlessChrome\";v=\"141\", \"Not?A_Brand\";v=\"8\", \"Chromium\";v=\"141\"",
+        "sec-ch-ua-mobile": "?0"
+      },
+      "postData": ""
+    },
+    {
+      "url": "https://api.framer.com/auth/web/access-token?source=editorbar",
+      "method": "GET",
+      "resourceType": "fetch",
+      "headers": {
+        "sec-ch-ua-platform": "\"Linux\"",
+        "referer": "https://framer.com/",
+        "user-agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/141.0.7390.37 Safari/537.36",
+        "sec-ch-ua": "\"HeadlessChrome\";v=\"141\", \"Not?A_Brand\";v=\"8\", \"Chromium\";v=\"141\"",
+        "sec-ch-ua-mobile": "?0"
+      },
+      "postData": ""
+    },
+    {
+      "url": "https://www.google-analytics.com/g/collect?v=2&tid=G-2NKYEK9YPQ&gtm=45je68p1v9259764095za200zd9259764095&_p=1787834398023&gcd=13l3l3l3l1l1&npa=0&dma=0&_eu=AEEAAAQ&ae=a&are=1&cid=319365777.1787834398&frm=0&ngs=1&pscdl=noapi&rcb=10&sr=1440x900&uaa=x86&uab=64&uafvl=HeadlessChrome%3B141.0.7390.37%7CNot%253FA_Brand%3B8.0.0.0%7CChromium%3B141.0.7390.37&uam=&uamb=0&uap=Linux&uapv=6.18.44&uaw=0&ul=en-us%40posix&_s=2&tag_exp=115938465~115938469~118897920~118897930~119367802~119367810~120385423&sid=1787834398&sct=1&seg=0&dl=https%3A%2F%2Fwww.aescape.com%2F&dt=Aescape%20%7C%20Book%20a%20Personalized%20Recovery%20Session%20Near%20You&en=form_start&ep.form_id=&ep.form_destination=https%3A%2F%2Fwww.aescape.com%2F&epn.form_length=13&ep.first_field_id=&ep.first_field_name=Email&ep.first_field_type=email&epn.first_field_position=1&_et=326&tfd=5695",
+      "method": "POST",
+      "resourceType": "fetch",
+      "headers": {
+        "sec-ch-ua-platform": "\"Linux\"",
+        "referer": "https://www.aescape.com/",
+        "user-agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/141.0.7390.37 Safari/537.36",
+        "sec-ch-ua": "\"HeadlessChrome\";v=\"141\", \"Not?A_Brand\";v=\"8\", \"Chromium\";v=\"141\"",
+        "sec-ch-ua-mobile": "?0"
+      },
+      "postData": ""
+    }
+  ],
+  "responses": [
+    {
+      "url": "https://www.aescape.com/",
+      "status": 200,
+      "ok": true,
+      "method": "GET",
+      "resourceType": "document",
+      "contentType": "text/html",
+      "fixture": "",
+      "error": ""
+    },
+    {
+      "url": "https://framerusercontent.com/images/I3DX7zzNzLs74JmQtiewXU38TE.jpg?width=600&height=600",
+      "status": 200,
+      "ok": true,
+      "method": "GET",
+      "resourceType": "image",
+      "contentType": "image/avif",
+      "fixture": "",
+      "error": ""
+    },
+    {
+      "url": "https://framerusercontent.com/images/aJ3c5JxhzHyjCI2s3jmqoOQFpNU.jpg?width=400&height=400",
+      "status": 200,
+      "ok": true,
+      "method": "GET",
+      "resourceType": "image",
+      "contentType": "image/avif",
+      "fixture": "",
+      "error": ""
+    },
+    {
+      "url": "https://framerusercontent.com/images/IQKbxIICx7MWi652sn5okgreOM.jpg?width=400&height=400",
+      "status": 200,
+      "ok": true,
+      "method": "GET",
+      "resourceType": "image",
+      "contentType": "image/avif",
+      "fixture": "",
+      "error": ""
+    },
+    {
+      "url": "https://framerusercontent.com/images/LHBHDl5tuNHQUV3gyiqBxC4Itcw.jpg?width=600&height=600",
+      "status": 200,
+      "ok": true,
+      "method": "GET",
+      "resourceType": "image",
+      "contentType": "image/avif",
+      "fixture": "",
+      "error": ""
+    },
+    {
+      "url": "https://framerusercontent.com/images/GOruLARxVnwZr2nesXCSVSqs.jpg?width=518&height=920",
+      "status": 200,
+      "ok": true,
+      "method": "GET",
+      "resourceType": "image",
+      "contentType": "image/avif",
+      "fixture": "",
+      "error": ""
+    },
+    {
+      "url": "https://framerusercontent.com/images/QXYBggsGKNZyhr0Qs3e1NXQonM.jpg?width=400&height=400",
+      "status": 200,
+      "ok": true,
+      "method": "GET",
+      "resourceType": "image",
+      "contentType": "image/avif",
+      "fixture": "",
+      "error": ""
+    },
+    {
+      "url": "https://framerusercontent.com/images/WHef2okgu8q9VqGIpqfgVSTQ.jpg?width=1920&height=1080",
+      "status": 200,
+      "ok": true,
+      "method": "GET",
+      "resourceType": "image",
+      "contentType": "image/avif",
+      "fixture": "",
+      "error": ""
+    },
+    {
+      "url": "https://framerusercontent.com/images/keMn8CicjFf6cdJomzOeKFTMKo.jpg?width=400&height=400",
+      "status": 200,
+      "ok": true,
+      "method": "GET",
+      "resourceType": "image",
+      "contentType": "image/avif",
+      "fixture": "",
+      "error": ""
+    },
+    {
+      "url": "https://framerusercontent.com/images/tuzHtQqZlGocLiGlSbJO5zEuTbM.jpg?width=518&height=920",
+      "status": 200,
+      "ok": true,
+      "method": "GET",
+      "resourceType": "image",
+      "contentType": "image/avif",
+      "fixture": "",
+      "error": ""
+    },
+    {
+      "url": "https://framerusercontent.com/images/v5laGNmNBlpvKzBoqneRHCQSs.jpg?width=350&height=350",
+      "status": 200,
+      "ok": true,
+      "method": "GET",
+      "resourceType": "image",
+      "contentType": "image/avif",
+      "fixture": "",
+      "error": ""
+    },
+    {
+      "url": "https://framerusercontent.com/images/eydG9WcBVknV4cjXt4eDLFyyXM.jpg?width=350&height=350",
+      "status": 200,
+      "ok": true,
+      "method": "GET",
+      "resourceType": "image",
+      "contentType": "image/avif",
+      "fixture": "",
+      "error": ""
+    },
+    {
+      "url": "https://framerusercontent.com/images/iPt2GIXV68owSIJ92B0QX2IgQ.jpg?width=350&height=350",
+      "status": 200,
+      "ok": true,
+      "method": "GET",
+      "resourceType": "image",
+      "contentType": "image/avif",
+      "fixture": "",
+      "error": ""
+    },
+    {
+      "url": "https://framerusercontent.com/images/q0A7sHfLClNsrDM3CGMeYUmI.jpg?width=350&height=350",
+      "status": 200,
+      "ok": true,
+      "method": "GET",
+      "resourceType": "image",
+      "contentType": "image/avif",
+      "fixture": "",
+      "error": ""
+    },
+    {
+      "url": "https://framerusercontent.com/images/6tTbkXggWgQCAJ4DO2QEdXXmgM.svg",
+      "status": 200,
+      "ok": true,
+      "method": "GET",
+      "resourceType": "image",
+      "contentType": "image/svg+xml",
+      "fixture": "",
+      "error": ""
+    },
+    {
+      "url": "https://framerusercontent.com/images/11KSGbIZoRSg4pjdnUoif6MKHI.svg",
+      "status": 200,
+      "ok": true,
+      "method": "GET",
+      "resourceType": "image",
+      "contentType": "image/svg+xml",
+      "fixture": "",
+      "error": ""
+    },
+    {
+      "url": "https://www.googletagmanager.com/gtag/js?id=G-2NKYEK9YPQ",
+      "status": 200,
+      "ok": true,
+      "method": "GET",
+      "resourceType": "script",
+      "contentType": "application/javascript; charset=UTF-8",
+      "fixture": "",
+      "error": ""
+    },
+    {
+      "url": "https://events.framer.com/script?v=2",
+      "status": 200,
+      "ok": true,
+      "method": "GET",
+      "resourceType": "script",
+      "contentType": "text/javascript",
+      "fixture": "",
+      "error": ""
+    },
+    {
+      "url": "https://framerusercontent.com/images/h6jkqGk2RMeNjAzWxaToflEW6c.gif?width=920&height=920",
+      "status": 200,
+      "ok": true,
+      "method": "GET",
+      "resourceType": "image",
+      "contentType": "image/webp",
+      "fixture": "",
+      "error": ""
+    },
+    {
+      "url": "https://framerusercontent.com/images/GjAK9XBUKmdOTtzDLMgk89Xo30.svg?width=40&height=40",
+      "status": 200,
+      "ok": true,
+      "method": "GET",
+      "resourceType": "image",
+      "contentType": "image/svg+xml",
+      "fixture": "",
+      "error": ""
+    },
+    {
+      "url": "https://framerusercontent.com/images/WIS2UB0xVx9TyyxsHDN1ETwX8.svg?width=40&height=40",
+      "status": 200,
+      "ok": true,
+      "method": "GET",
+      "resourceType": "image",
+      "contentType": "image/svg+xml",
+      "fixture": "",
+      "error": ""
+    },
+    {
+      "url": "https://framerusercontent.com/images/A5UPm9OOtpldSKMvyHQnE602V10.jpg?width=350&height=350",
+      "status": 200,
+      "ok": true,
+      "method": "GET",
+      "resourceType": "image",
+      "contentType": "image/avif",
+      "fixture": "",
+      "error": ""
+    },
+    {
+      "url": "https://framerusercontent.com/images/Px1ntNTtXnsu22eyse3HTIZ5uO0.jpg?width=400&height=400",
+      "status": 200,
+      "ok": true,
+      "method": "GET",
+      "resourceType": "image",
+      "contentType": "image/avif",
+      "fixture": "",
+      "error": ""
+    },
+    {
+      "url": "https://framerusercontent.com/images/V1zaQvjcnnoaZTeqpgM49iYFsM.jpg?width=833&height=469",
+      "status": 200,
+      "ok": true,
+      "method": "GET",
+      "resourceType": "image",
+      "contentType": "image/avif",
+      "fixture": "",
+      "error": ""
+    },
+    {
+      "url": "https://framerusercontent.com/images/K7uxZDimDRasLENOv6wCwtRVqaY.jpg?width=350&height=350",
+      "status": 200,
+      "ok": true,
+      "method": "GET",
+      "resourceType": "image",
+      "contentType": "image/avif",
+      "fixture": "",
+      "error": ""
+    },
+    {
+      "url": "https://framerusercontent.com/images/Qtwk8LRhUu31IFlpwaKk30tno.svg?width=40&height=40",
+      "status": 200,
+      "ok": true,
+      "method": "GET",
+      "resourceType": "image",
+      "contentType": "image/svg+xml",
+      "fixture": "",
+      "error": ""
+    },
+    {
+      "url": "https://framerusercontent.com/images/Ywoka0BHkx8uE4zKnVMkaGFhXTM.jpg?width=500&height=500",
+      "status": 200,
+      "ok": true,
+      "method": "GET",
+      "resourceType": "image",
+      "contentType": "image/avif",
+      "fixture": "",
+      "error": ""
+    },
+    {
+      "url": "https://framerusercontent.com/images/QoVVcCpx33uQbbOFAToEQaJNhI.gif?width=400&height=400",
+      "status": 200,
+      "ok": true,
+      "method": "GET",
+      "resourceType": "image",
+      "contentType": "image/gif",
+      "fixture": "",
+      "error": ""
+    },
+    {
+      "url": "https://framerusercontent.com/images/PqtAbex1k0rqioY4uoyy370Z9dQ.jpg?width=500&height=500",
+      "status": 200,
+      "ok": true,
+      "method": "GET",
+      "resourceType": "image",
+      "contentType": "image/avif",
+      "fixture": "",
+      "error": ""
+    },
+    {
+      "url": "https://framerusercontent.com/sites/1cMaxvkdRdtHT92I2ulLdx/TnFojKwMFUMhF2C06CBAP2ofOCAnS45zQ-sBgGF5Jbs.CBzgJXGy.mjs",
+      "status": 200,
+      "ok": true,
+      "method": "GET",
+      "resourceType": "script",
+      "contentType": "text/javascript",
+      "fixture": "",
+      "error": ""
+    },
+    {
+      "url": "https://framerusercontent.com/assets/1DbxxDl08Gi1CrWg3xRQBIAEwnU.woff2",
+      "status": 200,
+      "ok": true,
+      "method": "GET",
+      "resourceType": "font",
+      "contentType": "font/woff2",
+      "fixture": "",
+      "error": ""
+    },
+    {
+      "url": "https://framerusercontent.com/sites/1cMaxvkdRdtHT92I2ulLdx/motion.Cvxfuw3M.mjs",
+      "status": 200,
+      "ok": true,
+      "method": "GET",
+      "resourceType": "script",
+      "contentType": "text/javascript",
+      "fixture": "",
+      "error": ""
+    },
+    {
+      "url": "https://framerusercontent.com/sites/1cMaxvkdRdtHT92I2ulLdx/framer.YfBnsACD.mjs",
+      "status": 200,
+      "ok": true,
+      "method": "GET",
+      "resourceType": "script",
+      "contentType": "text/javascript",
+      "fixture": "",
+      "error": ""
+    },
+    {
+      "url": "https://framerusercontent.com/sites/1cMaxvkdRdtHT92I2ulLdx/rolldown-runtime.Dh6celcD.mjs",
+      "status": 200,
+      "ok": true,
+      "method": "GET",
+      "resourceType": "script",
+      "contentType": "text/javascript",
+      "fixture": "",
+      "error": ""
+    },
+    {
+      "url": "https://framerusercontent.com/sites/1cMaxvkdRdtHT92I2ulLdx/jN27YHajw.BloBLtdA.mjs",
+      "status": 200,
+      "ok": true,
+      "method": "GET",
+      "resourceType": "script",
+      "contentType": "text/javascript",
+      "fixture": "",
+      "error": ""
+    },
+    {
+      "url": "https://framerusercontent.com/sites/1cMaxvkdRdtHT92I2ulLdx/react.BpKPsBQp.mjs",
+      "status": 200,
+      "ok": true,
+      "method": "GET",
+      "resourceType": "script",
+      "contentType": "text/javascript",
+      "fixture": "",
+      "error": ""
+    },
+    {
+      "url": "https://framerusercontent.com/sites/1cMaxvkdRdtHT92I2ulLdx/IzJadI139.BLNo2Aa8.mjs",
+      "status": 200,
+      "ok": true,
+      "method": "GET",
+      "resourceType": "script",
+      "contentType": "text/javascript",
+      "fixture": "",
+      "error": ""
+    },
+    {
+      "url": "https://framerusercontent.com/assets/mi2hheTH6Ht8L5q5k42QRYdeE.woff2",
+      "status": 200,
+      "ok": true,
+      "method": "GET",
+      "resourceType": "font",
+      "contentType": "font/woff2",
+      "fixture": "",
+      "error": ""
+    },
+    {
+      "url": "https://framerusercontent.com/assets/oAAjtNNdFxG7z5VnSS75HXk0.woff2",
+      "status": 200,
+      "ok": true,
+      "method": "GET",
+      "resourceType": "font",
+      "contentType": "font/woff2",
+      "fixture": "",
+      "error": ""
+    },
+    {
+      "url": "https://framerusercontent.com/assets/Eu6fMcgxnT9ySle7s4LEQPJMaRY.woff2",
+      "status": 200,
+      "ok": true,
+      "method": "GET",
+      "resourceType": "font",
+      "contentType": "font/woff2",
+      "fixture": "",
+      "error": ""
+    },
+    {
+      "url": "https://frameship-backend.account-ba7.workers.dev/static/js/licence-management.js",
+      "status": 200,
+      "ok": true,
+      "method": "GET",
+      "resourceType": "script",
+      "contentType": "application/javascript",
+      "fixture": "",
+      "error": ""
+    },
+    {
+      "url": "https://framerusercontent.com/sites/1cMaxvkdRdtHT92I2ulLdx/zvWo35Xx8._kxS6tjk.mjs",
+      "status": 200,
+      "ok": true,
+      "method": "GET",
+      "resourceType": "script",
+      "contentType": "text/javascript",
+      "fixture": "",
+      "error": ""
+    },
+    {
+      "url": "https://framerusercontent.com/sites/1cMaxvkdRdtHT92I2ulLdx/JJfyo3O56.BscFwc7c.mjs",
+      "status": 200,
+      "ok": true,
+      "method": "GET",
+      "resourceType": "script",
+      "contentType": "text/javascript",
+      "fixture": "",
+      "error": ""
+    },
+    {
+      "url": "https://framerusercontent.com/sites/1cMaxvkdRdtHT92I2ulLdx/Add_to_cart_button.Bq9VeOJ4.mjs",
+      "status": 200,
+      "ok": true,
+      "method": "GET",
+      "resourceType": "script",
+      "contentType": "text/javascript",
+      "fixture": "",
+      "error": ""
+    },
+    {
+      "url": "https://framerusercontent.com/sites/1cMaxvkdRdtHT92I2ulLdx/uAOtBB6Mc.utPeXnvd.mjs",
+      "status": 200,
+      "ok": true,
+      "method": "GET",
+      "resourceType": "script",
+      "contentType": "text/javascript",
+      "fixture": "",
+      "error": ""
+    },
+    {
+      "url": "https://framerusercontent.com/sites/1cMaxvkdRdtHT92I2ulLdx/OqE3gMYS_.Bv3aarEF.mjs",
+      "status": 200,
+      "ok": true,
+      "method": "GET",
+      "resourceType": "script",
+      "contentType": "text/javascript",
+      "fixture": "",
+      "error": ""
+    },
+    {
+      "url": "https://framerusercontent.com/sites/1cMaxvkdRdtHT92I2ulLdx/MiCKYZP_s.D-Tu35jz.mjs",
+      "status": 200,
+      "ok": true,
+      "method": "GET",
+      "resourceType": "script",
+      "contentType": "text/javascript",
+      "fixture": "",
+      "error": ""
+    },
+    {
+      "url": "https://framerusercontent.com/sites/1cMaxvkdRdtHT92I2ulLdx/script_main.D1hYjLKk.mjs",
+      "status": 200,
+      "ok": true,
+      "method": "GET",
+      "resourceType": "script",
+      "contentType": "text/javascript",
+      "fixture": "",
+      "error": ""
+    },
+    {
+      "url": "https://framerusercontent.com/sites/1cMaxvkdRdtHT92I2ulLdx/jCOKHWw0M8q0_K-5JV4m0oq8fuFTxNd5fAXyRtVjzJ0.DIqvpSY7.mjs",
+      "status": 200,
+      "ok": true,
+      "method": "GET",
+      "resourceType": "script",
+      "contentType": "text/javascript",
+      "fixture": "",
+      "error": ""
+    },
+    {
+      "url": "https://framerusercontent.com/sites/1cMaxvkdRdtHT92I2ulLdx/aEVNtis6o.CIG7Td4A.mjs",
+      "status": 200,
+      "ok": true,
+      "method": "GET",
+      "resourceType": "script",
+      "contentType": "text/javascript",
+      "fixture": "",
+      "error": ""
+    },
+    {
+      "url": "https://framerusercontent.com/sites/1cMaxvkdRdtHT92I2ulLdx/Video.BXCJ84Bd.mjs",
+      "status": 200,
+      "ok": true,
+      "method": "GET",
+      "resourceType": "script",
+      "contentType": "text/javascript",
+      "fixture": "",
+      "error": ""
+    },
+    {
+      "url": "https://framerusercontent.com/sites/1cMaxvkdRdtHT92I2ulLdx/shared-lib.B70Wc8xd.mjs",
+      "status": 200,
+      "ok": true,
+      "method": "GET",
+      "resourceType": "script",
+      "contentType": "text/javascript",
+      "fixture": "",
+      "error": ""
+    },
+    {
+      "url": "https://framerusercontent.com/sites/1cMaxvkdRdtHT92I2ulLdx/XEXlSAzyi.D6NE7C_9.mjs",
+      "status": 200,
+      "ok": true,
+      "method": "GET",
+      "resourceType": "script",
+      "contentType": "text/javascript",
+      "fixture": "",
+      "error": ""
+    },
+    {
+      "url": "https://framerusercontent.com/sites/1cMaxvkdRdtHT92I2ulLdx/Live_pricing_store.CMXkZ792.mjs",
+      "status": 200,
+      "ok": true,
+      "method": "GET",
+      "resourceType": "script",
+      "contentType": "text/javascript",
+      "fixture": "",
+      "error": ""
+    },
+    {
+      "url": "https://framerusercontent.com/sites/1cMaxvkdRdtHT92I2ulLdx/RzzgBuMPe.CXhmIyYE.mjs",
+      "status": 200,
+      "ok": true,
+      "method": "GET",
+      "resourceType": "script",
+      "contentType": "text/javascript",
+      "fixture": "",
+      "error": ""
+    },
+    {
+      "url": "https://framerusercontent.com/assets/StKRVSnQD2oeS4lRm4CiBulEI.woff2",
+      "status": 200,
+      "ok": true,
+      "method": "GET",
+      "resourceType": "font",
+      "contentType": "font/woff2",
+      "fixture": "",
+      "error": ""
+    },
+    {
+      "url": "https://www.google-analytics.com/g/collect?v=2&tid=G-2NKYEK9YPQ&gtm=45je68p1v9259764095za200zd9259764095&_p=1787834398023&gcd=13l3l3l3l1l1&npa=0&dma=0&are=1&cid=319365777.1787834398&frm=0&ngs=1&pscdl=noapi&rcb=10&sr=1440x900&uaa=x86&uab=64&uafvl=HeadlessChrome%3B141.0.7390.37%7CNot%253FA_Brand%3B8.0.0.0%7CChromium%3B141.0.7390.37&uam=&uamb=0&uap=Linux&uapv=6.18.44&uaw=0&ul=en-us%40posix&_s=1&tag_exp=115938465~115938469~118897920~118897930~119367802~119367810~120385423&sid=1787834398&sct=1&seg=0&dl=https%3A%2F%2Fwww.aescape.com%2F&dt=Aescape%20%7C%20Book%20a%20Personalized%20Recovery%20Session%20Near%20You&en=page_view&_fv=1&_nsi=1&_ss=1&_ee=1&tfd=363",
+      "status": 204,
+      "ok": true,
+      "method": "POST",
+      "resourceType": "fetch",
+      "contentType": "text/plain",
+      "fixture": "",
+      "error": "response.body: Protocol error (Network.getResponseBody): No data found for resource with given identifier"
+    },
+    {
+      "url": "https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap",
+      "status": 200,
+      "ok": true,
+      "method": "GET",
+      "resourceType": "stylesheet",
+      "contentType": "text/css; charset=utf-8",
+      "fixture": "",
+      "error": ""
+    },
+    {
+      "url": "https://framer.com/edit/init.mjs",
+      "status": 200,
+      "ok": true,
+      "method": "GET",
+      "resourceType": "script",
+      "contentType": "text/javascript; charset=utf-8",
+      "fixture": "",
+      "error": ""
+    },
+    {
+      "url": "https://frameship-backend.account-ba7.workers.dev/license-check?url=https%3A%2F%2Fwww.aescape.com%2F&license_id=0afb3eaf-e118-49b1-a2a8-eb2f410d393a",
+      "status": 200,
+      "ok": true,
+      "method": "GET",
+      "resourceType": "fetch",
+      "contentType": "application/json",
+      "fixture": "fixtures/license-check-0f4d47767a.json",
+      "error": "",
+      "bytes": 14
+    },
+    {
+      "url": "https://assets.aescape.com/videos/www/Homepage-Hero-2.mp4",
+      "status": 206,
+      "ok": true,
+      "method": "GET",
+      "resourceType": "media",
+      "contentType": "video/mp4",
+      "fixture": "",
+      "error": ""
+    },
+    {
+      "url": "https://app.framerstatic.com/chunk-GL6GZPCT.mjs",
+      "status": 200,
+      "ok": true,
+      "method": "GET",
+      "resourceType": "script",
+      "contentType": "text/javascript",
+      "fixture": "",
+      "error": ""
+    },
+    {
+      "url": "https://assets.aescape.com/videos/www/Homepage-Hero-1.mp4",
+      "status": 206,
+      "ok": true,
+      "method": "GET",
+      "resourceType": "media",
+      "contentType": "video/mp4",
+      "fixture": "",
+      "error": ""
+    },
+    {
+      "url": "https://assets.aescape.com/videos/www/Homepage-Hero-2.mp4",
+      "status": 206,
+      "ok": true,
+      "method": "GET",
+      "resourceType": "media",
+      "contentType": "video/mp4",
+      "fixture": "",
+      "error": ""
+    },
+    {
+      "url": "https://events.framer.com/anonymous",
+      "status": 200,
+      "ok": true,
+      "method": "POST",
+      "resourceType": "ping",
+      "contentType": "application/json",
+      "fixture": "",
+      "error": ""
+    },
+    {
+      "url": "https://tqbtkd-1n.myshopify.com/api/2025-07/graphql.json",
+      "status": 200,
+      "ok": true,
+      "method": "POST",
+      "resourceType": "fetch",
+      "contentType": "application/json; charset=utf-8",
+      "fixture": "fixtures/api-2025-07-graphql.json-c1327471c2.json",
+      "error": "",
+      "bytes": 859
+    },
+    {
+      "url": "https://framer.com/edit?framerSiteId=9b86e1d23c9fbabbff9aa9e088d9f2991198c70c1bc6cb70dd90ff6d5002ef44&source=www.aescape.com&features=%7B%22editorBarDisableFrameAncestorsSecurity%22%3Afalse%2C%22onPageLocalizationSupport%22%3Atrue%2C%22onPageMoveTool%22%3Atrue%2C%22onPageRichTextBlockSelection%22%3Atrue%7D&loadStart=1787834398759",
+      "status": 200,
+      "ok": true,
+      "method": "GET",
+      "resourceType": "document",
+      "contentType": "text/html; charset=utf-8",
+      "fixture": "",
+      "error": ""
+    },
+    {
+      "url": "https://app.framerstatic.com/chunk-U25MALL7.mjs",
+      "status": 200,
+      "ok": true,
+      "method": "GET",
+      "resourceType": "script",
+      "contentType": "text/javascript",
+      "fixture": "",
+      "error": ""
+    },
+    {
+      "url": "https://app.framerstatic.com/chunk-YRQ7G4QH.mjs",
+      "status": 200,
+      "ok": true,
+      "method": "GET",
+      "resourceType": "script",
+      "contentType": "text/javascript",
+      "fixture": "",
+      "error": ""
+    },
+    {
+      "url": "https://app.framerstatic.com/chunk-WOEOGJ2W.mjs",
+      "status": 200,
+      "ok": true,
+      "method": "GET",
+      "resourceType": "script",
+      "contentType": "text/javascript",
+      "fixture": "",
+      "error": ""
+    },
+    {
+      "url": "https://app.framerstatic.com/chunk-WLHSDIGQ.mjs",
+      "status": 200,
+      "ok": true,
+      "method": "GET",
+      "resourceType": "script",
+      "contentType": "text/javascript",
+      "fixture": "",
+      "error": ""
+    },
+    {
+      "url": "https://app.framerstatic.com/editorbar.DMP5PXTO.mjs",
+      "status": 200,
+      "ok": true,
+      "method": "GET",
+      "resourceType": "script",
+      "contentType": "text/javascript",
+      "fixture": "",
+      "error": ""
+    },
+    {
+      "url": "https://framer.com/bootstrap.eb3d845c2d0cf4e2bc060be30f16a4cdc5659d7b.js",
+      "status": 200,
+      "ok": true,
+      "method": "GET",
+      "resourceType": "script",
+      "contentType": "application/javascript",
+      "fixture": "",
+      "error": ""
+    },
+    {
+      "url": "https://api.framer.com/auth/web/access-token?source=editorbar",
+      "status": 200,
+      "ok": true,
+      "method": "GET",
+      "resourceType": "fetch",
+      "contentType": "application/json; charset=utf-8",
+      "fixture": "fixtures/auth-web-access-token-9f07710df2.json",
+      "error": "",
+      "bytes": 43
+    },
+    {
+      "url": "https://www.google-analytics.com/g/collect?v=2&tid=G-2NKYEK9YPQ&gtm=45je68p1v9259764095za200zd9259764095&_p=1787834398023&gcd=13l3l3l3l1l1&npa=0&dma=0&_eu=AEEAAAQ&ae=a&are=1&cid=319365777.1787834398&frm=0&ngs=1&pscdl=noapi&rcb=10&sr=1440x900&uaa=x86&uab=64&uafvl=HeadlessChrome%3B141.0.7390.37%7CNot%253FA_Brand%3B8.0.0.0%7CChromium%3B141.0.7390.37&uam=&uamb=0&uap=Linux&uapv=6.18.44&uaw=0&ul=en-us%40posix&_s=2&tag_exp=115938465~115938469~118897920~118897930~119367802~119367810~120385423&sid=1787834398&sct=1&seg=0&dl=https%3A%2F%2Fwww.aescape.com%2F&dt=Aescape%20%7C%20Book%20a%20Personalized%20Recovery%20Session%20Near%20You&en=form_start&ep.form_id=&ep.form_destination=https%3A%2F%2Fwww.aescape.com%2F&epn.form_length=13&ep.first_field_id=&ep.first_field_name=Email&ep.first_field_type=email&epn.first_field_position=1&_et=326&tfd=5695",
+      "status": 204,
+      "ok": true,
+      "method": "POST",
+      "resourceType": "fetch",
+      "contentType": "text/plain",
+      "fixture": "",
+      "error": "response.body: Protocol error (Network.getResponseBody): No data found for resource with given identifier"
+    }
+  ]
+}

@@ -1,0 +1,1039 @@
+{
+  "label": "original",
+  "url": "https://www.aescape.com",
+  "capturedAt": "2026-08-27T12:37:44.161Z",
+  "maxPages": 25,
+  "maxDepth": 2,
+  "allowSubdomains": false,
+  "routes": [
+    {
+      "url": "https://www.aescape.com",
+      "from": "",
+      "depth": 0,
+      "status": 200,
+      "title": "Aescape | Book a Personalized Recovery Session Near You",
+      "lang": "",
+      "metaDescription": "Aescape delivers precision bodywork through an intelligent system built around your body and goals. Book a recovery session near you and turn recovery into a routine.",
+      "h1": [
+        "Precision bodywork. No guesswork.",
+        "Every session starts with you",
+        "Recovery on demand",
+        "Aescape once a week. Feel better every day.",
+        "Build your routine",
+        "Available wherever you train, stay, and recover",
+        "175K+ sessions delivered. 95% rated excellent.",
+        "Find locations, book on demand, and build your routine, with one app."
+      ],
+      "headings": [
+        {
+          "tag": "h3",
+          "text": "Interested in bringing Aescape to your business?"
+        },
+        {
+          "tag": "h1",
+          "text": "Precision bodywork. No guesswork."
+        },
+        {
+          "tag": "h1",
+          "text": "Every session starts with you"
+        },
+        {
+          "tag": "h1",
+          "text": "Recovery on demand"
+        },
+        {
+          "tag": "h1",
+          "text": "Aescape once a week. Feel better every day."
+        },
+        {
+          "tag": "h3",
+          "text": "Move Better"
+        },
+        {
+          "tag": "h3",
+          "text": "Recover faster"
+        },
+        {
+          "tag": "h3",
+          "text": "Stay ahead"
+        },
+        {
+          "tag": "h1",
+          "text": "Build your routine"
+        },
+        {
+          "tag": "h3",
+          "text": "Reset • 3 sessions"
+        },
+        {
+          "tag": "h3",
+          "text": "30 minutes"
+        },
+        {
+          "tag": "h3",
+          "text": "Recovery • 6 sessions"
+        },
+        {
+          "tag": "h3",
+          "text": "45 minutes"
+        },
+        {
+          "tag": "h3",
+          "text": "Ritual • 12 sessions"
+        },
+        {
+          "tag": "h3",
+          "text": "15 minutes"
+        },
+        {
+          "tag": "h1",
+          "text": "Available wherever you train, stay, and recover"
+        },
+        {
+          "tag": "h1",
+          "text": "175K+ sessions delivered. 95% rated excellent."
+        },
+        {
+          "tag": "h3",
+          "text": "Interested in bringing Aescape to your home or office?"
+        },
+        {
+          "tag": "h1",
+          "text": "Find locations, book on demand, and build your routine, with one app."
+        }
+      ],
+      "counts": {
+        "links": 39,
+        "images": 37,
+        "canvas": 0,
+        "forms": 1,
+        "buttons": 18
+      },
+      "linkCount": 39,
+      "screenshot": "screenshots/www.aescape.com-de089f27.png",
+      "consoleErrors": []
+    },
+    {
+      "url": "https://www.aescape.com/sessions",
+      "from": "https://www.aescape.com",
+      "depth": 1,
+      "status": 200,
+      "title": "Aescape Sessions | Book Precision Bodywork Near You",
+      "lang": "",
+      "metaDescription": "Every Aescape session delivers precision bodywork tuned to your body and goals. Book a session near you and build a recovery routine that compounds over time.",
+      "h1": [
+        "Custom or curated?",
+        "Built by you, in the moment",
+        "Every detail crafted with intent",
+        "Recovery sessions built for how you train",
+        "Recovery works best when it is consistent"
+      ],
+      "headings": [
+        {
+          "tag": "h1",
+          "text": "Custom or curated?"
+        },
+        {
+          "tag": "h1",
+          "text": "Built by you, in the moment"
+        },
+        {
+          "tag": "h3",
+          "text": "You build the session"
+        },
+        {
+          "tag": "h3",
+          "text": "Responds to the day"
+        },
+        {
+          "tag": "h3",
+          "text": "Built on expert method"
+        },
+        {
+          "tag": "h1",
+          "text": "Every detail crafted with intent"
+        },
+        {
+          "tag": "h1",
+          "text": "Recovery sessions built for how you train"
+        },
+        {
+          "tag": "h1",
+          "text": "Recovery works best when it is consistent"
+        },
+        {
+          "tag": "h3",
+          "text": "Reset • 3 sessions"
+        },
+        {
+          "tag": "h3",
+          "text": "30 minutes"
+        },
+        {
+          "tag": "h3",
+          "text": "Recovery • 6 sessions"
+        },
+        {
+          "tag": "h3",
+          "text": "45 minutes"
+        },
+        {
+          "tag": "h3",
+          "text": "Ritual • 12 sessions"
+        },
+        {
+          "tag": "h3",
+          "text": "15 minutes"
+        }
+      ],
+      "counts": {
+        "links": 51,
+        "images": 33,
+        "canvas": 0,
+        "forms": 1,
+        "buttons": 38
+      },
+      "linkCount": 51,
+      "screenshot": "screenshots/www.aescape.com-sessions-0e4d6842.png",
+      "consoleErrors": []
+    },
+    {
+      "url": "https://www.aescape.com/packages",
+      "from": "https://www.aescape.com",
+      "depth": 1,
+      "status": 200,
+      "title": "Aescape Packages & Gifts | Make Recovery a Weekly Routine",
+      "lang": "",
+      "metaDescription": "Choose a session package built for consistency. Recover better week over week with precision bodywork designed to compound the more you use it.",
+      "h1": [
+        "Recovery works bestwhen it is consistent",
+        "3 sessions",
+        "6 sessions",
+        "12 sessions",
+        "Single Session"
+      ],
+      "headings": [
+        {
+          "tag": "h1",
+          "text": "Recovery works bestwhen it is consistent"
+        },
+        {
+          "tag": "h1",
+          "text": "3 sessions"
+        },
+        {
+          "tag": "h3",
+          "text": "15 minutes"
+        },
+        {
+          "tag": "h3",
+          "text": "30 minutes"
+        },
+        {
+          "tag": "h3",
+          "text": "45 minutes"
+        },
+        {
+          "tag": "h3",
+          "text": "60 minutes"
+        },
+        {
+          "tag": "h1",
+          "text": "6 sessions"
+        },
+        {
+          "tag": "h3",
+          "text": "15 minutes"
+        },
+        {
+          "tag": "h3",
+          "text": "30 minutes"
+        },
+        {
+          "tag": "h3",
+          "text": "45 minutes"
+        },
+        {
+          "tag": "h3",
+          "text": "60 minutes"
+        },
+        {
+          "tag": "h1",
+          "text": "12 sessions"
+        },
+        {
+          "tag": "h3",
+          "text": "15 minutes"
+        },
+        {
+          "tag": "h3",
+          "text": "30 minutes"
+        },
+        {
+          "tag": "h3",
+          "text": "45 minutes"
+        },
+        {
+          "tag": "h3",
+          "text": "60 minutes"
+        },
+        {
+          "tag": "h1",
+          "text": "Single Session"
+        },
+        {
+          "tag": "h3",
+          "text": "15 minutes"
+        },
+        {
+          "tag": "h3",
+          "text": "30 minutes"
+        },
+        {
+          "tag": "h3",
+          "text": "45 minutes"
+        },
+        {
+          "tag": "h3",
+          "text": "60 minutes"
+        }
+      ],
+      "counts": {
+        "links": 30,
+        "images": 9,
+        "canvas": 0,
+        "forms": 1,
+        "buttons": 19
+      },
+      "linkCount": 30,
+      "screenshot": "screenshots/www.aescape.com-packages-ce48c9f0.png",
+      "consoleErrors": []
+    },
+    {
+      "url": "https://www.aescape.com/faq-general",
+      "from": "https://www.aescape.com",
+      "depth": 1,
+      "status": 200,
+      "title": "Aescape FAQ | Sessions, Booking, and What to Expect",
+      "lang": "",
+      "metaDescription": "Answers to common questions about Aescape sessions, booking, and the recovery experience. Learn how precision bodywork works and what to expect.",
+      "h1": [
+        "FAQ"
+      ],
+      "headings": [
+        {
+          "tag": "h1",
+          "text": "FAQ"
+        },
+        {
+          "tag": "h2",
+          "text": "General"
+        },
+        {
+          "tag": "h3",
+          "text": "Looking for partners FAQs?"
+        }
+      ],
+      "counts": {
+        "links": 28,
+        "images": 4,
+        "canvas": 0,
+        "forms": 1,
+        "buttons": 7
+      },
+      "linkCount": 28,
+      "screenshot": "screenshots/www.aescape.com-faq-general-c15f7d6c.png",
+      "consoleErrors": []
+    },
+    {
+      "url": "https://www.aescape.com/business",
+      "from": "https://www.aescape.com",
+      "depth": 1,
+      "status": 200,
+      "title": "Aescape for Business | Intelligent Recovery for Members & Guests",
+      "lang": "",
+      "metaDescription": "Bring precision bodywork to your members and guests with Aescape. A recovery system that drives utilization, repeat visits, and measurable results across your locations.",
+      "h1": [
+        "Recovery earns in more places than one.",
+        "Any room. Any footprint. A profit center.",
+        "Precision bodywork, delivered consistently.",
+        "Three layers. One compounding model.",
+        "The demand engine that fills your table, and the tools to run it.",
+        "Available wherever you train, stay, and recover",
+        "Built to integrate seamlessly into your operations.",
+        "Add recovery infrastructure to your business?"
+      ],
+      "headings": [
+        {
+          "tag": "h1",
+          "text": "Recovery earns in more places than one."
+        },
+        {
+          "tag": "h1",
+          "text": "Any room. Any footprint. A profit center."
+        },
+        {
+          "tag": "h1",
+          "text": "Precision bodywork, delivered consistently."
+        },
+        {
+          "tag": "h1",
+          "text": "Three layers. One compounding model."
+        },
+        {
+          "tag": "h1",
+          "text": "The demand engine that fills your table, and the tools to run it."
+        },
+        {
+          "tag": "h1",
+          "text": "Available wherever you train, stay, and recover"
+        },
+        {
+          "tag": "h1",
+          "text": "Built to integrate seamlessly into your operations."
+        },
+        {
+          "tag": "h1",
+          "text": "Add recovery infrastructure to your business?"
+        },
+        {
+          "tag": "h3",
+          "text": "Interested in bringing Aescape to your home or office?"
+        }
+      ],
+      "counts": {
+        "links": 31,
+        "images": 25,
+        "canvas": 0,
+        "forms": 2,
+        "buttons": 11
+      },
+      "linkCount": 31,
+      "screenshot": "screenshots/www.aescape.com-business-e968515d.png",
+      "consoleErrors": []
+    },
+    {
+      "url": "https://www.aescape.com/aescape-one",
+      "from": "https://www.aescape.com",
+      "depth": 1,
+      "status": 200,
+      "title": "Aescape One | Precision Bodywork at Home",
+      "lang": "",
+      "metaDescription": "Aescape One brings Intelligent Recovery home. Precision bodywork on demand, personalized to your body, so recovery becomes part of your daily routine.",
+      "h1": [
+        "Aescape Onenow available for private ownership",
+        "Recovery that keeps up with you, at home",
+        "Your Aescape recovery system",
+        "What you get with Aescape One",
+        "Ready to reserve your Aescape One?"
+      ],
+      "headings": [
+        {
+          "tag": "h1",
+          "text": "Aescape Onenow available for private ownership"
+        },
+        {
+          "tag": "h1",
+          "text": "Recovery that keeps up with you, at home"
+        },
+        {
+          "tag": "h1",
+          "text": "Your Aescape recovery system"
+        },
+        {
+          "tag": "h1",
+          "text": "What you get with Aescape One"
+        },
+        {
+          "tag": "h1",
+          "text": "Ready to reserve your Aescape One?"
+        },
+        {
+          "tag": "h3",
+          "text": "Do you have an invite for Aescape One Founders?"
+        }
+      ],
+      "counts": {
+        "links": 29,
+        "images": 16,
+        "canvas": 0,
+        "forms": 1,
+        "buttons": 9
+      },
+      "linkCount": 29,
+      "screenshot": "screenshots/www.aescape.com-aescape-one-09e0a38d.png",
+      "consoleErrors": []
+    },
+    {
+      "url": "https://www.aescape.com/partner",
+      "from": "https://www.aescape.com",
+      "depth": 1,
+      "status": 200,
+      "title": "Partner With Aescape | Recovery That Drives Revenue",
+      "lang": "",
+      "metaDescription": "Add Aescape to your business and give members and guests precision bodywork on demand. A recovery system that increases visits, retention, and revenue.",
+      "h1": [
+        "Become a partner",
+        "Demand. Revenue. Retention.Aescape for Business.",
+        "Your questions answered"
+      ],
+      "headings": [
+        {
+          "tag": "h1",
+          "text": "Become a partner"
+        },
+        {
+          "tag": "h1",
+          "text": "Demand. Revenue. Retention.Aescape for Business."
+        },
+        {
+          "tag": "h1",
+          "text": "Your questions answered"
+        }
+      ],
+      "counts": {
+        "links": 27,
+        "images": 6,
+        "canvas": 0,
+        "forms": 2,
+        "buttons": 7
+      },
+      "linkCount": 27,
+      "screenshot": "screenshots/www.aescape.com-partner-f3ba05ca.png",
+      "consoleErrors": []
+    },
+    {
+      "url": "https://www.aescape.com/pricing",
+      "from": "https://www.aescape.com",
+      "depth": 1,
+      "status": 200,
+      "title": "Aescape Pricing | Table Investment and ROI Calculator",
+      "lang": "",
+      "metaDescription": "See what it takes to bring Aescape to your bsuiness. Model table investment, utilization, and projected revenue with the Aescape ROI calculator.",
+      "h1": [
+        "Aescape is a capital asset withmeasurable revenue upside",
+        "System, support & scale",
+        "Run the numbers on your table",
+        "Your questions answered",
+        "Talk to us. We'll build the model for your location."
+      ],
+      "headings": [
+        {
+          "tag": "h1",
+          "text": "Aescape is a capital asset withmeasurable revenue upside"
+        },
+        {
+          "tag": "h1",
+          "text": "System, support & scale"
+        },
+        {
+          "tag": "h1",
+          "text": "Run the numbers on your table"
+        },
+        {
+          "tag": "h2",
+          "text": "Your investment"
+        },
+        {
+          "tag": "h2",
+          "text": "Operation assumptions"
+        },
+        {
+          "tag": "h2",
+          "text": "Monthly cash flow"
+        },
+        {
+          "tag": "h2",
+          "text": "5-year summary"
+        },
+        {
+          "tag": "h1",
+          "text": "Your questions answered"
+        },
+        {
+          "tag": "h1",
+          "text": "Talk to us. We'll build the model for your location."
+        },
+        {
+          "tag": "h3",
+          "text": "Interested in bringing Aescape to your home or office?"
+        }
+      ],
+      "counts": {
+        "links": 30,
+        "images": 5,
+        "canvas": 0,
+        "forms": 2,
+        "buttons": 23
+      },
+      "linkCount": 30,
+      "screenshot": "screenshots/www.aescape.com-pricing-4cec4061.png",
+      "consoleErrors": []
+    },
+    {
+      "url": "https://www.aescape.com/faq-partner",
+      "from": "https://www.aescape.com",
+      "depth": 1,
+      "status": 200,
+      "title": "Aescape Partner FAQ | Answers for Operators",
+      "lang": "",
+      "metaDescription": "Answers for partners on deploying Aescape, member experience, and how the recovery system drives utilization and results across locations.",
+      "h1": [
+        "FAQs"
+      ],
+      "headings": [
+        {
+          "tag": "h1",
+          "text": "FAQs"
+        },
+        {
+          "tag": "h2",
+          "text": "Partners"
+        },
+        {
+          "tag": "h3",
+          "text": "Looking for general FAQs?"
+        }
+      ],
+      "counts": {
+        "links": 27,
+        "images": 4,
+        "canvas": 0,
+        "forms": 1,
+        "buttons": 6
+      },
+      "linkCount": 27,
+      "screenshot": "screenshots/www.aescape.com-faq-partner-e8e9b34d.png",
+      "consoleErrors": []
+    },
+    {
+      "url": "https://www.aescape.com/about",
+      "from": "https://www.aescape.com",
+      "depth": 1,
+      "status": 200,
+      "title": "About Aescape | Defining Intelligent Recovery",
+      "lang": "",
+      "metaDescription": "Aescape is building the category of Intelligent Recovery. Precision bodywork delivered through physical AI and robotics, so feeling and moving better becomes routine.",
+      "h1": [
+        "Our values shape who we are",
+        "Building Intelligent Recovery",
+        "Meet our leadership team",
+        "Trusted by the operators defining modern wellness",
+        "Join the movement"
+      ],
+      "headings": [
+        {
+          "tag": "h1",
+          "text": "Our values shape who we are"
+        },
+        {
+          "tag": "h3",
+          "text": "People first, always"
+        },
+        {
+          "tag": "h3",
+          "text": "Transparency and trust"
+        },
+        {
+          "tag": "h3",
+          "text": "Unity in success and setbacks"
+        },
+        {
+          "tag": "h3",
+          "text": "Achieving with purpose"
+        },
+        {
+          "tag": "h1",
+          "text": "Building Intelligent Recovery"
+        },
+        {
+          "tag": "h1",
+          "text": "Meet our leadership team"
+        },
+        {
+          "tag": "h1",
+          "text": "Trusted by the operators defining modern wellness"
+        },
+        {
+          "tag": "h1",
+          "text": "Join the movement"
+        }
+      ],
+      "counts": {
+        "links": 36,
+        "images": 35,
+        "canvas": 0,
+        "forms": 1,
+        "buttons": 9
+      },
+      "linkCount": 36,
+      "screenshot": "screenshots/www.aescape.com-about-c808c8ff.png",
+      "consoleErrors": []
+    },
+    {
+      "url": "https://www.aescape.com/careers",
+      "from": "https://www.aescape.com",
+      "depth": 1,
+      "status": 200,
+      "title": "Careers at Aescape | Build the Future of Recovery",
+      "lang": "",
+      "metaDescription": "Join Aescape and help define Intelligent Recovery. Explore open roles across product, people, engineering, operations, sales, client success, design, finance, marketing and growth in New York and beyond.",
+      "h1": [
+        "Shape the futureof recovery",
+        "Life at Aescape",
+        "Benefits & Perks",
+        "Meet the team",
+        "Join the movement"
+      ],
+      "headings": [
+        {
+          "tag": "h1",
+          "text": "Shape the futureof recovery"
+        },
+        {
+          "tag": "h1",
+          "text": "Life at Aescape"
+        },
+        {
+          "tag": "h1",
+          "text": "Benefits & Perks"
+        },
+        {
+          "tag": "h1",
+          "text": "Meet the team"
+        },
+        {
+          "tag": "h1",
+          "text": "Join the movement"
+        }
+      ],
+      "counts": {
+        "links": 30,
+        "images": 11,
+        "canvas": 0,
+        "forms": 1,
+        "buttons": 9
+      },
+      "linkCount": 30,
+      "screenshot": "screenshots/www.aescape.com-careers-34eb2408.png",
+      "consoleErrors": []
+    },
+    {
+      "url": "https://www.aescape.com/contact",
+      "from": "https://www.aescape.com",
+      "depth": 1,
+      "status": 200,
+      "title": "Contact Aescape | Talk to Our Team",
+      "lang": "",
+      "metaDescription": "Reach the Aescape team with questions about sessions, partnerships, or bringing Intelligent Recovery to your space. We are here to help.",
+      "h1": [
+        "Our values shape who we are",
+        "Your questions answered"
+      ],
+      "headings": [
+        {
+          "tag": "h1",
+          "text": "Our values shape who we are"
+        },
+        {
+          "tag": "h3",
+          "text": "Looking to become a partner?"
+        },
+        {
+          "tag": "h1",
+          "text": "Your questions answered"
+        }
+      ],
+      "counts": {
+        "links": 38,
+        "images": 8,
+        "canvas": 0,
+        "forms": 2,
+        "buttons": 9
+      },
+      "linkCount": 38,
+      "screenshot": "screenshots/www.aescape.com-contact-207760cd.png",
+      "consoleErrors": []
+    },
+    {
+      "url": "https://www.aescape.com/privacy-policy",
+      "from": "https://www.aescape.com",
+      "depth": 1,
+      "status": 200,
+      "title": "Aescape Privacy Policy",
+      "lang": "",
+      "metaDescription": "Read the Aescape Privacy Policy to understand how we collect, use, and protect your personal information.",
+      "h1": [],
+      "headings": [
+        {
+          "tag": "h2",
+          "text": "1. Introduction"
+        },
+        {
+          "tag": "h2",
+          "text": "2. Personal Information We Collect"
+        },
+        {
+          "tag": "h2",
+          "text": "3. How We Use Your Personal Information"
+        },
+        {
+          "tag": "h2",
+          "text": "4. How We Share Your Personal Information"
+        },
+        {
+          "tag": "h2",
+          "text": "5. Your Choices"
+        },
+        {
+          "tag": "h2",
+          "text": "6. Other Sites and Services"
+        },
+        {
+          "tag": "h2",
+          "text": "7. Security"
+        },
+        {
+          "tag": "h2",
+          "text": "8. International Data Transfer"
+        },
+        {
+          "tag": "h2",
+          "text": "9. Children"
+        },
+        {
+          "tag": "h2",
+          "text": "10. Changes to this Privacy Policy"
+        },
+        {
+          "tag": "h2",
+          "text": "11. How to Contact Us"
+        }
+      ],
+      "counts": {
+        "links": 36,
+        "images": 4,
+        "canvas": 0,
+        "forms": 1,
+        "buttons": 6
+      },
+      "linkCount": 36,
+      "screenshot": "screenshots/www.aescape.com-privacy-policy-e33214ae.png",
+      "consoleErrors": []
+    },
+    {
+      "url": "https://www.aescape.com/terms-of-use",
+      "from": "https://www.aescape.com",
+      "depth": 1,
+      "status": 200,
+      "title": "Aescape Terms of Use",
+      "lang": "",
+      "metaDescription": "Read the Aescape Terms of Use governing access to our website, sessions, and services.",
+      "h1": [],
+      "headings": [
+        {
+          "tag": "h2",
+          "text": "1. Agreement"
+        },
+        {
+          "tag": "h2",
+          "text": "2. Updates"
+        },
+        {
+          "tag": "h2",
+          "text": "3. Permitted use"
+        },
+        {
+          "tag": "h2",
+          "text": "4. Prohibited use"
+        },
+        {
+          "tag": "h2",
+          "text": "5. User content"
+        },
+        {
+          "tag": "h2",
+          "text": "6. Privacy policy"
+        },
+        {
+          "tag": "h2",
+          "text": "7. Feedback"
+        },
+        {
+          "tag": "h2",
+          "text": "8. Disclaimer of warranties"
+        },
+        {
+          "tag": "h2",
+          "text": "9. Indemnification"
+        },
+        {
+          "tag": "h2",
+          "text": "10. Limitations of liability"
+        },
+        {
+          "tag": "h2",
+          "text": "11. Third party sites"
+        },
+        {
+          "tag": "h2",
+          "text": "12. Intellectual property"
+        },
+        {
+          "tag": "h2",
+          "text": "13. Copyright infringement"
+        },
+        {
+          "tag": "h2",
+          "text": "14. Dispute resolution ; arbitration; prohibition on class actions"
+        },
+        {
+          "tag": "h2",
+          "text": "15. Choice of law"
+        },
+        {
+          "tag": "h2",
+          "text": "16. Severability; Waiver"
+        },
+        {
+          "tag": "h2",
+          "text": "17. Electronic communications"
+        },
+        {
+          "tag": "h2",
+          "text": "18. Questions and feedback"
+        }
+      ],
+      "counts": {
+        "links": 34,
+        "images": 4,
+        "canvas": 0,
+        "forms": 1,
+        "buttons": 6
+      },
+      "linkCount": 34,
+      "screenshot": "screenshots/www.aescape.com-terms-of-use-4866d7ab.png",
+      "consoleErrors": []
+    },
+    {
+      "url": "https://www.aescape.com/store-terms",
+      "from": "https://www.aescape.com/packages",
+      "depth": 2,
+      "status": 200,
+      "title": "Aescape Privacy Policy",
+      "lang": "",
+      "metaDescription": "Read the Aescape Privacy Policy to understand how we collect, use, and protect your personal information.",
+      "h1": [],
+      "headings": [
+        {
+          "tag": "h2",
+          "text": "1. Introduction"
+        },
+        {
+          "tag": "h2",
+          "text": "2. Participating Locations"
+        },
+        {
+          "tag": "h2",
+          "text": "3. Delivery"
+        },
+        {
+          "tag": "h2",
+          "text": "4. No Expiration Date"
+        },
+        {
+          "tag": "h2",
+          "text": "5. No Fees"
+        },
+        {
+          "tag": "h2",
+          "text": "6. Promotional Value"
+        },
+        {
+          "tag": "h2",
+          "text": "7. Individual Massages"
+        },
+        {
+          "tag": "h2",
+          "text": "8. Account Creation"
+        },
+        {
+          "tag": "h2",
+          "text": "9. Subscriptions"
+        },
+        {
+          "tag": "h2",
+          "text": "10. Rescheduling and Cancellation"
+        },
+        {
+          "tag": "h2",
+          "text": "11. Refund Policy"
+        },
+        {
+          "tag": "h2",
+          "text": "12. Fraud"
+        },
+        {
+          "tag": "h2",
+          "text": "13. Not Valid with Other Offers"
+        },
+        {
+          "tag": "h2",
+          "text": "14. Lost or Stolen Certificates"
+        },
+        {
+          "tag": "h2",
+          "text": "15. Tracking Purchaser Information"
+        },
+        {
+          "tag": "h2",
+          "text": "16. Contact Information"
+        },
+        {
+          "tag": "h2",
+          "text": "17. Modifications"
+        },
+        {
+          "tag": "h2",
+          "text": "18. Governing Law"
+        },
+        {
+          "tag": "h2",
+          "text": "19. Acceptance of Terms"
+        }
+      ],
+      "counts": {
+        "links": 29,
+        "images": 4,
+        "canvas": 0,
+        "forms": 1,
+        "buttons": 6
+      },
+      "linkCount": 29,
+      "screenshot": "screenshots/www.aescape.com-store-terms-745f8d5f.png",
+      "consoleErrors": []
+    },
+    {
+      "url": "https://www.aescape.com/store-refund-policy",
+      "from": "https://www.aescape.com/packages",
+      "depth": 2,
+      "status": 200,
+      "title": "Aescape Privacy Policy",
+      "lang": "",
+      "metaDescription": "Read the Aescape Privacy Policy to understand how we collect, use, and protect your personal information.",
+      "h1": [],
+      "headings": [],
+      "counts": {
+        "links": 28,
+        "images": 4,
+        "canvas": 0,
+        "forms": 1,
+        "buttons": 6
+      },
+      "linkCount": 28,
+      "screenshot": "screenshots/www.aescape.com-store-refund-policy-002c3464.png",
+      "consoleErrors": []
+    }
+  ],
+  "skipped": []
+}

@@ -1,0 +1,104 @@
+{
+  "meta": {
+    "name": "Aescape",
+    "description": "Measured design DNA of www.aescape.com, captured as a read-only reference baseline. Values are observed computed values, not authored source tokens. The site is Framer-generated, so this DNA is a reconstruction from rendered output.",
+    "source_references": "https://www.aescape.com/",
+    "created_at": "2026-08-27",
+    "capture_method": "web-clone v1.6.0 — recon-site / route-crawl / interaction-probe / network-capture at 1440, 768, 390 px",
+    "confidence": {
+      "color": "high — read from CSS custom properties",
+      "typography": "high — read from Framer typography token sets",
+      "spacing": "low — Framer emits per-element absolute values, no spacing scale exists to extract",
+      "layout": "medium — inferred from rendered geometry, not from a declared grid",
+      "motion": "low — Framer runtime motion is not introspectable from computed styles"
+    }
+  },
+  "design_system": {
+    "color": {
+      "palette_type": "warm neutral base with a lavender primary and three saturated accents",
+      "primary": { "hex": "#9692ce", "role": "primary lavender; paired with #8e8acd and #b0addc as a 3-step ramp" },
+      "secondary": { "hex": "#000", "role": "near-black; the dominant dark band surface, confirmed visually at 1440px" },
+      "_token_not_dominant": { "hex": "#0c4837", "role": "deep green — present as a declared token but not observed as a major surface on the homepage; scope unverified" },
+      "accent": { "hex": "#e6bf5c", "role": "gold accent" },
+      "accent_alt": { "hex": "#c75c3f", "role": "terracotta accent" },
+      "neutral": {
+        "scale": "#000, #fff, #ede9e0",
+        "usage": "#ede9e0 is the dominant page ground (warm bone), not #fff; #fff is reserved for cards/inverted type"
+      },
+      "semantic": { "success": "", "warning": "", "error": "", "info": "" },
+      "surface": { "background": "#ede9e0", "card": "#fff", "inverted": "#000" },
+      "contrast_strategy": "alternating full-bleed bands: warm bone (#ede9e0), white, and near-black. Confirmed visually — the page reads as a light/dark band rhythm, with the lavender ramp carrying accent duty inside dark bands and accents used as small fills rather than large areas.",
+      "_measured_tokens": ["#9692ce", "#8e8acd", "#b0addc", "#ede9e0", "#0c4837", "#e6bf5c", "#c75c3f", "#fff", "#000"]
+    },
+    "typography": {
+      "type_scale": {
+        "display": { "size": "48px", "weight": "350", "line_height": "1.1em", "tracking": "-0.04em" },
+        "heading_1": { "size": "36px", "weight": "350", "line_height": "1.1em", "tracking": "-0.04em" },
+        "heading_2": { "size": "29px", "weight": "350", "line_height": "1.2em", "tracking": "-0.04em" },
+        "heading_3": { "size": "23px", "weight": "350", "line_height": "1.4em", "tracking": "-0.04em" },
+        "body": { "size": "16px", "weight": "700", "line_height": "1.4em", "tracking": "-0.02em" },
+        "body_small": { "size": "14px", "weight": "350", "line_height": "140%", "tracking": "-0.02em" },
+        "caption": { "size": "", "weight": "", "line_height": "", "tracking": "" },
+        "overline": { "size": "", "weight": "", "line_height": "", "tracking": "" }
+      },
+      "responsive_behaviour": {
+        "verified_example": "benefit-triad label",
+        "1440px": "29px / weight 500",
+        "768px": "23px / weight 700",
+        "390px": "23px / weight 700",
+        "pattern": "size decreases and weight increases together across the breakpoint; lost size is compensated with weight rather than allowed to lose emphasis",
+        "method": "direct DOM inspection at all three widths (not extractor output)"
+      },
+      "scale_notes": "Observed steps 14 / 16 / 23 / 29 / 36 / 48 px. Ratio between steps is ~1.24-1.28, close to a major-third scale but not exactly regular — consistent with values set by hand in a visual editor rather than generated from a ratio. Values captured at 1440px; Framer emits per-breakpoint overrides that were not enumerated.",
+      "font_families": {
+        "heading": "ABC Repro Screen (light/350 weights)",
+        "body": "ABC Repro (Regular / Medium / Bold)",
+        "italic_display": "Nyght Serif Medium Italic",
+        "ui_fallback": "Inter",
+        "mono": ""
+      },
+      "font_style_notes": "Tight negative tracking (-0.02 to -0.04em) across the whole scale. Headings run at weight 350 — light, large, and tight, which is the dominant typographic signature. OpenType features enabled: blwf, cv03, cv04, cv09, cv11.",
+      "LICENSING": "ABC Repro (ABC Dinamo) and Nyght Serif are commercial licensed faces. They were NOT downloaded and must NOT be reused. Substitute a licensed or open face when reconstructing. Inter is the only open face present."
+    },
+    "spacing": {
+      "base_unit": "",
+      "scale": "",
+      "content_density": "low — long vertical page with generous band padding",
+      "section_rhythm": "",
+      "_note": "No spacing scale could be extracted. Framer positions elements with absolute per-element values and hashed class names; there is no spacing token set in the CSS. Any spacing system for the rebuild has to be authored, not recovered."
+    },
+    "layout": {
+      "grid_system": "no declared grid; flex-based Framer stacks",
+      "max_content_width": "",
+      "columns": "",
+      "gutter": "",
+      "breakpoints": "measured at 1440 / 768 / 390; Framer's own breakpoints not enumerated from source",
+      "alignment_tendency": "centered content column inside full-bleed colored bands",
+      "_measured_page_height": { "1440px": "8417px", "768px": "12262px", "390px": "10541px" }
+    },
+    "shape": {
+      "border_radius": { "small": "", "medium": "", "large": "", "pill": "" },
+      "border_usage": "",
+      "divider_style": ""
+    },
+    "elevation": {
+      "shadow_style": "",
+      "levels": { "low": "", "medium": "", "high": "" },
+      "depth_cues": "colour-band separation rather than shadow"
+    },
+    "iconography": { "style": "", "weight": "", "size": "" },
+    "motion": {
+      "runtime": "Framer built-in motion runtime",
+      "libraries_detected": { "gsap": false, "lenis": false, "three": false, "react_declared": false },
+      "scroll_behaviour": "native scroll; no smooth-scroll hijack library detected",
+      "notes": "See MOTION_MAP.md. Framer's motion is driven by its runtime and is not recoverable from computed styles; durations and easings below are not measured and must not be treated as fact."
+    },
+    "media": {
+      "image_host": "framerusercontent.com",
+      "delivery": "query-string resizing, e.g. ?width=400&height=400",
+      "counts_at_1440": { "images": 37, "video": 5, "canvas": 0 },
+      "aspect_ratios_observed": ["1:1 (400x400 avatar/tile grid)"],
+      "_note": "No media files were downloaded. Dimensions only."
+    }
+  }
+}

@@ -1,0 +1,8 @@
+# Intermediate capture evidence from web-clone probes.
+# Excluded from version control: ~78MB of rendered screenshots of a third
+# party's copyrighted pages, plus the served HTML (their full page copy).
+# The derived analysis documents in this directory carry the findings.
+RAW/interactions/screenshots/
+RAW/routes/screenshots/
+RAW/network/fixtures/
+RAW/home.html

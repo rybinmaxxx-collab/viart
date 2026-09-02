@@ -1,0 +1,853 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ================================================================== *
+ * THEME TOKENS — the single source of truth for colour.
+ *
+ * Every colour on the site resolves to one of the channel triplets
+ * below. Nothing else names a hue: `tailwind.config.ts` maps its whole
+ * palette onto these variables with `rgb(var(--token) / <alpha-value>)`,
+ * so `bg-lav`, `text-white/60` and `border-gold/30` all repaint the
+ * moment a triplet changes here. Two presets ship, and switching between
+ * them is one attribute on <html> — nothing downstream is touched.
+ *
+ *   default            premium chocolate, bronze and warm champagne.
+ *                      Values taken from the reference deploy itself:
+ *                      ground #100905, plate #0d0704, ink #f4ecd8,
+ *                      gold #c9a84c, champagne #e4cc89.
+ *   [data-theme="rose"] powdered rose and cream, under the logo.
+ *
+ * Triplets are space-separated channels, never `rgb(...)` — that is what
+ * lets Tailwind slot an alpha into them.
+ * ================================================================== */
+:root {
+  color-scheme: dark;
+
+  /* ---- Ground -------------------------------------------------- */
+  /** The page ground: deep espresso. */
+  --c-base: 16 9 5;
+  /** A plate lifted off the ground — the price band's own darkness. */
+  --c-panel: 13 7 4;
+  /** A card lifted off a plate. */
+  --c-veil: 32 22 16;
+  /** Dark ink, for type on the few light surfaces. */
+  --c-ink: 16 9 5;
+  --c-black: 8 4 2;
+
+  /* ---- Ink ----------------------------------------------------- */
+  /**
+   * Warm cream, and it stands in for `white` throughout the theme.
+   * Pure white on espresso reads as a cold hole punched in the page;
+   * every `text-white`, `border-white/10` and `bg-white/[0.045]` on the
+   * site is this instead, which is what warms the whole surface at once.
+   *
+   * ── The ink ladder ──────────────────────────────────────────────────
+   *
+   * Secondary type is `text-white/NN`, and the ladder those NNs come from
+   * is fixed. It was rebalanced once, wholesale, and this is the record
+   * of it — the old value on the left, what the site uses now on the
+   * right, with the contrast each lands at against this ground:
+   *
+   *     100 → 100   #f4ecd8   15.5:1   headings
+   *      90 →  92             13.4:1   a quotation
+   *      85 →  88             12.4:1   navigation
+   *      75 →  84             11.4:1   an answer in the accordion
+   *      70 →  80             10.4:1   body copy
+   *      65 →  76              9.4:1   a lead under a heading
+   *      60 →  72              8.5:1   a review
+   *      55 →  68              7.6:1   an inactive tab
+   *      50 →  62              6.4:1   a caption
+   *      45 →  58              5.6:1   a field label
+   *      40 →  54              4.9:1   a footnote
+   *      35 →  48              4.1:1   an attribution line
+   *
+   * Every step is still below the one above it, so the hierarchy is the
+   * one that was designed. What changed is the floor. Cream is a warm,
+   * desaturated ink to begin with, and at 35–50% over espresso it loses
+   * the last of its colour and arrives as flat grey — legible on a
+   * contrast checker, invisible in a lit room on a phone. The lead
+   * paragraph under every band head was the worst of it.
+   *
+   * Anything below 48 is out of the ladder on purpose: if a line is not
+   * worth 4:1 it is not worth setting.
+   */
+  --c-cream: 244 236 216;
+
+  /* ---- Accent — warm matte gold ------------------------------- */
+  /** The interactive colour: buttons, bars, rules, active tabs. */
+  --c-accent: 201 168 76;
+  /** Only ever seen blurred, behind something. */
+  --c-accent-deep: 154 124 52;
+  /** Champagne — the only accent bright enough to set type in. */
+  --c-accent-soft: 228 204 137;
+
+  /**
+   * The second accent. It was aquamarine — the cold sapphire of the
+   * laser handpiece — and cold is exactly what this palette has no room
+   * for, so it is toasted almond now: still a step away from the gold,
+   * still legible as "the other one", and warm.
+   */
+  --c-second: 224 200 162;
+  --c-second-soft: 200 178 148;
+
+  --c-gold: 228 204 137;
+  /** Caramel, for the one band that wants heat rather than light. */
+  --c-clay: 168 106 68;
+  /**
+   * Pearl beige — the highlight in the near haze sheet, and the shaft of
+   * light across the top of it. Never a fill.
+   *
+   * There were five `--glow-N` variables here, one per colour pool in
+   * the old ambient field. The field is three sheets of haze now and
+   * each mixes its own gradients from the tokens above, so a pool no
+   * longer has a name of its own to be set by. See `.haze`.
+   */
+  --c-pearl: 245 235 224;
+
+  /* Motion tokens. One vocabulary for the whole site. */
+  --m-ease: cubic-bezier(0.16, 1, 0.3, 1);
+  --m-ease-back: cubic-bezier(0.34, 1.36, 0.5, 1);
+  --m-fast: 340ms;
+  --m-base: 720ms;
+  --m-slow: 1100ms;
+  --m-step: 70ms;
+}
+
+/**
+ * Preset two: powdered rose and cream, under the logo.
+ *
+ * Set `data-theme="rose"` on <html> and the entire site — bands, cards,
+ * buttons, drifting lights, ambient pools — comes up in powder and nude.
+ * Nothing below this block knows the difference. It is reached by URL
+ * (`/rose`, or `?theme=rose` on any page) and only by URL; see lib/theme.ts.
+ *
+ * The values are the logo's own, measured off it rather than mixed to
+ * taste: #d99b9b is the ashen rose the heart is drawn in, #e8b4b8 its
+ * highlight, and #f5e6da the warm powder cream of the ViART lettering —
+ * which is what `white` means for the length of this preset, so every
+ * `text-white/NN` on the site comes up nude with no markup change at all.
+ *
+ * The ground is #141113: graphite with a rose-mauve undertone. It is the
+ * quietest decision here and the one holding the palette up. Over espresso
+ * — or over the blue-grey graphite this site started on — a dusty rose
+ * turns muddy, because the undertones argue and the accent reads as brown;
+ * over a rose-mauve ground the same rose stays a rose. The two surfaces
+ * are the reference's card fills, #221a1e and the hover state it lifts to.
+ *
+ * Nothing gains saturation on the way in. This is a powder gamut, and the
+ * failure it guards against is a rose bright enough to read as pink neon
+ * — which would be a different preset wearing the logo's hue.
+ */
+:root[data-theme="rose"] {
+  --c-base: 20 17 19; /* #141113 */
+  --c-panel: 16 13 15; /* #100d0f — a plate, below the ground as above */
+  --c-veil: 34 26 30; /* #221a1e — the reference's card fill */
+  --c-ink: 20 17 19; /* type on a rose fill */
+  --c-black: 13 11 12; /* #0d0b0c */
+
+  /* The ViART lettering. The ink ladder above applies unchanged. */
+  --c-cream: 245 230 218; /* #f5e6da */
+
+  /* The drawn heart: the rose, the deep rose that is only ever seen
+     blurred behind something, and the highlight bright enough for type. */
+  --c-accent: 217 155 155; /* #d99b9b */
+  --c-accent-deep: 155 104 106; /* #9b686a */
+  --c-accent-soft: 232 180 184; /* #e8b4b8 */
+
+  /* The second accent, and the muted grey-mauve of the logo's subtitle —
+     the quietest mark the palette has. */
+  --c-second: 224 200 186; /* #e0c8ba */
+  --c-second-soft: 184 166 168; /* #b8a6a8 */
+
+  --c-gold: 224 195 154; /* #e0c39a — warm nude, where gold was */
+  --c-clay: 190 129 116; /* #be8174 — dusty terracotta */
+  --c-pearl: 250 242 234; /* #faf2ea */
+}
+
+/*
+ * `clip` rather than `hidden`.
+ *
+ * `overflow-x: hidden` on the root makes the element a scroll container,
+ * which quietly kills `position: sticky` inside it and lets a stray wide
+ * child be scrolled to. `clip` cuts the overflow without any of that — and
+ * it is the guard the whole page relies on, because the hero collage and
+ * the 9:16 rail both place things past the viewport edge on purpose.
+ */
+html,
+body {
+  overflow-x: clip;
+}
+
+body {
+  background: rgb(var(--c-base));
+  color: rgb(var(--c-cream));
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ================================================================== *
+ * ANCHOR LANDINGS
+ *
+ * The header is fixed, so an anchor that scrolls to its section's own
+ * top lands with the first line of that section underneath the bar.
+ * `scroll-margin-top` is the fix, and it belongs on every anchorable
+ * section rather than on the two that happened to carry a utility
+ * class — a menu item that lands wrong is a menu item that looks
+ * broken, whichever section it points at.
+ *
+ * The header runs 56–64px condensed; 88px clears it with the section's
+ * accent bar visible above the heading rather than flush to the bar.
+ * ================================================================== */
+section[id],
+[data-anchor] {
+  scroll-margin-top: 88px;
+}
+
+@media (min-width: 1024px) {
+  section[id],
+  [data-anchor] {
+    scroll-margin-top: 104px;
+  }
+}
+
+/* A strip that scrolls sideways without advertising it — the price tabs
+   on a phone, where the row is wider than the panel. */
+.no-scrollbar {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* ================================================================== *
+ * MOTION ENGINE
+ *
+ * How it works, and why it is built this way.
+ *
+ * The failure mode of a scroll-reveal system is not a missing flourish —
+ * it is a permanently blank section. So nothing is hidden in the
+ * server-rendered HTML. A tiny inline script in <head> sets
+ * `data-motion="on"` on <html> before first paint, and only then do the
+ * armed (hidden) states below apply. No script, or reduced motion, means
+ * no attribute, means everything renders plainly.
+ *
+ * One block = one observed element. `data-m` marks the block and carries
+ * its variant; `data-shown` is set when it enters view. Children inside
+ * the block animate off the parent's state via `data-mc` and stagger
+ * themselves with `--i`, so a section of twelve cards still costs exactly
+ * one IntersectionObserver entry.
+ * ================================================================== */
+
+[data-motion="on"] [data-m],
+[data-motion="on"] [data-mc] {
+  transition-property: opacity, transform, clip-path, filter;
+  transition-duration: var(--d, var(--m-base));
+  transition-timing-function: var(--e, var(--m-ease));
+}
+
+[data-motion="on"] [data-m] {
+  transition-delay: var(--delay, 0ms);
+}
+
+/* Children wait for their parent's own delay, then step off it. */
+[data-motion="on"] [data-mc] {
+  transition-delay: calc(var(--delay, 0ms) + var(--i, 0) * var(--step, var(--m-step)));
+}
+
+/* Compositor hints only while there is something left to animate. */
+[data-motion="on"] [data-m]:not([data-shown]),
+[data-motion="on"] [data-m]:not([data-shown]) [data-mc] {
+  will-change: opacity, transform;
+}
+
+/* ---- Armed states -------------------------------------------------- *
+ * Each variant is written once and applies both to a block (`data-m`)
+ * and to a child of an unrevealed block (`data-mc`).
+ * ------------------------------------------------------------------- */
+
+/* none — no motion of its own. A pure timing carrier: it holds the delay
+   and step for its children and flips `data-shown` for them to key off. */
+
+/* fade — the quiet one, for supporting copy. */
+[data-motion="on"] [data-m="fade"]:not([data-shown]),
+[data-motion="on"] [data-m]:not([data-shown]) [data-mc="fade"] {
+  opacity: 0;
+}
+
+/* rise — the default: lift into place. */
+[data-motion="on"] [data-m="rise"]:not([data-shown]),
+[data-motion="on"] [data-m]:not([data-shown]) [data-mc="rise"] {
+  opacity: 0;
+  transform: translate3d(0, 26px, 0);
+}
+
+/* curtain — uncovered from the top down, as if a shade is drawn open. */
+[data-motion="on"] [data-m="curtain"]:not([data-shown]),
+[data-motion="on"] [data-m]:not([data-shown]) [data-mc="curtain"] {
+  opacity: 0;
+  clip-path: inset(0 0 100% 0);
+  transform: translate3d(0, 14px, 0);
+}
+
+/* deal — cards dealt onto the table, hinged on their inner edge. */
+[data-motion="on"] [data-m="deal"]:not([data-shown]),
+[data-motion="on"] [data-m]:not([data-shown]) [data-mc="deal"] {
+  opacity: 0;
+  transform: translate3d(56px, 18px, 0) rotateY(-22deg) scale(0.93);
+  transform-origin: left center;
+}
+
+/* aperture — a frame that opens outwards to full width. */
+[data-motion="on"] [data-m="aperture"]:not([data-shown]),
+[data-motion="on"] [data-m]:not([data-shown]) [data-mc="aperture"] {
+  clip-path: inset(6% 22% 6% 22% round 40px);
+}
+[data-motion="on"] [data-m="aperture"],
+[data-motion="on"] [data-mc="aperture"] {
+  clip-path: inset(0 0 0 0 round 0px);
+}
+
+/* wipe — revealed left to right, for panels beside a column of text. */
+[data-motion="on"] [data-m="wipe"]:not([data-shown]),
+[data-motion="on"] [data-m]:not([data-shown]) [data-mc="wipe"] {
+  clip-path: inset(0 100% 0 0);
+  transform: scale(1.04);
+}
+[data-motion="on"] [data-m="wipe"],
+[data-motion="on"] [data-mc="wipe"] {
+  clip-path: inset(0 0 0 0);
+}
+
+/* zoom — media easing back to rest from slightly overscaled. */
+[data-motion="on"] [data-m="zoom"]:not([data-shown]),
+[data-motion="on"] [data-m]:not([data-shown]) [data-mc="zoom"] {
+  opacity: 0;
+  transform: scale(1.09);
+}
+
+/* pop — small objects with a little overshoot. */
+[data-motion="on"] [data-m="pop"]:not([data-shown]),
+[data-motion="on"] [data-m]:not([data-shown]) [data-mc="pop"] {
+  opacity: 0;
+  transform: scale(0.72);
+}
+[data-motion="on"] [data-m="pop"],
+[data-motion="on"] [data-mc="pop"] {
+  transition-timing-function: var(--m-ease-back);
+}
+
+/* flip — a step badge turning to face you. */
+[data-motion="on"] [data-m="flip"]:not([data-shown]),
+[data-motion="on"] [data-m]:not([data-shown]) [data-mc="flip"] {
+  opacity: 0;
+  transform: rotateX(-75deg) translate3d(0, 12px, 0);
+  transform-origin: center bottom;
+}
+
+/* settle — scattered notes straightening as they land. */
+[data-motion="on"] [data-m="settle"]:not([data-shown]),
+[data-motion="on"] [data-m]:not([data-shown]) [data-mc="settle"] {
+  opacity: 0;
+  transform: translate3d(0, 40px, 0) rotate(var(--rot, -3deg)) scale(0.96);
+}
+
+/* draw — a rule drawn out from its origin. */
+[data-motion="on"] [data-m="draw"]:not([data-shown]),
+[data-motion="on"] [data-m]:not([data-shown]) [data-mc="draw"] {
+  transform: scaleX(0);
+  transform-origin: left center;
+}
+
+/* drawCenter — a rule opening outwards from its middle. */
+[data-motion="on"] [data-m="drawCenter"]:not([data-shown]),
+[data-motion="on"] [data-m]:not([data-shown]) [data-mc="drawCenter"] {
+  transform: scaleX(0);
+  transform-origin: center center;
+}
+
+/* drawY — the same, vertically. */
+[data-motion="on"] [data-m="drawY"]:not([data-shown]),
+[data-motion="on"] [data-m]:not([data-shown]) [data-mc="drawY"] {
+  transform: scaleY(0);
+  transform-origin: top center;
+}
+
+/* slab — a whole plate settling into the page. */
+[data-motion="on"] [data-m="slab"]:not([data-shown]) {
+  opacity: 0;
+  transform: translate3d(0, 56px, 0) scale(0.965);
+}
+
+/* focus — arriving out of soft focus. Used sparingly: blur is expensive. */
+[data-motion="on"] [data-m="focus"]:not([data-shown]),
+[data-motion="on"] [data-m]:not([data-shown]) [data-mc="focus"] {
+  opacity: 0;
+  filter: blur(16px);
+  transform: translate3d(var(--fx, 0), 22px, 0) scale(1.05);
+}
+
+/* Directional entry, composable with `rise`. */
+[data-motion="on"] [data-m]:not([data-shown]) [data-mc="fromLeft"] {
+  opacity: 0;
+  transform: translate3d(-40px, 0, 0);
+}
+[data-motion="on"] [data-m]:not([data-shown]) [data-mc="fromRight"] {
+  opacity: 0;
+  transform: translate3d(40px, 0, 0);
+}
+
+/* ---- Split headings ------------------------------------------------ *
+ * Words ride up out of their own mask. The split happens at render on
+ * the server, so there is nothing for hydration to disagree about.
+ * ------------------------------------------------------------------- */
+.m-word {
+  display: inline-block;
+  overflow: hidden;
+  vertical-align: bottom;
+  padding-bottom: 0.14em;
+  margin-bottom: -0.14em;
+}
+
+.m-word > span {
+  display: inline-block;
+  transition:
+    transform var(--m-slow) var(--m-ease),
+    opacity var(--m-base) var(--m-ease);
+  transition-delay: calc(var(--delay, 0ms) + var(--i, 0) * 62ms);
+}
+
+[data-motion="on"] [data-m]:not([data-shown]) .m-word > span {
+  transform: translate3d(0, 115%, 0);
+  opacity: 0;
+}
+
+/* ---- Perspective for the 3D variants ------------------------------- */
+.m-stage {
+  perspective: 1200px;
+  perspective-origin: 50% 40%;
+}
+
+/* ================================================================== *
+ * TEXTURE
+ * ================================================================== */
+
+/*
+ * Fine film grain, once, over the whole page.
+ *
+ * It used to be applied per band, which was the wrong place for it twice
+ * over: it needed a background to overlay, and it stopped at each band's
+ * edge — so wherever two bands met, the grain restarted and drew a seam
+ * across the page. One fixed layer in the ambient field has no edges to
+ * show. One data URI, no request.
+ */
+.grain {
+  position: fixed;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  opacity: 0.4;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)' opacity='0.42'/%3E%3C/svg%3E");
+}
+
+/* A soft warm bloom, placed behind content. */
+.bloom {
+  position: absolute;
+  border-radius: 9999px;
+  pointer-events: none;
+  filter: blur(70px);
+  opacity: 0.5;
+}
+
+/* ================================================================== *
+ * AMBIENT FIELD — the one background the whole site sits on.
+ *
+ * A fixed layer behind every band: three full-bleed sheets of haze,
+ * drifting across one another at their own rates. Bands above it are
+ * translucent, so the same field shows through the entire page rather
+ * than each section carrying its own decoration.
+ *
+ * Nothing in it is a shape. See `.haze` below, and the note in
+ * `components/AmbientField` for the two attempts that were.
+ * ================================================================== */
+.field {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+  /* Written by script; 0 until then, and permanently 0 on touch. */
+  --fx: 0px;
+  --fy: 0px;
+}
+
+/*
+ * A sheet of haze. Three of them make the field.
+ *
+ * ── What this replaced, and why twice ─────────────────────────────────
+ *
+ * First there were six glass spheres. An object has an edge, and on
+ * espresso every colour available to draw that edge with — the fill, the
+ * rim, the ground behind it — is one hue at three darknesses, so a
+ * sphere came out a brown ball. Then there were six edgeless pools of
+ * light, which fixed the mud and not the problem: a background made of
+ * countable things asks to be counted, and while the eye is counting it
+ * is not reading the page.
+ *
+ * A sheet is not a thing. It is full-bleed, it has no boundary anywhere
+ * inside the viewport, and there is nothing in it to look at directly.
+ * What you get instead is depth, which is what the spheres were only
+ * ever a pretext for.
+ *
+ * ── Where the volume comes from ───────────────────────────────────────
+ *
+ * Dispersion, in the ordinary sense: three sheets, each a stack of very
+ * wide gradients in a different part of the warm range — champagne,
+ * gold, caramel, pearl — overlapping so that no single hue is anywhere
+ * on its own, and sliding across one another at three different rates.
+ * One warm wash on a brown ground is brown. Three at different densities
+ * and different speeds separate into something with air in it.
+ *
+ * The near sheet carries the only directional element in the field, a
+ * soft shaft down from the top corner. Without it the haze reads as fog;
+ * with it, as light.
+ *
+ * ── The two transforms, and why they are on two elements ──────────────
+ *
+ * `.haze` carries the drift: `--hx`/`--hy` are a *sine* of the scroll
+ * position rather than a multiple of it, written by script, plus the
+ * pointer offset scaled by `--depth`. Sine because a sheet that is
+ * simply pushed along has to be wrapped when it runs out, and a wrap in
+ * something this large is a visible jump; a periodic position is bounded
+ * and continuous and never seams.
+ *
+ * `.haze-body` carries the paint and one very slow keyframe, so the room
+ * breathes when nothing is being scrolled or hovered. It has to be a
+ * second element: script already owns the transform on the parent, and
+ * two writers of one property is one too many.
+ *
+ * `inset: -30%` gives the travel room — at most 14% of the viewport —
+ * so no edge ever comes into view. And there is no `filter: blur()`
+ * anywhere in here: softness is in the gradient stops, which costs the
+ * compositor nothing per frame.
+ */
+.haze {
+  position: absolute;
+  inset: -30%;
+  transform: translate3d(
+    calc(var(--hx, 0px) + var(--fx) * var(--depth, 1)),
+    calc(var(--hy, 0px) + var(--fy) * var(--depth, 1)),
+    0
+  );
+  will-change: transform;
+}
+
+.haze-body {
+  position: absolute;
+  inset: 0;
+  animation-name: haze-swim;
+  animation-timing-function: cubic-bezier(0.45, 0, 0.55, 1);
+  animation-iteration-count: infinite;
+  will-change: transform;
+}
+
+/*
+ * The breath. Small enough that you cannot catch it moving, large enough
+ * that a screenshot taken a minute apart is a different room.
+ */
+@keyframes haze-swim {
+  from {
+    transform: translate3d(-1.5%, 1%, 0) scale(1.04);
+  }
+  to {
+    transform: translate3d(1.5%, -1.5%, 0) scale(1.12);
+  }
+}
+
+/* Hairline that reads as a seam between plates. */
+.seam {
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgb(var(--c-accent)) 18%,
+    rgb(var(--c-accent)) 82%,
+    transparent
+  );
+  opacity: 0.35;
+}
+
+/* ================================================================== *
+ * COMPONENTS
+ * ================================================================== */
+
+/* Buttons — a fill that wipes in from the bottom on hover. */
+.btn {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  transition:
+    color 0.3s ease,
+    border-color 0.3s ease,
+    transform 0.35s var(--m-ease);
+}
+
+.btn::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  transform: scaleY(0);
+  transform-origin: bottom;
+  transition: transform 0.4s var(--m-ease);
+}
+
+.btn:hover::before,
+.btn:focus-visible::before {
+  transform: scaleY(1);
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+}
+
+.btn:active {
+  transform: translateY(0);
+}
+
+.hover-fade {
+  transition: opacity 0.3s ease;
+}
+
+.hover-fade:hover {
+  opacity: 0.7;
+}
+
+/* Cards lift on hover — the one interaction repeated everywhere. */
+.card-lift {
+  transition:
+    transform 0.5s var(--m-ease),
+    box-shadow 0.5s var(--m-ease),
+    border-color 0.5s var(--m-ease);
+}
+
+.card-lift:hover {
+  transform: translateY(-6px);
+  /* Lit rather than shadowed: on espresso a darker shadow is invisible,
+     so the lift reads as the card catching the gold field instead. */
+  box-shadow: 0 26px 60px -34px rgb(var(--c-accent) / 0.6);
+  border-color: rgb(var(--c-accent) / 0.35);
+}
+
+/* Media tiles: the image inside creeps as the tile is hovered. */
+.tile-zoom > * {
+  transition: transform 0.9s var(--m-ease);
+}
+
+.tile-zoom:hover > * {
+  transform: scale(1.05);
+}
+
+/* ---- Video scrubber ------------------------------------------------ *
+ * The track itself is painted by an inline gradient (it has to follow
+ * playback), so all that is left here is the handle — small enough not to
+ * sit on the picture, large enough to grab.
+ * ------------------------------------------------------------------- */
+.video-scrub::-webkit-slider-thumb {
+  appearance: none;
+  width: 11px;
+  height: 11px;
+  border-radius: 9999px;
+  background: #fff;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.6);
+}
+
+.video-scrub::-moz-range-thumb {
+  width: 11px;
+  height: 11px;
+  border: 0;
+  border-radius: 9999px;
+  background: #fff;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.6);
+}
+
+/* ---- Hero scatter --------------------------------------------------- *
+ * The six squares are placed and still while the first screen is the
+ * screen. As it is scrolled away they break formation — outwards along
+ * their own vector, turning slightly, growing and fading — so the band
+ * underneath arrives on clear ground instead of reading through them.
+ *
+ * `--sx`, `--sy`, `--rot` and `--s` are per-tile constants set in the
+ * markup; `--t` is the single progress value the driver writes on the
+ * section, 0 at the top of the page and 1 at 120vh. One variable written
+ * per frame, six transforms recomputed by the compositor.
+ * ------------------------------------------------------------------- */
+/* The default lives on the section, not on the tiles: a declaration on the
+   element itself beats an inherited one, so `--t: 0` here would have made
+   the tiles permanently ignore what the driver writes on their ancestor. */
+[data-hero] {
+  --t: 0;
+}
+
+.scatter {
+  transform: translate3d(calc(var(--sx, 0px) * var(--t)), calc(var(--sy, 0px) * var(--t)), 0)
+    rotate(calc(var(--rot, 0deg) * var(--t))) scale(calc(1 + var(--s, 0.15) * var(--t)));
+  opacity: calc(1 - var(--t));
+}
+
+/* ---- 9:16 stories rail ---------------------------------------------- *
+ * A drifting rail on a pointer device, a swipeable snap strip on a touch
+ * one — the same markup either way. See components/StoriesRail.
+ *
+ * This is the one thing on the page that still travels on its own, and it
+ * earns it: it is a gallery, the movement is what shows you there is more
+ * of it, and it stops the moment you touch it or open a photo.
+ * ------------------------------------------------------------------- */
+.stories {
+  display: flex;
+  width: max-content;
+  animation: stories-drift 72s linear infinite;
+}
+
+.stories:hover,
+.stories:focus-within,
+.stories[data-paused="1"] {
+  animation-play-state: paused;
+}
+
+@keyframes stories-drift {
+  to {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+/*
+ * Soft edges rather than a cut.
+ *
+ * The rail used to end at a hard vertical line on both sides, so photos
+ * appeared out of nothing and vanished into nothing. Fading the mask out
+ * over the last 8% turns that cut into an edge the pictures travel past.
+ */
+.rail-mask {
+  -webkit-mask-image: linear-gradient(to right, transparent, #000 8%, #000 92%, transparent);
+  mask-image: linear-gradient(to right, transparent, #000 8%, #000 92%, transparent);
+}
+
+/* The travelling mark in the hero's scroll hint. */
+@keyframes scroll-dot {
+  0% {
+    transform: translateY(-100%);
+  }
+  60%,
+  100% {
+    transform: translateY(300%);
+  }
+}
+
+/* ---- Scroll progress rail ------------------------------------------ */
+.rail-fill {
+  transform-origin: top center;
+  transform: scaleY(var(--progress, 0));
+}
+
+/* ---- Count-up figures keep their own width -------------------------- */
+.tnum {
+  font-variant-numeric: tabular-nums;
+}
+
+/* ================================================================== *
+ * TOUCH DEVICES — the expensive effects come off entirely.
+ *
+ * Everything below is either driven by a pointer that does not exist on
+ * a phone, or is a compositor cost with no payoff on one: the ambient
+ * field's parallax and the hero scatter.
+ *
+ * Two things that used to be neutralised here are gone from the
+ * stylesheet entirely: the `backdrop-filter` behind six glass spheres,
+ * and the 120px `filter: blur()` on five colour pools. Both were paid
+ * for every frame. The field is three gradients on the compositor now,
+ * and on a phone even those hold still.
+ * ================================================================== */
+@media (hover: none) and (pointer: coarse) {
+  /* The haze holds its paint and stops drifting: three composited
+     transforms a phone does not need while it is scrolling. The breath
+     goes with them — an infinite keyframe is a frame budget spent on
+     something nobody is looking at. */
+  .haze {
+    transform: none !important;
+  }
+
+  .haze-body {
+    animation: none;
+    transform: scale(1.08);
+  }
+
+  .scatter {
+    transform: none !important;
+    opacity: 1 !important;
+  }
+
+  /* Hover-only affordances never fire on touch, and leaving them armed
+     means a tap can stick one open. */
+  .card-lift:hover,
+  .btn:hover {
+    transform: none;
+  }
+
+  .tile-zoom:hover > * {
+    transform: none;
+  }
+
+  /* The rail is a swipe on a phone, not a marquee — an animated track and
+     a finger dragging the same element fight each other. */
+  .stories {
+    animation: none;
+  }
+}
+
+/* ================================================================== *
+ * REDUCED MOTION — everything above collapses to "already there".
+ * ================================================================== */
+@media (prefers-reduced-motion: reduce) {
+  [data-motion] [data-m],
+  [data-motion] [data-mc],
+  .m-word > span {
+    opacity: 1 !important;
+    transform: none !important;
+    clip-path: none !important;
+    filter: none !important;
+    transition: none !important;
+  }
+
+  .btn::before,
+  .hover-fade,
+  .card-lift,
+  .tile-zoom > *,
+  .haze {
+    transition: none;
+  }
+
+  .haze-body {
+    animation: none;
+  }
+
+  .btn:hover,
+  .card-lift:hover {
+    transform: none;
+  }
+
+  .haze,
+  .scatter {
+    transform: none !important;
+  }
+
+  .scatter {
+    opacity: 1 !important;
+  }
+
+  .stories {
+    animation: none;
+  }
+}
