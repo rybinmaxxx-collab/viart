@@ -79,6 +79,7 @@ export function VideoTile({
 }) {
   const video = useRef<HTMLVideoElement>(null);
   const scrub = useRef<HTMLInputElement>(null);
+  const frame = useRef<HTMLDivElement>(null);
   const [expanded, setExpanded] = useState(false);
   const [muted, setMuted] = useState(true);
   const [hovered, setHovered] = useState(false);
@@ -95,6 +96,22 @@ export function VideoTile({
    * poster frame sits there and nothing plays.
    */
   const [pointer, setPointer] = useState<boolean | null>(null);
+
+  /**
+   * Is the tile far enough onto the screen to be worth playing?
+   *
+   * On a touch device a clip loops by itself — there is no hover to start
+   * it with — and that used to mean it started the moment a sliver of it
+   * cleared the bottom edge. Three of them did it at once, several screens
+   * before anyone could see them, and what the visitor got when they
+   * finally arrived was three clips already halfway through.
+   *
+   * Three quarters of the tile is the bar. It is the point at which the
+   * frame reads as the thing you are looking at rather than as something
+   * at the edge of the page, and it is what the studio asked for: the clip
+   * starts when the block has arrived, not while it is arriving.
+   */
+  const [inView, setInView] = useState(false);
 
   /**
    * What the element should be doing, kept outside React.
@@ -116,6 +133,43 @@ export function VideoTile({
 
   useEffect(() => {
     setPointer(window.matchMedia("(hover: hover) and (pointer: fine)").matches);
+  }, []);
+
+  /**
+   * Watch how much of the frame is actually on screen.
+   *
+   * Area, not height: in the phone gallery the clips are side by side on a
+   * horizontal scroller, and a neighbour that is half off the right edge
+   * has its full height in view while being the wrong clip entirely. Area
+   * counts both directions, so only the one on the centre snap point
+   * passes.
+   *
+   * The second term is the escape hatch for a frame taller than the window
+   * — a 9:16 clip at full width on a short screen can never show three
+   * quarters of itself, and without it such a tile would never play at
+   * all. Its own share of the screen stands in for it.
+   */
+  useEffect(() => {
+    const el = frame.current;
+    if (!el) return;
+
+    const io = new IntersectionObserver(
+      ([entry]) => {
+        const box = entry.boundingClientRect;
+        const shown = entry.intersectionRect.width * entry.intersectionRect.height;
+        const bar = Math.min(
+          box.width * box.height * 0.75,
+          window.innerWidth * window.innerHeight * 0.55,
+        );
+        setInView(shown > 0 && shown >= bar);
+      },
+      // A ladder rather than one step: the callback runs on each crossing,
+      // and with a single 0.75 threshold a tile that stops just short of
+      // the bar never reports again.
+      { threshold: [0, 0.25, 0.5, 0.65, 0.75, 0.85, 1] },
+    );
+    io.observe(el);
+    return () => io.disconnect();
   }, []);
 
   /**
@@ -160,14 +214,19 @@ export function VideoTile({
    * are watching it.
    *
    * On a touch device there is no hover to trigger a preview and a still
-   * frame gives no sign there is anything to play, so a phone keeps the
-   * old behaviour: it loops, silently, as before.
+   * frame gives no sign there is anything to play, so a phone loops the
+   * clip silently — but only once three quarters of the frame is on
+   * screen, and it stops again when it leaves. See `inView`: a clip that
+   * starts playing while it is still a strip at the bottom of the screen
+   * is a clip whose opening seconds nobody sees.
    */
   useEffect(() => {
     playback.current.playing =
-      pointer === null ? false : expanded || hovered || !muted || pointer === false;
+      pointer === null
+        ? false
+        : expanded || hovered || !muted || (pointer === false && inView);
     sync();
-  }, [pointer, expanded, hovered, muted, sync]);
+  }, [pointer, expanded, hovered, muted, inView, sync]);
 
   // Leave a way for another tile to silence this one.
   useEffect(() => {
@@ -315,6 +374,10 @@ export function VideoTile({
         onBlur={() => setHovered(false)}
       >
         <div
+          // The frame itself is what is watched for playback, not the
+          // figure around it: the caption under it is not the clip, and
+          // counting it would move the three-quarter mark.
+          ref={frame}
           className={`relative overflow-hidden rounded-2xl border border-white/12 shadow-[0_30px_70px_-40px_rgba(0,0,0,0.9)] transition-opacity duration-300 ${
             expanded ? "opacity-25" : "opacity-100"
           }`}

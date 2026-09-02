@@ -30,6 +30,26 @@ const config: Config = {
        * in a utility, so `bg-lav/20` and `border-white/12` keep working
        * exactly as they did while the hue behind them is one variable.
        *
+       * ── One trap in the opacity modifier ────────────────────────────
+       *
+       * Tailwind's opacity scale runs in fives, and a modifier that is
+       * not on it emits *nothing at all*. `bg-lav/20` and `text-white/80`
+       * are rules; `text-white/72`, `bg-base/62` and `via-base/48` are
+       * silently no classes — the element inherits its parent's colour,
+       * or the layer is simply not painted. There is no warning: the
+       * class is in the markup and nothing stands behind it.
+       *
+       * So the ink ladder in the header of `app/globals.css` — 92, 88,
+       * 84, 76, 72, 68, 62, 58, 54, 48 — is written all over the site and
+       * is, apart from 80, not in the stylesheet at all: those lines
+       * render at the inherited cream rather than at their intended
+       * weight. Nothing here changes that, because turning the ladder on
+       * would take the contrast down on every page at once — that is a
+       * decision about how the site looks, not a build fix, and it is the
+       * studio's to make. Until it is made, any value off the scale that
+       * genuinely has to apply is written in brackets, as an arbitrary
+       * value: `bg-base/[0.62]`.
+       *
        * The names are unchanged on purpose: `lav` is the accent wherever
        * it appears in the markup, and renaming it across four hundred
        * class lists would have been a refactor pretending to be a

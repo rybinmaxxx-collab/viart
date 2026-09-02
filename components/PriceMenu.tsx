@@ -182,8 +182,29 @@ export function PriceMenu() {
 function PriceRow({ name, price }: { name: string; price: string }) {
   return (
     <div className="flex flex-wrap items-baseline gap-x-4 gap-y-1 border-b border-white/10 py-3">
-      <dt className="min-w-0 flex-1 text-body text-white/84">{name}</dt>
-      <dd className="shrink-0 text-body font-semibold tabular-nums text-white">{price}</dd>
+      {/*
+        The name may shrink, but not below a readable column, and that
+        floor is what makes the row work on a phone.
+
+        Almost every figure here is four characters wide, and against
+        those a name that shrinks to fit is the right behaviour. One is
+        not: «первое посещение 1 500 ₽, далее 2 500 ₽» on the massage tab
+        is a whole sentence in the price column, and it is wider than a
+        390px phone leaves inside this panel. With the name free to
+        shrink to nothing, the row honoured the figure and crushed
+        «Вибромассаж TURBO G8 «Коррекция фигуры»» into a stack of single
+        letters — and still ran off the right-hand edge.
+
+        A 9rem floor under the name means that row can no longer be
+        satisfied on one line, so it wraps at the flex level instead: the
+        name keeps its column, the sentence drops underneath it and ranges
+        right, and both are read whole. Every other row is unchanged —
+        they fit, so they never reach the floor.
+      */}
+      <dt className="min-w-[9rem] flex-1 text-body text-white/84">{name}</dt>
+      <dd className="ml-auto max-w-full shrink-0 text-right text-body font-semibold tabular-nums text-white">
+        {price}
+      </dd>
       <a
         href={pricing.primary.href}
         target="_blank"
