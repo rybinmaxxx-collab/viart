@@ -14,6 +14,25 @@
  *      staying blank.
  */
 
+/**
+ * How far below the fold a block is armed, as a share of the viewport.
+ *
+ * It used to be zero on both paths — a block started its transition at the
+ * moment a hair of it crossed the bottom edge. On a desktop screen that is
+ * invisible; on a phone it is the single most-reported flaw in the page.
+ * The lone button under a band of tall tiles is the case: it enters view
+ * six pixels at a time, so its half-second rise plays out entirely inside
+ * those six pixels and the button is simply *there*, already arrived, by
+ * the time enough of it is on screen to see — or worse, still faded out
+ * while a thumb is already reaching for it.
+ *
+ * Starting a fifth of a screen early means the travel happens off-stage and
+ * what arrives at the bottom edge is a finished element. Nothing is armed
+ * earlier than that: a block a whole screen ahead would have played its
+ * reveal to nobody.
+ */
+const LEAD = 0.2;
+
 const pending = new Set<HTMLElement>();
 const callbacks = new WeakMap<HTMLElement, () => void>();
 
@@ -35,8 +54,9 @@ function sweep() {
   const h = window.innerHeight;
   for (const el of Array.from(pending)) {
     const r = el.getBoundingClientRect();
-    // Visible, or scrolled past — either way it has had its moment.
-    if (r.top < h * 0.94 && r.bottom > 0) fire(el);
+    // About to be visible, visible, or scrolled past — either way it has
+    // had its moment.
+    if (r.top < h * (1 + LEAD) && r.bottom > 0) fire(el);
   }
 }
 
@@ -67,9 +87,12 @@ function observer() {
         if (e.isIntersecting) fire(e.target as HTMLElement);
       }
     },
-    // A hair of the element is enough. No negative bottom margin: an
-    // element at the very end of the page has no scroll left to clear one.
-    { threshold: 0.06 }
+    // A hair of the element is enough, and the root is stretched a fifth
+    // of a screen *downwards* so that hair counts a moment before it
+    // arrives — see LEAD. The margin is positive on purpose: a negative
+    // one would demand extra scroll an element at the very end of the page
+    // does not have, and would leave the last band hidden.
+    { threshold: 0.06, rootMargin: `0px 0px ${Math.round(LEAD * 100)}% 0px` }
   );
   return io;
 }

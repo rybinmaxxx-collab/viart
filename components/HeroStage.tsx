@@ -119,6 +119,18 @@ export function HeroStage() {
         whole picture back and a vertical gradient to bury the bottom edge
         into the page, so white text at 38px sits on something close to
         solid rather than on a photograph.
+
+        Read back on a phone in daylight, that was still not enough. The
+        shot is a high-contrast one — lit spheres against black — and the
+        heading crossed both at once: the light patches ate the cream type
+        and the dark ones swallowed the subtitle under it. Three things
+        answer it, and all three are needed. The picture itself is taken
+        down in brightness and contrast, so its own range is narrower
+        before anything is laid over it; the flat scrim is heavier; and the
+        gradient's middle stop, which used to be nearly clear exactly where
+        the heading sits, now carries most of the band. The photograph is
+        still legible as a photograph — it is just no longer competing with
+        the sentence on top of it.
       */}
       <div aria-hidden className="absolute inset-0 -z-10 lg:hidden">
         {/*
@@ -137,10 +149,16 @@ export function HeroStage() {
           loading="eager"
           fetchPriority="high"
           decoding="async"
-          className="h-full w-full object-cover object-[62%_38%]"
+          className="h-full w-full object-cover object-[62%_38%] brightness-[0.85] contrast-[0.9]"
         />
-        <div className="absolute inset-0 bg-base/60" />
-        <div className="absolute inset-0 bg-gradient-to-b from-base via-base/25 to-base" />
+        {/* Bracketed opacities, and they have to be: Tailwind only emits
+            the modifiers on its own opacity scale, so `bg-base/62` and
+            `via-base/48` compile to nothing at all — the flat layer would
+            vanish and the gradient would collapse to solid ground with
+            the photograph behind it invisible. `/[0.62]` is an arbitrary
+            value and is always emitted. */}
+        <div className="absolute inset-0 bg-base/[0.62]" />
+        <div className="absolute inset-0 bg-gradient-to-b from-base via-base/[0.48] to-base" />
       </div>
 
       {/* The ambient field carries the light for this screen as it does for
@@ -325,7 +343,13 @@ function HeroText({ leadWords }: { leadWords: number }) {
 
       <Reveal variant="none" delay={620} step={110}>
         <M variant="rise" i={0}>
-          <p className="mx-auto mt-7 max-w-xl text-lead leading-relaxed text-white/80">
+          {/* Full cream below `lg`, and only there: this is the one
+              paragraph on the site set over a photograph rather than over
+              the ambient field, and the weight that reads as settled on
+              the flat ground reads as faint on top of a picture. Above
+              `lg` the collage takes over from the backdrop and the
+              paragraph goes back to the page's normal 80%. */}
+          <p className="mx-auto mt-7 max-w-xl text-lead leading-relaxed text-white lg:text-white/80">
             {hero.subtitle}
           </p>
         </M>

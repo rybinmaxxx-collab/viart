@@ -6,6 +6,7 @@ import { HeroStage } from "@/components/HeroStage";
 import { PriceMenu } from "@/components/PriceMenu";
 import { StoriesRail } from "@/components/StoriesRail";
 import { VideoTile } from "@/components/VideoTile";
+import { ReelCarousel } from "@/components/ReelCarousel";
 import {
   values,
   process,
@@ -158,7 +159,14 @@ export default function Home() {
           ))}
         </Reveal>
 
-        <Reveal variant="rise" delay={300} className="mt-14 text-center">
+        {/* No delay on this one, and none on the equipment button below.
+            The delay was written as if the button were staggered off the
+            tiles above it — but it is its own reveal block, observed on
+            its own, and by the time it is watched the tiles are long
+            finished. All the delay bought was a button that sat blank for
+            a third of a second after it came into view, which on a phone
+            is exactly where the thumb already is. */}
+        <Reveal variant="rise" className="mt-14 text-center">
           <Button href={process.cta.href}>{process.cta.label}</Button>
         </Reveal>
       </Band>
@@ -179,7 +187,7 @@ export default function Home() {
           ))}
         </Reveal>
 
-        <Reveal variant="rise" delay={260} className="mt-12 text-center">
+        <Reveal variant="rise" className="mt-12 text-center">
           <Button href={equipment.cta.href}>{equipment.cta.label}</Button>
           <p className="mt-4 text-cap text-white/58">{equipment.note}</p>
         </Reveal>
@@ -209,32 +217,13 @@ export default function Home() {
         </Reveal>
 
         {/*
-          Three 9:16 reels. Three columns across a 390px phone is 117px
-          each — too small to see what is in them and too small to hit the
-          sound button — so below `md` the row becomes a swipeable strip at
-          62vw a frame and stays a row of three from there up.
+          Three 9:16 reels — a row here, one clip at a time on a phone.
+          The gallery and the reason for it are in `ReelCarousel`; the
+          reveal block stays out here so the three still stagger in as one
+          group, which they do at any depth below it.
         */}
-        <Reveal
-          variant="none"
-          step={140}
-          className="-mx-5 mt-16 flex snap-x snap-mandatory gap-4 overflow-x-auto px-5 pb-2 [scrollbar-width:none] md:mx-0 md:grid md:grid-cols-3 md:gap-6 md:overflow-visible md:px-0 md:pb-0 [&::-webkit-scrollbar]:hidden"
-        >
-          {proof.gallery.map((clip, i) => (
-            <M
-              key={clip.label}
-              variant="rise"
-              i={i}
-              duration={950}
-              className="w-[62vw] shrink-0 snap-center sm:w-[46vw] md:w-auto"
-            >
-              <VideoTile
-                src={clip.src}
-                poster={clip.poster}
-                label={clip.label}
-                caption={clip.caption}
-              />
-            </M>
-          ))}
+        <Reveal variant="none" step={140} className="mt-16">
+          <ReelCarousel clips={proof.gallery} />
         </Reveal>
       </Band>
 
