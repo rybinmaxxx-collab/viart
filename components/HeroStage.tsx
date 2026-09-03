@@ -59,24 +59,22 @@ export function HeroStage() {
           className="h-full w-full object-cover object-[62%_38%]"
         />
         {/*
-          Two scrim layers, and every number in them is a multiple of five.
-          That is not taste, it is the only thing that works.
-          ────────────────────────────────────────────────────────────────
-          The flat layer read `bg-base/60` and had never painted a single
-          pixel. Tailwind's opacity scale is 0–100 in steps of five, and an
-          off-scale modifier is not an error — the class is simply never
-          generated, the element keeps a transparent background, and the
-          page looks exactly like a page whose scrim is too weak. That is
-          the whole reason the heading was hard to read: it was sitting on
-          the bare photograph with only the gradient over it, and the
-          gradient thins to its weakest point precisely where the type is.
+          Three scrim layers, and every opacity in them is a multiple of
+          five. That is not taste, it is the only thing that works: the
+          flat layer read `bg-base/60` and had never painted a pixel,
+          because Tailwind's opacity scale runs 0–100 in steps of five and
+          an off-scale modifier is not an error — the class is simply never
+          generated and the element keeps a transparent background. Keep
+          new values on the scale, or write them as `bg-base/[0.72]`.
 
-          The flat layer keeps the 60% it always meant to have — it just
-          paints now — and the gradient's middle stop goes from 25% to 50%,
-          which is the half of the change you can actually see. Together
-          that is 80% ink under the heading: enough that the type reads as
-          type on a ground, little enough that the photograph is still a
-          room and a handpiece rather than a texture.
+          Flat ink, then the vertical gradient that buries the top and
+          bottom edges into the page, then `hero-pool` — an ellipse of ink
+          under the text column, opaque in the middle and gone by the edges
+          of the screen. The pool is what makes the heading readable and
+          the reason the first two layers could come *down* to 50 and 30:
+          quieting the whole photograph enough to read type over it left no
+          photograph. The long version of why is on `.hero-pool` in
+          `app/globals.css`.
 
           Darkening the picture rather than lightening the type is the
           right way round. `text-white` in this palette is warm cream at a
@@ -84,12 +82,10 @@ export function HeroStage() {
           contract for the whole site; lifting the hero above it would make
           this one screen the exception. The photograph has no such
           contract.
-
-          If you change these, keep them on the five-step scale or write
-          them as `bg-base/[0.72]`. A bare `/72` fails silently.
         */}
-        <div className="absolute inset-0 bg-base/60" />
-        <div className="absolute inset-0 bg-gradient-to-b from-base via-base/50 to-base" />
+        <div className="absolute inset-0 bg-base/50" />
+        <div className="absolute inset-0 bg-gradient-to-b from-base via-base/30 to-base" />
+        <div className="hero-pool absolute inset-0" />
       </div>
 
       {/* The ambient field carries the light for this screen as it does for

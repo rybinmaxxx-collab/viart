@@ -706,21 +706,70 @@ section[id],
 }
 
 /*
- * Soft edges rather than a cut.
+ * Soft edges rather than a cut — and the fade is measured in pixels, not
+ * in per cent of the band.
  *
  * The rail used to end at a hard vertical line on both sides, so photos
  * appeared out of nothing and vanished into nothing. Fading the mask out
  * at each end turns that cut into an edge the pictures travel past.
  *
- * The fade was 8% of the band's width at each side, and that is a shadow,
- * not an edge: a 300px frame emerging into it spent most of its width
- * half-dimmed, so the photo you were waiting to see arrived already
- * darkened. It is 3% now — the opening is wider by the difference, and
- * what is left of the fade only takes the hard line off the ends.
+ * The fade was a percentage, and a percentage of a rail this wide is not
+ * an edge, it is a shadow: 8% of a 1200px band is a 96px ramp, and even
+ * 3% is 36px — most of a 300px frame's leading quarter, so the photo you
+ * were waiting to see arrived already dimmed, and the first sliver of it
+ * was black. 14px is a feather. It softens the cut and nothing else, and
+ * because it is absolute it stays a feather on a 390px phone and on a
+ * 1600px desktop instead of growing with the band.
  */
 .rail-mask {
-  -webkit-mask-image: linear-gradient(to right, transparent, #000 3%, #000 97%, transparent);
-  mask-image: linear-gradient(to right, transparent, #000 3%, #000 97%, transparent);
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent,
+    #000 14px,
+    #000 calc(100% - 14px),
+    transparent
+  );
+  mask-image: linear-gradient(
+    to right,
+    transparent,
+    #000 14px,
+    #000 calc(100% - 14px),
+    transparent
+  );
+}
+
+/* ---- Hero: the pool the first screen's type sits in ------------------ *
+ * The heading was hard to read over the photograph, and it was never a
+ * contrast problem — measured against the backdrop it runs about 14:1,
+ * twice what AAA asks for. What it was is *detail*: the type sat over the
+ * lit handpiece, whose speculars and edges are the same size as the
+ * letterforms, and the eye cannot separate two sets of edges at one scale
+ * however far apart their luminance is.
+ *
+ * Two things were tried before this. Flat ink over the whole picture reads
+ * as legible and dead — push it far enough to quiet the handpiece and the
+ * photograph is a brown field, which is not what a photographic first
+ * screen is for. Blurring the backdrop works on a phone and fails on a
+ * desktop, where a 853px-wide portrait is already stretched past 1440 and
+ * any blur on top of that leaves nothing at all.
+ *
+ * So the ink is *placed* instead of spread: an ellipse of it under the
+ * text column, opaque at the middle and gone by the edges of the screen.
+ * The type gets a quiet ground the size of the type; the room, the hand
+ * and the handpiece stay legible around it. The section's own flat and
+ * vertical layers came down to 50% and 30% to pay for it.
+ *
+ * Sized to the text, not to the viewport: 72×56% is the block from the
+ * first line of the heading to the trust row at both 390 and 1440, which
+ * is why one ellipse serves both.
+ * ------------------------------------------------------------------- */
+.hero-pool {
+  background: radial-gradient(
+    ellipse 72% 56% at 50% 48%,
+    rgb(var(--c-base) / 0.92),
+    rgb(var(--c-base) / 0.6) 52%,
+    rgb(var(--c-base) / 0) 80%
+  );
 }
 
 /* `scroll-dot`, the travelling mark inside the hero's «ЛИСТАЙТЕ» hint,
