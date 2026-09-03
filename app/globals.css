@@ -723,16 +723,9 @@ section[id],
   mask-image: linear-gradient(to right, transparent, #000 3%, #000 97%, transparent);
 }
 
-/* The travelling mark in the hero's scroll hint. */
-@keyframes scroll-dot {
-  0% {
-    transform: translateY(-100%);
-  }
-  60%,
-  100% {
-    transform: translateY(300%);
-  }
-}
+/* `scroll-dot`, the travelling mark inside the hero's «ЛИСТАЙТЕ» hint,
+   lived here. The hint is gone from the first screen and nothing else ever
+   used the keyframe. */
 
 /* ---- Scroll progress rail ------------------------------------------ */
 .rail-fill {

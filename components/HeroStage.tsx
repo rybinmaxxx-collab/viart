@@ -58,8 +58,38 @@ export function HeroStage() {
           decoding="async"
           className="h-full w-full object-cover object-[62%_38%]"
         />
+        {/*
+          Two scrim layers, and every number in them is a multiple of five.
+          That is not taste, it is the only thing that works.
+          ────────────────────────────────────────────────────────────────
+          The flat layer read `bg-base/60` and had never painted a single
+          pixel. Tailwind's opacity scale is 0–100 in steps of five, and an
+          off-scale modifier is not an error — the class is simply never
+          generated, the element keeps a transparent background, and the
+          page looks exactly like a page whose scrim is too weak. That is
+          the whole reason the heading was hard to read: it was sitting on
+          the bare photograph with only the gradient over it, and the
+          gradient thins to its weakest point precisely where the type is.
+
+          The flat layer keeps the 60% it always meant to have — it just
+          paints now — and the gradient's middle stop goes from 25% to 50%,
+          which is the half of the change you can actually see. Together
+          that is 80% ink under the heading: enough that the type reads as
+          type on a ground, little enough that the photograph is still a
+          room and a handpiece rather than a texture.
+
+          Darkening the picture rather than lightening the type is the
+          right way round. `text-white` in this palette is warm cream at a
+          fixed value and the ink ladder in `globals.css` is the contrast
+          contract for the whole site; lifting the hero above it would make
+          this one screen the exception. The photograph has no such
+          contract.
+
+          If you change these, keep them on the five-step scale or write
+          them as `bg-base/[0.72]`. A bare `/72` fails silently.
+        */}
         <div className="absolute inset-0 bg-base/60" />
-        <div className="absolute inset-0 bg-gradient-to-b from-base via-base/25 to-base" />
+        <div className="absolute inset-0 bg-gradient-to-b from-base via-base/50 to-base" />
       </div>
 
       {/* The ambient field carries the light for this screen as it does for
@@ -74,19 +104,10 @@ export function HeroStage() {
         <HeroText leadWords={leadWords} />
       </div>
 
-      {/* Scroll hint. */}
-      <Reveal
-        variant="fade"
-        delay={1500}
-        className="absolute bottom-7 left-1/2 hidden -translate-x-1/2 lg:block"
-      >
-        <span className="flex flex-col items-center gap-2 text-cap uppercase tracking-[0.2em] text-white/48">
-          листайте
-          <span className="h-8 w-px overflow-hidden bg-white/15">
-            <span className="block h-3 w-px animate-[scroll-dot_2.6s_ease-in-out_infinite] bg-lav-soft" />
-          </span>
-        </span>
-      </Reveal>
+      {/* The «ЛИСТАЙТЕ» hint with its travelling mark stood here, pinned to
+          the bottom of the screen. It told a visitor to do the one thing
+          nobody needs telling, and it was the only text on the first screen
+          that was not about the studio. */}
     </section>
   );
 }

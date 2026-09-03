@@ -410,10 +410,21 @@ export const equipment = {
       name: "EVERLAS",
       role: "Диодный лазер для эпиляции",
       src: "/photos/apparatus-controls.webp",
-      // A 16:10 card shows a band barely 40% of this portrait shot's
-      // height, so the watermark rule bites hardest here: anything short of
-      // the bottom edge cuts the mark clean through.
-      focus: "center 100%",
+      // 93%, not 100%, and the seven points matter.
+      //
+      // A 16:10 card shows a band barely 42% of this portrait shot's
+      // height, so the watermark rule bites hardest here — but taking the
+      // very bottom of the frame left the mark floating clear of the edge
+      // with the strapline and a stretch of floor under it. 93% is the
+      // value where the window's lower edge lands on the «ViArt»
+      // baseline: the mark sits *on* the edge of the picture, where a
+      // mark belongs, and the strapline goes with the floor.
+      //
+      // It is a narrow setting — 91% cuts the letters through the middle,
+      // 96% opens a visible gap under them — so measure before moving it.
+      // Both apparatus photographs are 853×1280 with the mark in the same
+      // place, so both take the same value; see TURBO G8 below.
+      focus: "center 93%",
       accent: "aqua" as const,
       body: "Интеллектуальная диодная система с мощным контактным охлаждением. Во время процедуры вы чувствуете только легкий холод, даже на самых деликатных зонах. Волос уходит равномерно, кожа остается нетронутой.",
       feels: [
@@ -435,9 +446,10 @@ export const equipment = {
       name: "TURBO G8",
       role: "Аппаратный вибромассаж тела",
       src: "/photos/massage-turbo.webp",
-      // Same 16:10 band as EVERLAS above, and the same reason: the mark is
-      // in the bottom right of this one.
-      focus: "center 100%",
+      // Same 16:10 band and the same 93% as EVERLAS above, for the same
+      // reason: the wordmark ends within a pixel or two of where it does in
+      // that shot, so the same crop puts it on the edge of this card too.
+      focus: "center 93%",
       accent: "lav" as const,
       body: "Честная и глубокая проработка тела. Вибромассаж снимает мышечные спазмы, выводит лишнюю жидкость и корректирует контуры. Интенсивность подбирается так, чтобы после сеанса вы чувствовали легкость, а не усталость.",
       feels: [
