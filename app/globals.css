@@ -673,29 +673,11 @@ section[id],
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.6);
 }
 
-/* ---- Hero scatter --------------------------------------------------- *
- * The six squares are placed and still while the first screen is the
- * screen. As it is scrolled away they break formation — outwards along
- * their own vector, turning slightly, growing and fading — so the band
- * underneath arrives on clear ground instead of reading through them.
- *
- * `--sx`, `--sy`, `--rot` and `--s` are per-tile constants set in the
- * markup; `--t` is the single progress value the driver writes on the
- * section, 0 at the top of the page and 1 at 120vh. One variable written
- * per frame, six transforms recomputed by the compositor.
- * ------------------------------------------------------------------- */
-/* The default lives on the section, not on the tiles: a declaration on the
-   element itself beats an inherited one, so `--t: 0` here would have made
-   the tiles permanently ignore what the driver writes on their ancestor. */
-[data-hero] {
-  --t: 0;
-}
-
-.scatter {
-  transform: translate3d(calc(var(--sx, 0px) * var(--t)), calc(var(--sy, 0px) * var(--t)), 0)
-    rotate(calc(var(--rot, 0deg) * var(--t))) scale(calc(1 + var(--s, 0.15) * var(--t)));
-  opacity: calc(1 - var(--t));
-}
+/* The hero scatter lived here: six media circles on two rails beside the
+   heading, drifting outwards on a scroll-driven `--t`. The circles are
+   gone from the first screen — one photograph carries it at every width
+   now — so the driver, the per-tile vectors and the `.scatter` transform
+   went with them rather than staying as rules nothing sets. */
 
 /* ---- 9:16 stories rail ---------------------------------------------- *
  * A drifting rail on a pointer device, a swipeable snap strip on a touch
@@ -728,11 +710,17 @@ section[id],
  *
  * The rail used to end at a hard vertical line on both sides, so photos
  * appeared out of nothing and vanished into nothing. Fading the mask out
- * over the last 8% turns that cut into an edge the pictures travel past.
+ * at each end turns that cut into an edge the pictures travel past.
+ *
+ * The fade was 8% of the band's width at each side, and that is a shadow,
+ * not an edge: a 300px frame emerging into it spent most of its width
+ * half-dimmed, so the photo you were waiting to see arrived already
+ * darkened. It is 3% now — the opening is wider by the difference, and
+ * what is left of the fade only takes the hard line off the ends.
  */
 .rail-mask {
-  -webkit-mask-image: linear-gradient(to right, transparent, #000 8%, #000 92%, transparent);
-  mask-image: linear-gradient(to right, transparent, #000 8%, #000 92%, transparent);
+  -webkit-mask-image: linear-gradient(to right, transparent, #000 3%, #000 97%, transparent);
+  mask-image: linear-gradient(to right, transparent, #000 3%, #000 97%, transparent);
 }
 
 /* The travelling mark in the hero's scroll hint. */
@@ -762,7 +750,7 @@ section[id],
  *
  * Everything below is either driven by a pointer that does not exist on
  * a phone, or is a compositor cost with no payoff on one: the ambient
- * field's parallax and the hero scatter.
+ * field's parallax and the drifting photo rail.
  *
  * Two things that used to be neutralised here are gone from the
  * stylesheet entirely: the `backdrop-filter` behind six glass spheres,
@@ -782,11 +770,6 @@ section[id],
   .haze-body {
     animation: none;
     transform: scale(1.08);
-  }
-
-  .scatter {
-    transform: none !important;
-    opacity: 1 !important;
   }
 
   /* Hover-only affordances never fire on touch, and leaving them armed
@@ -838,13 +821,8 @@ section[id],
     transform: none;
   }
 
-  .haze,
-  .scatter {
+  .haze {
     transform: none !important;
-  }
-
-  .scatter {
-    opacity: 1 !important;
   }
 
   .stories {

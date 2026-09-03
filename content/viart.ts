@@ -63,12 +63,16 @@ export const announce = {
 export const offer = "Скидка 30% на любой комплекс при первом посещении";
 
 /**
- * The photograph behind the heading on a phone.
+ * The photograph the first screen is made of.
  *
  * The studio's own shot of the TURBO G8 handpiece: it is the only picture
  * in the library where the lit violet spheres — the colour the whole site
- * is built on — are the subject rather than a detail, which is what makes
- * it the right one to stand in for six circles that will not fit.
+ * is built on — are the subject rather than a detail.
+ *
+ * It used to be the phone's fallback for a collage of six circles that
+ * would not fit; now it is the first screen at every width, because it
+ * turned out to be the better composition on the wide one too. See the
+ * note in `components/HeroStage`.
  */
 export const heroBackdrop = {
   src: "/photos/master-massage.webp",
@@ -96,60 +100,12 @@ export const hero = {
     { value: "98", label: "отзывов" },
     { value: "2026", label: "«Хорошее место»" },
   ],
-  /**
-   * Six media squares, three a side.
-   *
-   * `slot` is the position in its rail, top to bottom; the size and offset
-   * of each slot live with the geometry in `components/HeroStage`, not
-   * here. What that geometry fixes is the *order*: the left rail runs
-   * 140 → 180 → 220 downwards and the right rail 220 → 180 → 140, so the
-   * arrangement turns through 180° rather than mirroring. The two videos
-   * take the corners of that diagonal — bottom-left and top-right.
-   */
-  tiles: [
-    {
-      slot: "left-1" as const,
-      label: "аппарат EVERLAS",
-      kind: "image" as const,
-      src: "/photos/apparatus-controls.webp",
-      focus: "center 62%",
-    },
-    {
-      slot: "left-2" as const,
-      label: "студия ViART на Бачуринской",
-      kind: "image" as const,
-      src: "/photos/facade-evening.webp",
-      focus: "center 22%",
-    },
-    {
-      slot: "left-3" as const,
-      label: "процедура на EVERLAS",
-      kind: "video" as const,
-      src: "/videos/procedure.mp4",
-      poster: "/photos/poster-procedure.webp",
-    },
-    {
-      slot: "right-1" as const,
-      label: "мастер за работой",
-      kind: "video" as const,
-      src: "/videos/master-work.mp4",
-      poster: "/photos/poster-master-work.webp",
-    },
-    {
-      slot: "right-2" as const,
-      label: "кабинет и аппарат EVERLAS",
-      kind: "image" as const,
-      src: "/photos/room-mirror.webp",
-      focus: "center 45%",
-    },
-    {
-      slot: "right-3" as const,
-      label: "зона отдыха",
-      kind: "image" as const,
-      src: "/photos/lounge-drinks.webp",
-      focus: "center 45%",
-    },
-  ],
+  /* The six media circles that stood either side of this heading are
+     gone, and their `tiles` list with them: three a side, placed off a
+     measured 359×521 box and scattered outwards on scroll. None of them
+     was ever large enough to look at, and every one of them was competing
+     with the sentence above. The same photographs are further down the
+     page at a size where they can be looked at. */
 };
 
 /* ------------------------------------------------------------------ *
@@ -353,6 +309,20 @@ export const showreel = {
  * the signage sits high in the evening shopfront — so a default centre
  * crop cut the very thing the card is about. The value travels with the
  * photo rather than being hard-coded into the band.
+ *
+ * ── The watermark rule ────────────────────────────────────────────────
+ *
+ * One rule now decides `focus` before anything else does, everywhere a
+ * square or a card crops one of the studio's own photographs: if the shot
+ * carries the ViART watermark, the crop keeps the whole of it.
+ *
+ * These are the studio's photographs and the mark is on them; a crop that
+ * slices it in half reads as a stock picture with something spilled in the
+ * corner. Which end of the frame that means depends on the shot — the mark
+ * is bottom-left on most of them (`center 100%`) and top-centre on the
+ * business-card shot (`center 0%`) — so the value is per photo, as ever.
+ * Photographs with no watermark (the flowers, the gel) are still cropped
+ * for their subject.
  */
 export const values = {
   title: "Уважение к вашему времени и телу",
@@ -367,7 +337,11 @@ export const values = {
     {
       title: "Осознанный подход",
       src: "/photos/apparatus-controls.webp",
-      focus: "center 72%",
+      // Bottom of the frame: the watermark sits in the lower left of this
+      // shot and a square crop at 72% cut it in half. See the note on
+      // `values` above — a tile that carries the mark is a tile that says
+      // whose room this is.
+      focus: "center 100%",
       body: "Мы не экономим на результате. Мастер ориентируется исключительно на реакцию вашей кожи сегодня, а не на абстрактные нормы.",
     },
     {
@@ -399,14 +373,21 @@ export const process = {
     {
       title: "Точная калибровка",
       body: "Настраиваем мощность аппарата так, чтобы процедура давала максимум результата, но оставалась в зоне вашего комфорта.",
-      src: "/photos/apparatus-controls.webp",
-      focus: "center 55%",
+      // The room, not another close-up of the handpiece: this band already
+      // opened with the apparatus screen two tiles ago, and calibration is
+      // what happens in a prepared cabinet — the machine standing ready by
+      // the couch says that better than a second photograph of the same
+      // control panel.
+      src: "/photos/room-couch.webp",
+      focus: "center 100%",
     },
     {
       title: "Ваш контроль",
       body: "Вы управляете процессом. Если нужно снизить интенсивность — мы делаем это мгновенно. У нас нет правила «нужно просто перетерпеть боль».",
       src: "/photos/procedure.webp",
-      focus: "center 50%",
+      // The watermark sits across the lower middle of this shot; a centred
+      // square crop took the bottom third of it off.
+      focus: "center 100%",
     },
   ],
   cta: { label: "Открыть онлайн-запись", href: site.booking },
@@ -429,7 +410,10 @@ export const equipment = {
       name: "EVERLAS",
       role: "Диодный лазер для эпиляции",
       src: "/photos/apparatus-controls.webp",
-      focus: "center 68%",
+      // A 16:10 card shows a band barely 40% of this portrait shot's
+      // height, so the watermark rule bites hardest here: anything short of
+      // the bottom edge cuts the mark clean through.
+      focus: "center 100%",
       accent: "aqua" as const,
       body: "Интеллектуальная диодная система с мощным контактным охлаждением. Во время процедуры вы чувствуете только легкий холод, даже на самых деликатных зонах. Волос уходит равномерно, кожа остается нетронутой.",
       feels: [
@@ -451,7 +435,9 @@ export const equipment = {
       name: "TURBO G8",
       role: "Аппаратный вибромассаж тела",
       src: "/photos/massage-turbo.webp",
-      focus: "center 66%",
+      // Same 16:10 band as EVERLAS above, and the same reason: the mark is
+      // in the bottom right of this one.
+      focus: "center 100%",
       accent: "lav" as const,
       body: "Честная и глубокая проработка тела. Вибромассаж снимает мышечные спазмы, выводит лишнюю жидкость и корректирует контуры. Интенсивность подбирается так, чтобы после сеанса вы чувствовали легкость, а не усталость.",
       feels: [
@@ -487,7 +473,10 @@ export const packages = {
     {
       name: "Одна зона",
       src: "/photos/card-desk.webp",
-      focus: "center 42%",
+      // The one photograph in the library whose watermark is at the *top*,
+      // so this is the one tile the rule pushes the other way: the crop
+      // takes the top of the frame, not the bottom.
+      focus: "center 0%",
       meta: "разовый визит",
       price: "от 600 ₽",
       body: "Для тех, кому нужна точечная работа, продолжение курса или разовая поддерживающая процедура.",
@@ -504,11 +493,14 @@ export const packages = {
       featured: true,
     },
     {
-      // The purple roller head sits low in this frame; a centre crop cut it
-      // off at the bottom edge, which is the one thing the card is selling.
       name: "TURBO G8",
-      src: "/photos/massage-turbo.webp",
-      focus: "center 66%",
+      // The master holding the handpiece, not the handpiece on a stomach.
+      // The apparatus itself is already the picture on the equipment card
+      // further up the page, and this tile is the one you book from — what
+      // sells a first session is the specialist who will run it. The shot
+      // carries the watermark low and right, so the crop takes the bottom.
+      src: "/photos/master-massage.webp",
+      focus: "center 100%",
       meta: "первый сеанс",
       price: "1 500 ₽",
       body: "Сеанс аппаратного массажа для восстановления тонуса тела и снятия напряжения.",
