@@ -781,32 +781,53 @@ section[id],
   );
 }
 
-/* ---- Hero: closing the photograph into the page --------------------- *
- * The first screen is one photograph under one even veil of ink; the veil
- * itself is a Tailwind class on the element (see `components/HeroStage`).
- * All this gradient does is the two edges: a little extra weight at the
- * top so the header and the promo pill are not sitting on a lit shoulder,
- * and a close to solid at the bottom so the picture ends in the page
- * instead of on a cut line. Between 26% and 68% it paints nothing at all,
- * which is the whole point — the middle of the screen, where the type and
- * the subject both are, is the veil and the photograph and nothing else.
+/* ---- Hero: the grade on the backdrop -------------------------------- *
+ * The first screen's ink is down to a flat 30%, because ink is the wrong
+ * tool for what was making the type hard to read. The trouble was never
+ * the room — it is a dim room and it was already dark — it was the
+ * handpiece: a lit metal body with speculars on its edges, and the only
+ * way to quiet those with a veil is to take the whole photograph down with
+ * them, which is how this screen ended up at 65% and unreadable as a
+ * picture.
  *
- * What stood here before: `.hero-pool`, an ellipse of ink under the text
- * column, and `.hero-photo`, a brightness(2.4) filter on the backdrop to
+ * A grade goes where the veil cannot. contrast(0.82) squeezes the range
+ * towards the middle, so it takes far more out of the metal's highlights
+ * than out of the room, and brightness(0.9) puts the whole thing a step
+ * back. The subject stays a subject and the peaks stop fighting the type.
+ * Numbers, and what the trade costs at the worst pixel, are in
+ * `components/HeroStage`.
+ *
+ * A filter on the largest image on the screen is paid once: a static
+ * value on a static element is baked into the compositor's layer, not
+ * re-run per frame.
+ * ------------------------------------------------------------------- */
+.hero-photo {
+  filter: contrast(0.82) brightness(0.9);
+}
+
+/* ---- Hero: closing the photograph into the page --------------------- *
+ * All this gradient does is the two edges: a little weight at the top so
+ * the header and the promo pill are not sitting on a lit shoulder, and a
+ * close to solid at the bottom so the picture ends in the page instead of
+ * on a cut line. Between 22% and 74% it paints nothing at all, which is
+ * the whole point — the middle of the screen, where the type and the
+ * subject both are, is the photograph, the grade and 30% of ink.
+ *
+ * What stood here in earlier versions: `.hero-pool`, an ellipse of ink
+ * under the text column, and a brightness(2.4) filter on the backdrop to
  * pay for it. Both were measured and both worked as measured — and the
- * screen still read as a mess, because a shaped scrim is visible as a
- * shape: a dark cloud in the middle of a lifted photograph. Even ink over
- * an unretouched photograph is the plainer answer and it looks like one
- * picture. If the type ever needs more ground than 65% gives it, move the
- * crop so the words fall on a quieter part of the frame — do not put the
- * cloud back.
+ * screen read as a mess, because a shaped scrim is visible as a shape: a
+ * dark cloud in the middle of a lifted photograph. If the type ever needs
+ * more ground than it has, move the crop so the words fall on a quieter
+ * part of the frame, or take another tenth out of the contrast — do not
+ * put the cloud back.
  * ------------------------------------------------------------------- */
 .hero-edges {
   background: linear-gradient(
     to bottom,
-    rgb(var(--c-base) / 0.75),
-    transparent 26%,
-    transparent 68%,
+    rgb(var(--c-base) / 0.5),
+    transparent 22%,
+    transparent 74%,
     rgb(var(--c-base))
   );
 }

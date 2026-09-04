@@ -56,53 +56,50 @@ export function HeroStage() {
           loading="eager"
           fetchPriority="high"
           decoding="async"
-          className="h-full w-full object-cover object-[50%_20%]"
+          className="hero-photo h-full w-full object-cover object-[50%_75%]"
         />
         {/*
-          Two layers over the photograph, and that is the whole of it.
+          A photograph, graded, with a light veil on it. Nothing else.
 
-          One even veil of ink at 65%, and a vertical gradient that does
-          nothing in the middle of the screen and closes the top and bottom
-          edges into the page. Nothing is placed, shaped or aimed at the
-          text; the picture is one picture, evenly dimmed, the way a
-          photographic first screen is normally built.
+          The picture is the point of this screen, so the ink is as thin as
+          the words allow: a flat 30% and a vertical gradient that paints
+          nothing between 22% and 74% of the height and only closes the top
+          and bottom edges into the page. Most of the work that used to be
+          done by ink is done by the grade instead — `contrast(.82)
+          brightness(.9)` on `.hero-photo` — which pulls the lit metal down
+          without touching the room around it. Ink flattens a photograph
+          evenly; lowering contrast takes it out of the highlights, which is
+          where the trouble actually is.
 
-          It used to be three layers: flat ink, the vertical gradient, and
-          an ellipse of ink under the text column with a brightness filter
-          on the photograph underneath to pay for it. Each of those pieces
-          was defensible on its own measurements and together they were a
-          mess — the picture came out blotchy, dark in a ring around the
-          type and lifted everywhere else, which is exactly the thing a
-          visitor sees before they read a word. An even veil at 65% is
-          worse arithmetic under the heading and a better first screen: one
-          photograph you can actually see, one set of words on top of it.
+          Two earlier versions of this screen are worth not repeating. One
+          was three layers — flat ink, gradient, and an ellipse of ink under
+          the text column with brightness(2.4) on the photograph to pay for
+          it. Every piece was measured and the result read as blotches: a
+          shaped scrim is visible as a shape. The other was one honest veil
+          at 65%, even and defensible, and too dark to see the room through.
 
-          65% is measured, not chosen. Against the composited backdrop with
-          the type hidden, the brightest pixel under the text column gives
-          5,4:1 against the cream — over AA for the size everything on this
-          screen is set at, and the same figure on 1440 and 390, because an
-          even veil does not care where the text sits. 60% gives 4,5:1 and
-          68% gives 6,0:1, so the room either way is small: below 60 the
-          lead paragraph over the lit handpiece is the first thing to fail,
-          and above 70 the photograph is a brown field again.
+          What this costs, measured on the composited backdrop with the type
+          hidden. The median pixel under the text column sits near 12:1
+          against the cream and the 95th percentile at 6,7:1 on 1440 and
+          4,4:1 on 390 — but the worst single pixel is 4,8:1 on 1440 and
+          2,5:1 on 390, and that is a deliberate trade, not an oversight.
+          Those pixels are the speculars on the handpiece's edge, a few
+          dozen of them, and buying them back costs another 20% of ink over
+          the whole picture. The heading is 44px bold and clears AA-large
+          over even those; the lead is the line to watch if the crop ever
+          moves.
 
-          What it costs and what it buys, measured the same way: the
-          photograph's 90th-percentile luminance away from the text column
-          is 0,065 on 1440 and 0,058 on 390. The shaped scrim with a
-          brightness filter under it managed 0,033 and 0,032 at its best,
-          and the screen this replaces started at 0,016 and 0,019 — so the
-          picture is roughly four times as present as it was, at a better
-          contrast than it had. Most of that last doubling is the frame
-          itself rather than the ink: see `heroBackdrop` in `content`.
+          What it buys: the photograph's 90th-percentile luminance away from
+          the text is 0,066 on 1440 and 0,170 on 390, against 0,016 and
+          0,019 on the first version of this screen. It is four to nine
+          times more visible than where this started.
 
-          The crop is 50% 20%, and 20 is the number that matters. This is a
-          720×1280 portrait in a 1440×900 hole, so the screen shows about a
-          third of the frame's height and the choice is which third. At 20%
-          it is the hands and the machine, with the lit coat off to the
-          right of the column and the dark side of the room behind the
-          words. Lower down the frame the handpiece rises into the middle
-          of the heading, which is the arrangement this screen has twice
-          been rescued from.
+          The crop is 50% 75%. This is a 720×1280 portrait in a 1440×900
+          hole, so a third of the frame's height is on screen and the only
+          question is which third: at 75% it is the hands and the handpiece
+          moving over the skin, which is the procedure itself. It is also
+          the friendlier third for type — higher up the frame the machine's
+          lit body stands directly behind the heading.
 
           Every opacity here is a multiple of five, and that is not taste.
           The flat layer once read `bg-base/60` — off Tailwind's 0–100-in-
@@ -118,7 +115,7 @@ export function HeroStage() {
           left to lift on the type side; the photograph is the only side
           with a knob on it.
         */}
-        <div className="absolute inset-0 bg-base/65" />
+        <div className="absolute inset-0 bg-base/30" />
         <div className="hero-edges absolute inset-0" />
       </div>
 
