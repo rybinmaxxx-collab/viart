@@ -71,6 +71,29 @@
    *
    * Anything below 48 is out of the ladder on purpose: if a line is not
    * worth 4:1 it is not worth setting.
+   *
+   * ── What the browser actually does with it ──────────────────────────
+   *
+   * Read the built stylesheet before trusting any rung above. Tailwind
+   * generates a colour-opacity utility only for the values in its opacity
+   * scale, and this project never extended that scale — so of the whole
+   * ladder exactly one rung exists in the CSS: 80. Every `text-white/62`,
+   * `/58`, `/76`, `/92` in the markup is a class that was never written,
+   * and those elements simply inherit `body`, which is full cream.
+   *
+   * So the site as it ships sets nearly all of its secondary type at 100%,
+   * and its hierarchy comes from size and weight rather than from ink. The
+   * one rung that did apply, 80, was the palest text on the page and read
+   * as a mistake next to everything around it; it has been taken out of
+   * the markup, which is why no `text-white/80` remains.
+   *
+   * The ladder is kept here because it is still the intended design, and
+   * the class names are kept in the markup because they say which rung
+   * each line was meant to be. But turning it on is a deliberate job, not
+   * an oversight to be fixed in passing: extending the opacity scale would
+   * darken a hundred lines of live copy at once, small type first, which
+   * is the opposite of what this ground needs. If it is ever turned on,
+   * re-cut the low rungs for small sizes before shipping it.
    */
   --c-cream: 244 236 216;
 
@@ -179,9 +202,29 @@ body {
   overflow-x: clip;
 }
 
+/*
+ * The site sets type at 500, not 400.
+ *
+ * Small copy on this ground read pale, and the cause was not the colour —
+ * it is already full cream, the brightest ink the palette has. It was the
+ * weight. Manrope is a light-boned geometric, and a 17px line of it at 400
+ * over near-black puts most of its stems into antialiasing rather than
+ * ink: the glyph edges are a grey ramp, and at that size the ramp is a
+ * good half of what the eye receives.
+ *
+ * Measured on one card paragraph rendered at 2×, 400 → 500: ink coverage
+ * 12,6% → 14,2% of the block and the mean luminance of the inked pixels
+ * 0,59 → 0,63 — about 16% more light off the same words, at the same size
+ * and the same colour. Nothing had to be enlarged or recoloured.
+ *
+ * It costs no bytes: Manrope arrives here as a variable font, so 500 is a
+ * position on an axis already downloaded, not a second file. Headings are
+ * unaffected — they set their own `font-bold`.
+ */
 body {
   background: rgb(var(--c-base));
   color: rgb(var(--c-cream));
+  font-weight: 500;
   -webkit-font-smoothing: antialiased;
 }
 

@@ -101,10 +101,10 @@ export function HeroStage() {
 
           Darkening the picture rather than lightening the type is the
           right way round. `text-white` in this palette is warm cream at a
-          fixed value and the ink ladder in `globals.css` is the contrast
-          contract for the whole site; lifting the hero above it would make
-          this one screen the exception. The photograph has no such
-          contract.
+          fixed value — the brightest ink the site has, and the hero's lead
+          is set in it flat, with no opacity under it. There is nothing
+          left to lift on the type side; the photograph is the only side
+          with a knob on it.
         */}
         <div className="absolute inset-0 bg-base/65" />
         <div className="hero-edges absolute inset-0" />
@@ -143,7 +143,7 @@ function HeroText({ leadWords }: { leadWords: number }) {
 
       <Reveal variant="none" delay={620} step={110}>
         <M variant="rise" i={0}>
-          <p className="mx-auto mt-7 max-w-xl text-lead leading-relaxed text-white/80">
+          <p className="mx-auto mt-7 max-w-xl text-lead leading-relaxed text-white">
             {hero.subtitle}
           </p>
         </M>

@@ -35,7 +35,7 @@ export default function Page() {
           </Reveal>
 
           <Reveal variant="fade" delay={200} className="mt-12 text-center">
-            <p className="text-body text-white/80">
+            <p className="text-body text-white">
               Не нашли свой вопрос? Напишите в WhatsApp или позвоните: {site.phone}.
             </p>
             <div className="mt-5">
@@ -52,7 +52,7 @@ export default function Page() {
           <M variant="rise" i={0} as="h2" className="text-balance text-h1 font-bold">
             {faq.closing.title}
           </M>
-          <M variant="rise" i={1} as="p" className="mt-5 text-lead text-white/80">
+          <M variant="rise" i={1} as="p" className="mt-5 text-lead text-white">
             {faq.closing.body}
           </M>
           <M variant="pop" i={2} className="mt-9">
