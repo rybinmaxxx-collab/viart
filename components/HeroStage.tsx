@@ -56,7 +56,7 @@ export function HeroStage() {
           loading="eager"
           fetchPriority="high"
           decoding="async"
-          className="h-full w-full object-cover object-[62%_38%]"
+          className="h-full w-full object-cover object-[50%_20%]"
         />
         {/*
           Two layers over the photograph, and that is the whole of it.
@@ -88,9 +88,21 @@ export function HeroStage() {
 
           What it costs and what it buys, measured the same way: the
           photograph's 90th-percentile luminance away from the text column
-          is 0,035 on 1440 and 0,044 on 390 — brighter than the shaped
-          version managed at its best (0,033 and 0,032) and twice the
-          original screen (0,016 and 0,019). Even ink wins on both counts.
+          is 0,065 on 1440 and 0,058 on 390. The shaped scrim with a
+          brightness filter under it managed 0,033 and 0,032 at its best,
+          and the screen this replaces started at 0,016 and 0,019 — so the
+          picture is roughly four times as present as it was, at a better
+          contrast than it had. Most of that last doubling is the frame
+          itself rather than the ink: see `heroBackdrop` in `content`.
+
+          The crop is 50% 20%, and 20 is the number that matters. This is a
+          720×1280 portrait in a 1440×900 hole, so the screen shows about a
+          third of the frame's height and the choice is which third. At 20%
+          it is the hands and the machine, with the lit coat off to the
+          right of the column and the dark side of the room behind the
+          words. Lower down the frame the handpiece rises into the middle
+          of the heading, which is the arrangement this screen has twice
+          been rescued from.
 
           Every opacity here is a multiple of five, and that is not taste.
           The flat layer once read `bg-base/60` — off Tailwind's 0–100-in-

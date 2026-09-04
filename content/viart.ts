@@ -74,9 +74,30 @@ export const offer = "Скидка 30% на любой комплекс при �
  * turned out to be the better composition on the wide one too. See the
  * note in `components/HeroStage`.
  */
+/**
+ * The first screen's backdrop.
+ *
+ * It is the poster frame of `procedure.mp4`, which is also the reel's own
+ * still further down the page — one file, two jobs, and the hero loads it
+ * eagerly so the reel further down gets it from cache.
+ *
+ * It replaced `master-massage.webp`, and the reason is what the type has
+ * to sit on. That shot is lit from the front: a white coat and a lit
+ * handpiece across the middle of the frame, exactly where the heading
+ * goes, and every percent of ink that quietened them took the whole
+ * picture down with it. This one is lit from the side — the light is on
+ * the hands and the machine, the rest of the room falls away — so the
+ * words land on the dark half of a photograph rather than on its subject.
+ * Nothing is being hidden; the frame simply has somewhere to put text.
+ *
+ * It is 720×1280 against the old 853×1280, so it is stretched further on a
+ * wide screen. Under a 60% veil at hero scale that costs nothing visible —
+ * but it is the reason to reach for a larger file rather than this one if
+ * the veil ever comes off.
+ */
 export const heroBackdrop = {
-  src: "/photos/master-massage.webp",
-  alt: "Мастер ViART с манипулой TURBO G8",
+  src: "/photos/poster-procedure.webp",
+  alt: "Процедура аппаратного массажа в студии ViART",
 };
 
 /**
