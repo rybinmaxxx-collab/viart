@@ -56,7 +56,7 @@ export function HeroStage() {
           loading="eager"
           fetchPriority="high"
           decoding="async"
-          className="h-full w-full object-cover object-[62%_38%]"
+          className="hero-photo h-full w-full object-cover object-[62%_38%]"
         />
         {/*
           Three scrim layers, and every opacity in them is a multiple of
@@ -71,13 +71,21 @@ export function HeroStage() {
           bottom edges into the page, then `hero-pool` — an ellipse of ink
           under the text column, opaque in the middle and gone by the edges
           of the screen. The pool is what makes the heading readable and
-          the reason the first two layers are as low as 30 and 10: quieting
-          the whole photograph enough to read type over it left no
-          photograph, and even at 50 and 30 the room, the hand and the
-          handpiece were still a brown suggestion rather than a picture.
-          What the pool covers it covers completely, so everything outside
-          it can be left alone. The long version of why is on `.hero-pool`
-          in `app/globals.css`.
+          the reason the first two layers can stay where they are: what the
+          pool covers it covers completely, so everything outside it is
+          free. The long version of why is on `.hero-pool` in
+          `app/globals.css`.
+
+          Taking ink *off* is not how this screen got brighter, and that is
+          the counter-intuitive part. The shot itself is dark — a dim room
+          lit by one lamp — so at 30% flat ink it still read as a brown
+          suggestion, and at 0% it would have too. What was missing was
+          exposure, not transparency. So the photograph is lifted first
+          (`.hero-photo`, brightness 2.4) and the ink goes back *up* to 40%
+          over it: the picture's highlights — the arm, the handpiece, the
+          towel — roughly doubled, its blacks stayed black, and the
+          contrast under the type went up rather than down. Numbers on
+          `.hero-photo` in `app/globals.css`.
 
           Darkening the picture rather than lightening the type is the
           right way round. `text-white` in this palette is warm cream at a
@@ -86,7 +94,7 @@ export function HeroStage() {
           this one screen the exception. The photograph has no such
           contract.
         */}
-        <div className="absolute inset-0 bg-base/30" />
+        <div className="absolute inset-0 bg-base/40" />
         <div className="absolute inset-0 bg-gradient-to-b from-base via-base/10 to-base" />
         <div className="hero-pool absolute inset-0" />
       </div>
