@@ -71,6 +71,29 @@
    *
    * Anything below 48 is out of the ladder on purpose: if a line is not
    * worth 4:1 it is not worth setting.
+   *
+   * ── What the browser actually does with it ──────────────────────────
+   *
+   * Read the built stylesheet before trusting any rung above. Tailwind
+   * generates a colour-opacity utility only for the values in its opacity
+   * scale, and this project never extended that scale — so of the whole
+   * ladder exactly one rung exists in the CSS: 80. Every `text-white/62`,
+   * `/58`, `/76`, `/92` in the markup is a class that was never written,
+   * and those elements simply inherit `body`, which is full cream.
+   *
+   * So the site as it ships sets nearly all of its secondary type at 100%,
+   * and its hierarchy comes from size and weight rather than from ink. The
+   * one rung that did apply, 80, was the palest text on the page and read
+   * as a mistake next to everything around it; it has been taken out of
+   * the markup, which is why no `text-white/80` remains.
+   *
+   * The ladder is kept here because it is still the intended design, and
+   * the class names are kept in the markup because they say which rung
+   * each line was meant to be. But turning it on is a deliberate job, not
+   * an oversight to be fixed in passing: extending the opacity scale would
+   * darken a hundred lines of live copy at once, small type first, which
+   * is the opposite of what this ground needs. If it is ever turned on,
+   * re-cut the low rungs for small sizes before shipping it.
    */
   --c-cream: 244 236 216;
 
@@ -179,9 +202,29 @@ body {
   overflow-x: clip;
 }
 
+/*
+ * The site sets type at 500, not 400.
+ *
+ * Small copy on this ground read pale, and the cause was not the colour —
+ * it is already full cream, the brightest ink the palette has. It was the
+ * weight. Manrope is a light-boned geometric, and a 17px line of it at 400
+ * over near-black puts most of its stems into antialiasing rather than
+ * ink: the glyph edges are a grey ramp, and at that size the ramp is a
+ * good half of what the eye receives.
+ *
+ * Measured on one card paragraph rendered at 2×, 400 → 500: ink coverage
+ * 12,6% → 14,2% of the block and the mean luminance of the inked pixels
+ * 0,59 → 0,63 — about 16% more light off the same words, at the same size
+ * and the same colour. Nothing had to be enlarged or recoloured.
+ *
+ * It costs no bytes: Manrope arrives here as a variable font, so 500 is a
+ * position on an axis already downloaded, not a second file. Headings are
+ * unaffected — they set their own `font-bold`.
+ */
 body {
   background: rgb(var(--c-base));
   color: rgb(var(--c-cream));
+  font-weight: 500;
   -webkit-font-smoothing: antialiased;
 }
 
@@ -673,29 +716,11 @@ section[id],
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.6);
 }
 
-/* ---- Hero scatter --------------------------------------------------- *
- * The six squares are placed and still while the first screen is the
- * screen. As it is scrolled away they break formation — outwards along
- * their own vector, turning slightly, growing and fading — so the band
- * underneath arrives on clear ground instead of reading through them.
- *
- * `--sx`, `--sy`, `--rot` and `--s` are per-tile constants set in the
- * markup; `--t` is the single progress value the driver writes on the
- * section, 0 at the top of the page and 1 at 120vh. One variable written
- * per frame, six transforms recomputed by the compositor.
- * ------------------------------------------------------------------- */
-/* The default lives on the section, not on the tiles: a declaration on the
-   element itself beats an inherited one, so `--t: 0` here would have made
-   the tiles permanently ignore what the driver writes on their ancestor. */
-[data-hero] {
-  --t: 0;
-}
-
-.scatter {
-  transform: translate3d(calc(var(--sx, 0px) * var(--t)), calc(var(--sy, 0px) * var(--t)), 0)
-    rotate(calc(var(--rot, 0deg) * var(--t))) scale(calc(1 + var(--s, 0.15) * var(--t)));
-  opacity: calc(1 - var(--t));
-}
+/* The hero scatter lived here: six media circles on two rails beside the
+   heading, drifting outwards on a scroll-driven `--t`. The circles are
+   gone from the first screen — one photograph carries it at every width
+   now — so the driver, the per-tile vectors and the `.scatter` transform
+   went with them rather than staying as rules nothing sets. */
 
 /* ---- 9:16 stories rail ---------------------------------------------- *
  * A drifting rail on a pointer device, a swipeable snap strip on a touch
@@ -724,27 +749,92 @@ section[id],
 }
 
 /*
- * Soft edges rather than a cut.
+ * Soft edges rather than a cut — and the fade is measured in pixels, not
+ * in per cent of the band.
  *
  * The rail used to end at a hard vertical line on both sides, so photos
  * appeared out of nothing and vanished into nothing. Fading the mask out
- * over the last 8% turns that cut into an edge the pictures travel past.
+ * at each end turns that cut into an edge the pictures travel past.
+ *
+ * The fade was a percentage, and a percentage of a rail this wide is not
+ * an edge, it is a shadow: 8% of a 1200px band is a 96px ramp, and even
+ * 3% is 36px — most of a 300px frame's leading quarter, so the photo you
+ * were waiting to see arrived already dimmed, and the first sliver of it
+ * was black. 14px is a feather. It softens the cut and nothing else, and
+ * because it is absolute it stays a feather on a 390px phone and on a
+ * 1600px desktop instead of growing with the band.
  */
 .rail-mask {
-  -webkit-mask-image: linear-gradient(to right, transparent, #000 8%, #000 92%, transparent);
-  mask-image: linear-gradient(to right, transparent, #000 8%, #000 92%, transparent);
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent,
+    #000 14px,
+    #000 calc(100% - 14px),
+    transparent
+  );
+  mask-image: linear-gradient(
+    to right,
+    transparent,
+    #000 14px,
+    #000 calc(100% - 14px),
+    transparent
+  );
 }
 
-/* The travelling mark in the hero's scroll hint. */
-@keyframes scroll-dot {
-  0% {
-    transform: translateY(-100%);
-  }
-  60%,
-  100% {
-    transform: translateY(300%);
-  }
+/* ---- Hero: the grade on the backdrop -------------------------------- *
+ * The first screen's ink is down to a flat 30%, because ink is the wrong
+ * tool for what was making the type hard to read. The trouble was never
+ * the room — it is a dim room and it was already dark — it was the
+ * handpiece: a lit metal body with speculars on its edges, and the only
+ * way to quiet those with a veil is to take the whole photograph down with
+ * them, which is how this screen ended up at 65% and unreadable as a
+ * picture.
+ *
+ * A grade goes where the veil cannot. contrast(0.82) squeezes the range
+ * towards the middle, so it takes far more out of the metal's highlights
+ * than out of the room, and brightness(0.9) puts the whole thing a step
+ * back. The subject stays a subject and the peaks stop fighting the type.
+ * Numbers, and what the trade costs at the worst pixel, are in
+ * `components/HeroStage`.
+ *
+ * A filter on the largest image on the screen is paid once: a static
+ * value on a static element is baked into the compositor's layer, not
+ * re-run per frame.
+ * ------------------------------------------------------------------- */
+.hero-photo {
+  filter: contrast(0.82) brightness(0.9);
 }
+
+/* ---- Hero: closing the photograph into the page --------------------- *
+ * All this gradient does is the two edges: a little weight at the top so
+ * the header and the promo pill are not sitting on a lit shoulder, and a
+ * close to solid at the bottom so the picture ends in the page instead of
+ * on a cut line. Between 22% and 74% it paints nothing at all, which is
+ * the whole point — the middle of the screen, where the type and the
+ * subject both are, is the photograph, the grade and 30% of ink.
+ *
+ * What stood here in earlier versions: `.hero-pool`, an ellipse of ink
+ * under the text column, and a brightness(2.4) filter on the backdrop to
+ * pay for it. Both were measured and both worked as measured — and the
+ * screen read as a mess, because a shaped scrim is visible as a shape: a
+ * dark cloud in the middle of a lifted photograph. If the type ever needs
+ * more ground than it has, move the crop so the words fall on a quieter
+ * part of the frame, or take another tenth out of the contrast — do not
+ * put the cloud back.
+ * ------------------------------------------------------------------- */
+.hero-edges {
+  background: linear-gradient(
+    to bottom,
+    rgb(var(--c-base) / 0.5),
+    transparent 22%,
+    transparent 74%,
+    rgb(var(--c-base))
+  );
+}
+
+/* `scroll-dot`, the travelling mark inside the hero's «ЛИСТАЙТЕ» hint,
+   lived here. The hint is gone from the first screen and nothing else ever
+   used the keyframe. */
 
 /* ---- Scroll progress rail ------------------------------------------ */
 .rail-fill {
@@ -762,7 +852,7 @@ section[id],
  *
  * Everything below is either driven by a pointer that does not exist on
  * a phone, or is a compositor cost with no payoff on one: the ambient
- * field's parallax and the hero scatter.
+ * field's parallax and the drifting photo rail.
  *
  * Two things that used to be neutralised here are gone from the
  * stylesheet entirely: the `backdrop-filter` behind six glass spheres,
@@ -782,11 +872,6 @@ section[id],
   .haze-body {
     animation: none;
     transform: scale(1.08);
-  }
-
-  .scatter {
-    transform: none !important;
-    opacity: 1 !important;
   }
 
   /* Hover-only affordances never fire on touch, and leaving them armed
@@ -838,13 +923,8 @@ section[id],
     transform: none;
   }
 
-  .haze,
-  .scatter {
+  .haze {
     transform: none !important;
-  }
-
-  .scatter {
-    opacity: 1 !important;
   }
 
   .stories {

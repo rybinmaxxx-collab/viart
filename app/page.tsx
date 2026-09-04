@@ -450,7 +450,7 @@ export default function Home() {
             <M variant="rise" i={6} as="p" className="mt-3 text-h3 font-medium text-lav-soft">
               {master.role}
             </M>
-            <M variant="rise" i={7} as="p" className="mt-5 max-w-md text-body text-white/80">
+            <M variant="rise" i={7} as="p" className="mt-5 max-w-md text-body text-white">
               {master.body}
             </M>
             <dl className="mt-8 space-y-3">
@@ -495,7 +495,7 @@ export default function Home() {
                 {closing.title}
               </Heading>
             </M>
-            <M variant="rise" i={2} as="p" className="mt-6 max-w-lg text-lead text-white/80">
+            <M variant="rise" i={2} as="p" className="mt-6 max-w-lg text-lead text-white">
               {closing.body}
             </M>
 
@@ -589,6 +589,8 @@ function EquipmentCard({ item }: { item: (typeof equipment.items)[number] }) {
           src={item.src}
           label={`${item.name} — ${item.role}`}
           objectPosition={item.focus}
+          zoom={item.zoom}
+          zoomOrigin={item.zoomOrigin}
           rounded={false}
         />
         {/* The photo runs into the card rather than stopping at an edge:
@@ -612,7 +614,7 @@ function EquipmentCard({ item }: { item: (typeof equipment.items)[number] }) {
             line: side by side, one four-line paragraph against a five-line
             one is enough to make the pair look misaligned rather than
             paired. Only from `lg`, where they actually sit side by side. */}
-        <p className="mt-4 text-body text-white/80 lg:min-h-[8.6rem]">{item.body}</p>
+        <p className="mt-4 text-body text-white lg:min-h-[8.6rem]">{item.body}</p>
 
         {/*
           The bulleted specification panel that used to sit here is gone.
