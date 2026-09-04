@@ -738,76 +738,34 @@ section[id],
   );
 }
 
-/* ---- Hero: the pool the first screen's type sits in ------------------ *
- * The heading was hard to read over the photograph, and it was never a
- * contrast problem — measured against the backdrop it runs about 14:1,
- * twice what AAA asks for. What it was is *detail*: the type sat over the
- * lit handpiece, whose speculars and edges are the same size as the
- * letterforms, and the eye cannot separate two sets of edges at one scale
- * however far apart their luminance is.
+/* ---- Hero: closing the photograph into the page --------------------- *
+ * The first screen is one photograph under one even veil of ink; the veil
+ * itself is a Tailwind class on the element (see `components/HeroStage`).
+ * All this gradient does is the two edges: a little extra weight at the
+ * top so the header and the promo pill are not sitting on a lit shoulder,
+ * and a close to solid at the bottom so the picture ends in the page
+ * instead of on a cut line. Between 26% and 68% it paints nothing at all,
+ * which is the whole point — the middle of the screen, where the type and
+ * the subject both are, is the veil and the photograph and nothing else.
  *
- * Two things were tried before this. Flat ink over the whole picture reads
- * as legible and dead — push it far enough to quiet the handpiece and the
- * photograph is a brown field, which is not what a photographic first
- * screen is for. Blurring the backdrop works on a phone and fails on a
- * desktop, where a 853px-wide portrait is already stretched past 1440 and
- * any blur on top of that leaves nothing at all.
- *
- * So the ink is *placed* instead of spread: an ellipse of it under the
- * text column, opaque at the middle and gone by the edges of the screen.
- * The type gets a quiet ground the size of the type; the room, the hand
- * and the handpiece stay legible around it. The vertical layer came down
- * to 10% to pay for it, and the flat one is 40%.
- *
- * The pool is denser than it was — 0.97 in the middle and 0.82 at the mid
- * stop, against 0.92 and 0.6 — because the photograph under it is now
- * exposed rather than merely uncovered (see `.hero-photo` below), and
- * because the pool is the one layer whose cost is paid only where the text
- * is. Everything it does costs the picture nothing.
- *
- * Sized to the text, not to the viewport: 72×56% is the block from the
- * first line of the heading to the trust row at both 390 and 1440, which
- * is why one ellipse serves both.
+ * What stood here before: `.hero-pool`, an ellipse of ink under the text
+ * column, and `.hero-photo`, a brightness(2.4) filter on the backdrop to
+ * pay for it. Both were measured and both worked as measured — and the
+ * screen still read as a mess, because a shaped scrim is visible as a
+ * shape: a dark cloud in the middle of a lifted photograph. Even ink over
+ * an unretouched photograph is the plainer answer and it looks like one
+ * picture. If the type ever needs more ground than 65% gives it, move the
+ * crop so the words fall on a quieter part of the frame — do not put the
+ * cloud back.
  * ------------------------------------------------------------------- */
-.hero-pool {
-  background: radial-gradient(
-    ellipse 72% 56% at 50% 48%,
-    rgb(var(--c-base) / 0.97),
-    rgb(var(--c-base) / 0.82) 52%,
-    rgb(var(--c-base) / 0) 80%
+.hero-edges {
+  background: linear-gradient(
+    to bottom,
+    rgb(var(--c-base) / 0.75),
+    transparent 26%,
+    transparent 68%,
+    rgb(var(--c-base))
   );
-}
-
-/* ---- Hero: the photograph, exposed rather than uncovered ------------ *
- * Lifting ink off the backdrop is the obvious way to make the first
- * screen's photograph visible, and it does not work. The shot is dark to
- * begin with — a dim room lit by one lamp, most of the frame in the last
- * few percent of the range — so at 50% flat ink it read as a brown
- * suggestion, at 30% it still did, and at 0% it would have been a brown
- * suggestion with no ground for the type. The problem was exposure, not
- * opacity.
- *
- * So the picture is exposed first and inked afterwards. brightness(2.4)
- * is a multiplier: it does almost nothing to what is already black and
- * everything to the lit edges — the forearm, the handpiece, the towel —
- * which is exactly the part that carries the room. The small saturate is
- * there because brightening alone drifts grey.
- *
- * Measured on the composited backdrop with the type hidden, against the
- * unfiltered 30% version this replaces: the photograph's 90th-percentile
- * luminance away from the text column went 0,016 → 0,033 on 1440 and
- * 0,019 → 0,032 on 390 — the highlights doubled — while the worst pixel
- * under the text column went 13,0:1 → 14,3:1 and 7,2:1 → 7,5:1.
- * Both went the right way, which is the whole argument for doing it this
- * way round. The phone is the number that breaks first, so re-measure it
- * before touching the brightness or the flat layer.
- *
- * A filter on the largest image on the screen is a real cost, and it is
- * paid once: it is a static value on a static element, so the compositor
- * bakes it into the layer instead of re-running it per frame.
- * ------------------------------------------------------------------- */
-.hero-photo {
-  filter: brightness(2.4) saturate(1.04);
 }
 
 /* `scroll-dot`, the travelling mark inside the hero's «ЛИСТАЙТЕ» hint,
