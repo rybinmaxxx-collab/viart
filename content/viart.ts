@@ -63,41 +63,30 @@ export const announce = {
 export const offer = "Скидка 30% на любой комплекс при первом посещении";
 
 /**
- * The photograph the first screen is made of.
- *
- * The studio's own shot of the TURBO G8 handpiece: it is the only picture
- * in the library where the lit violet spheres — the colour the whole site
- * is built on — are the subject rather than a detail.
- *
- * It used to be the phone's fallback for a collage of six circles that
- * would not fit; now it is the first screen at every width, because it
- * turned out to be the better composition on the wide one too. See the
- * note in `components/HeroStage`.
- */
-/**
  * The first screen's backdrop.
  *
- * It is the poster frame of `procedure.mp4`, which is also the reel's own
- * still further down the page — one file, two jobs, and the hero loads it
- * eagerly so the reel further down gets it from cache.
+ * The gel going onto the spatula, with the machine's own screen — 045 ms,
+ * 808 nm — in the left of the frame. Two shots were here before it and the
+ * difference is what the photograph is *of*: both of those were a machine
+ * held against skin, which is the part of a visit nobody looks forward to.
+ * This one is the minute before it, and it is the one thing on the page
+ * that shows the studio working rather than the equipment working.
  *
- * It replaced `master-massage.webp`, and the reason is what the type has
- * to sit on. That shot is lit from the front: a white coat and a lit
- * handpiece across the middle of the frame, exactly where the heading
- * goes, and every percent of ink that quietened them took the whole
- * picture down with it. This one is lit from the side — the light is on
- * the hands and the machine, the rest of the room falls away — so the
- * words land on the dark half of a photograph rather than on its subject.
- * Nothing is being hidden; the frame simply has somewhere to put text.
+ * It also happens to be the easiest frame this screen has had to set type
+ * over, for a reason worth knowing: it has no speculars. The light is
+ * broad and bounced, so its brightest areas are large and even — a wall,
+ * an arm, the white housing — and even tones take a grade calmly, while
+ * the lit metal edges of the previous backdrop fought every value it was
+ * given. It is the brightest photograph of the three and the one that
+ * needed the least argument.
  *
- * It is 720×1280 against the old 853×1280, so it is stretched further on a
- * wide screen. Under a 60% veil at hero scale that costs nothing visible —
- * but it is the reason to reach for a larger file rather than this one if
- * the veil ever comes off.
+ * 853×1280, the studio's own file, unretouched — the grading is all in CSS
+ * (`.hero-photo`) so the same file stays usable anywhere else at full
+ * strength.
  */
 export const heroBackdrop = {
-  src: "/photos/poster-procedure.webp",
-  alt: "Процедура аппаратного массажа в студии ViART",
+  src: "/photos/prep-gel.webp",
+  alt: "Подготовка к процедуре в студии ViART",
 };
 
 /**
@@ -367,7 +356,11 @@ export const values = {
     },
     {
       title: "Мастер с опытом",
-      src: "/photos/prep-gel.webp",
+      // Was `prep-gel`, which is now the first screen. A tile one scroll
+      // under the hero showing the hero's own photograph reads as a
+      // mistake, whatever the crop; this frame is Anna at the machine,
+      // which is what the tile is about anyway.
+      src: "/photos/master-massage.webp",
       focus: "center 50%",
       body: "Анна работает в аппаратной косметологии более трех лет. Она читает реакции тела и управляет процессом так, чтобы процедура была эффективной и безопасной.",
     },

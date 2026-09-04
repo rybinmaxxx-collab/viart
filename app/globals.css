@@ -782,27 +782,29 @@ section[id],
 }
 
 /* ---- Hero: the grade on the backdrop -------------------------------- *
- * The first screen's ink is down to a flat 30%, because ink is the wrong
- * tool for what was making the type hard to read. The trouble was never
- * the room — it is a dim room and it was already dark — it was the
- * handpiece: a lit metal body with speculars on its edges, and the only
- * way to quiet those with a veil is to take the whole photograph down with
- * them, which is how this screen ended up at 65% and unreadable as a
- * picture.
+ * The first screen's ink is a flat 45%, and the rest of the work is done
+ * here, because ink is the wrong tool for what makes type hard to read on
+ * a photograph. A veil takes every tone down by the same amount, so the
+ * only way it can quiet a highlight is to take the whole picture with it —
+ * which is how this screen once ended up at 65% and unreadable as a room.
  *
- * A grade goes where the veil cannot. contrast(0.82) squeezes the range
- * towards the middle, so it takes far more out of the metal's highlights
- * than out of the room, and brightness(0.9) puts the whole thing a step
- * back. The subject stays a subject and the peaks stop fighting the type.
- * Numbers, and what the trade costs at the worst pixel, are in
- * `components/HeroStage`.
+ * A grade goes where a veil cannot. contrast(0.75) squeezes the range
+ * towards the middle, so it takes far more out of the bright housing and
+ * the lit wall than out of anything already dim; brightness(0.8) sets the
+ * whole thing a step back. saturate(1.15) is the correction for the ink
+ * that remains: 45% of espresso over the pink gloves reads brown, and
+ * giving the colour a step back is cheaper than giving up the ink.
+ *
+ * The values are cut for this photograph and would be wrong for another —
+ * see `heroBackdrop` in `content/viart.ts` for why this one takes a grade
+ * so calmly, and `components/HeroStage` for what the numbers measure.
  *
  * A filter on the largest image on the screen is paid once: a static
  * value on a static element is baked into the compositor's layer, not
  * re-run per frame.
  * ------------------------------------------------------------------- */
 .hero-photo {
-  filter: contrast(0.82) brightness(0.9);
+  filter: contrast(0.75) brightness(0.8) saturate(1.15);
 }
 
 /* ---- Hero: closing the photograph into the page --------------------- *

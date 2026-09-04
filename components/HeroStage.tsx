@@ -56,50 +56,46 @@ export function HeroStage() {
           loading="eager"
           fetchPriority="high"
           decoding="async"
-          className="hero-photo h-full w-full object-cover object-[50%_75%]"
+          className="hero-photo h-full w-full object-cover object-center"
         />
         {/*
           A photograph, graded, with a light veil on it. Nothing else.
 
           The picture is the point of this screen, so the ink is as thin as
-          the words allow: a flat 30% and a vertical gradient that paints
+          the words allow: a flat 45% and a vertical gradient that paints
           nothing between 22% and 74% of the height and only closes the top
-          and bottom edges into the page. Most of the work that used to be
-          done by ink is done by the grade instead — `contrast(.82)
-          brightness(.9)` on `.hero-photo` — which pulls the lit metal down
-          without touching the room around it. Ink flattens a photograph
-          evenly; lowering contrast takes it out of the highlights, which is
-          where the trouble actually is.
+          and bottom edges into the page. Most of the work that ink used to
+          do is done by the grade instead — `contrast(.75) brightness(.8)
+          saturate(1.15)` on `.hero-photo`. Ink flattens a photograph
+          evenly and takes the room with it; lowering contrast takes the
+          range out of the highlights, which is where the trouble is. The
+          saturate is for the gloves: 45% of espresso over a pink turns it
+          brown, and a step of colour back is cheaper than less ink.
 
-          Two earlier versions of this screen are worth not repeating. One
-          was three layers — flat ink, gradient, and an ellipse of ink under
-          the text column with brightness(2.4) on the photograph to pay for
-          it. Every piece was measured and the result read as blotches: a
-          shaped scrim is visible as a shape. The other was one honest veil
-          at 65%, even and defensible, and too dark to see the room through.
+          Three earlier versions of this screen are worth not repeating.
+          Three layers with an ellipse of ink under the text column and
+          brightness(2.4) under that — every piece measured, and the result
+          read as blotches, because a shaped scrim is visible as a shape.
+          One honest even veil at 65% — defensible, and too dark to see the
+          room through. And the same grade over a shot of the handpiece on
+          skin, where the metal's speculars set the worst pixel under the
+          type at 2,5:1 on a phone.
 
-          What this costs, measured on the composited backdrop with the type
-          hidden. The median pixel under the text column sits near 12:1
-          against the cream and the 95th percentile at 6,7:1 on 1440 and
-          4,4:1 on 390 — but the worst single pixel is 4,8:1 on 1440 and
-          2,5:1 on 390, and that is a deliberate trade, not an oversight.
-          Those pixels are the speculars on the handpiece's edge, a few
-          dozen of them, and buying them back costs another 20% of ink over
-          the whole picture. The heading is 44px bold and clears AA-large
-          over even those; the lead is the line to watch if the crop ever
-          moves.
+          This frame has no speculars, and that is why it is set the
+          lightest of the three. Broad bounced light makes large even
+          highlights — a wall, an arm, the white housing — and even tones
+          take a grade calmly. Measured on the composited backdrop with the
+          type hidden: the worst single pixel under the text column is
+          5,9:1 against the cream on 1440 and 5,3:1 on 390, the 95th
+          percentile 6,7:1 and 6,3:1, the median near 11:1. That is the
+          best contrast this screen has measured *and* the brightest
+          picture — 0,073 and 0,044 at the 90th percentile away from the
+          text, against 0,016 and 0,019 on the first version.
 
-          What it buys: the photograph's 90th-percentile luminance away from
-          the text is 0,066 on 1440 and 0,170 on 390, against 0,016 and
-          0,019 on the first version of this screen. It is four to nine
-          times more visible than where this started.
-
-          The crop is 50% 75%. This is a 720×1280 portrait in a 1440×900
-          hole, so a third of the frame's height is on screen and the only
-          question is which third: at 75% it is the hands and the handpiece
-          moving over the skin, which is the procedure itself. It is also
-          the friendlier third for type — higher up the frame the machine's
-          lit body stands directly behind the heading.
+          The crop is dead centre, which is unusual here and is the frame's
+          doing: the gel, the spatula and the machine's screen all sit in
+          the middle band of a 853×1280 portrait, so the third of it a
+          1440×900 hole shows is the third that says what is happening.
 
           Every opacity here is a multiple of five, and that is not taste.
           The flat layer once read `bg-base/60` — off Tailwind's 0–100-in-
@@ -115,7 +111,7 @@ export function HeroStage() {
           left to lift on the type side; the photograph is the only side
           with a knob on it.
         */}
-        <div className="absolute inset-0 bg-base/30" />
+        <div className="absolute inset-0 bg-base/45" />
         <div className="hero-edges absolute inset-0" />
       </div>
 
