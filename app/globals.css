@@ -757,7 +757,19 @@ section[id],
  * text column, opaque at the middle and gone by the edges of the screen.
  * The type gets a quiet ground the size of the type; the room, the hand
  * and the handpiece stay legible around it. The section's own flat and
- * vertical layers came down to 50% and 30% to pay for it.
+ * vertical layers came down to 30% and 10% to pay for it — at 50% and 30%
+ * the ink outside the pool was still eating the photograph, which is the
+ * one thing the pool exists to avoid: the picture keeps roughly 63% of its
+ * brightness at the edges of the screen now instead of 35%.
+ *
+ * The pool itself went the other way to hold the ground under the type:
+ * 0.94 in the middle against 0.92, and the mid stop up to 0.66. Measured
+ * on the composited backdrop with the type hidden, the brightest pixel
+ * anywhere under the text column gives 13,0:1 against the cream on 1440
+ * (was 14,4:1) and 7,2:1 on 390 (was 11,2:1) — the phone pays the most,
+ * because its column is nearly the full width and reaches further into
+ * the pool's falloff, and 7:1 is still AAA at this size. Take the flat
+ * layer below 30% and the phone is the number that breaks first.
  *
  * Sized to the text, not to the viewport: 72×56% is the block from the
  * first line of the heading to the trust row at both 390 and 1440, which
@@ -766,8 +778,8 @@ section[id],
 .hero-pool {
   background: radial-gradient(
     ellipse 72% 56% at 50% 48%,
-    rgb(var(--c-base) / 0.92),
-    rgb(var(--c-base) / 0.6) 52%,
+    rgb(var(--c-base) / 0.94),
+    rgb(var(--c-base) / 0.66) 52%,
     rgb(var(--c-base) / 0) 80%
   );
 }

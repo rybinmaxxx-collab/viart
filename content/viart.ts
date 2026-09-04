@@ -425,6 +425,10 @@ export const equipment = {
       // Both apparatus photographs are 853×1280 with the mark in the same
       // place, so both take the same value; see TURBO G8 below.
       focus: "center 93%",
+      // The reference for the pair: this one is shot closest, so it is the
+      // one that stays as it comes. See `zoom` on TURBO G8 below.
+      zoom: 1,
+      zoomOrigin: "left bottom",
       accent: "aqua" as const,
       body: "Интеллектуальная диодная система с мощным контактным охлаждением. Во время процедуры вы чувствуете только легкий холод, даже на самых деликатных зонах. Волос уходит равномерно, кожа остается нетронутой.",
       feels: [
@@ -450,6 +454,22 @@ export const equipment = {
       // reason: the wordmark ends within a pixel or two of where it does in
       // that shot, so the same crop puts it on the edge of this card too.
       focus: "center 93%",
+      // 1.16, because the two cards were photographed from different
+      // distances and `object-fit: cover` cannot fix that: both files are
+      // 853×1280 and both fill the same 16:10 band, so whatever the crop,
+      // EVERLAS arrived closer. The tell was the watermark — measured on
+      // the 16:10 crop at native width the «ViArt» wordmark runs 330px
+      // there against 285px here, and a mark that changes size between two
+      // cards side by side reads as sloppy work, not as two photographs.
+      //
+      // 330/285 is 1.16, and that is the whole derivation. The anchor is
+      // the bottom-right corner because that is where this frame's mark
+      // sits: growing the picture from there leaves the mark on the edge
+      // it was already on, at the size of its neighbour, and spends the
+      // 16% on the left margin instead — which here is a forearm and the
+      // edge of the couch. Re-measure if either photograph is replaced.
+      zoom: 1.16,
+      zoomOrigin: "right bottom",
       accent: "lav" as const,
       body: "Честная и глубокая проработка тела. Вибромассаж снимает мышечные спазмы, выводит лишнюю жидкость и корректирует контуры. Интенсивность подбирается так, чтобы после сеанса вы чувствовали легкость, а не усталость.",
       feels: [

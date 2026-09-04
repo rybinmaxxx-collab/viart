@@ -26,6 +26,8 @@ export function MediaFrame({
   autoPlay = false,
   objectFit = "cover",
   objectPosition,
+  zoom,
+  zoomOrigin = "center",
   tone = "lav",
   rounded = true,
   className = "",
@@ -52,6 +54,19 @@ export function MediaFrame({
    * one place that knows the ratio it is cropping to.
    */
   objectPosition?: string;
+  /**
+   * A tighter crop than `cover` gives, e.g. `1.16`.
+   *
+   * `object-fit: cover` scales an asset to fill the frame and no further,
+   * so two photographs shot at different distances stay at different
+   * distances however they are cropped — and side by side that reads as
+   * one card zoomed in and the other not, with the studio's own wordmark
+   * plainly a different size in each. Scaling the image inside the frame
+   * is the only way to match them; `zoomOrigin` says which corner holds
+   * still while it grows, so a mark on an edge stays on that edge.
+   */
+  zoom?: number;
+  zoomOrigin?: string;
   /** The empty-slot fill, for a frame whose asset has not arrived yet. */
   tone?: "lav" | "ink" | "veil";
   rounded?: boolean;
@@ -74,6 +89,12 @@ export function MediaFrame({
     .filter(Boolean)
     .join(" ");
 
+  const media: React.CSSProperties = { objectFit, objectPosition };
+  if (zoom && zoom !== 1) {
+    media.transform = `scale(${zoom})`;
+    media.transformOrigin = zoomOrigin;
+  }
+
   const style: React.CSSProperties = { aspectRatio: String(ratio) };
   if (fixedWidth) {
     style.width = fixedWidth;
@@ -85,7 +106,7 @@ export function MediaFrame({
       {kind === "video" ? (
         <video
           className="h-full w-full"
-          style={{ objectFit, objectPosition }}
+          style={media}
           {...(src ? { src } : {})}
           poster={poster}
           autoPlay={autoPlay}
@@ -116,7 +137,7 @@ export function MediaFrame({
           loading="lazy"
           decoding="async"
           className="h-full w-full"
-          style={{ objectFit, objectPosition }}
+          style={media}
         />
       ) : null}
 

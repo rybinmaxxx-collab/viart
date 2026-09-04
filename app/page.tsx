@@ -589,6 +589,8 @@ function EquipmentCard({ item }: { item: (typeof equipment.items)[number] }) {
           src={item.src}
           label={`${item.name} — ${item.role}`}
           objectPosition={item.focus}
+          zoom={item.zoom}
+          zoomOrigin={item.zoomOrigin}
           rounded={false}
         />
         {/* The photo runs into the card rather than stopping at an edge:
