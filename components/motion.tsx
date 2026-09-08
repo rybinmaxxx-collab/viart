@@ -329,13 +329,32 @@ export function StickyCta({ href, label }: { href: string; label: string }) {
   }, []);
 
   return (
+    /*
+     * Docked on a phone, floating on a desktop — and the difference is not
+     * cosmetic.
+     *
+     * It floated bottom-right everywhere, which on a 390px screen put a
+     * wide gold pill on top of whatever full-width paragraph happened to
+     * be there: reviews lost their last line under it. A floating button
+     * covering content is the accepted cost of a floating button on a
+     * desktop, where it sits over a margin. On a phone there is no margin
+     * to sit over.
+     *
+     * So below `sm` it is a bar across the bottom, and `body` reserves the
+     * height of it (see `globals.css`) so nothing is ever underneath.
+     * Reserving space rather than overlaying is the only fix that actually
+     * ends the overlap instead of moving it somewhere else — and the bar
+     * is a bigger tap target than the pill it replaces, on the one control
+     * the whole page exists to get pressed.
+     */
     <a
       href={href}
       target="_blank"
       rel="noopener noreferrer"
       aria-hidden={!shown}
       tabIndex={shown ? 0 : -1}
-      className={`fixed bottom-5 right-5 z-[3] inline-flex items-center gap-2 rounded-full bg-lav px-6 py-3.5 text-body font-medium text-ink shadow-[0_16px_40px_-12px_rgb(var(--c-accent)/0.6)] transition-all duration-500 ${
+      style={{ bottom: "max(1rem, env(safe-area-inset-bottom))" }}
+      className={`fixed inset-x-4 z-[3] inline-flex items-center justify-center gap-2 rounded-full bg-lav px-6 py-3.5 text-body font-medium text-ink shadow-[0_16px_40px_-12px_rgb(var(--c-accent)/0.6)] transition-all duration-500 sm:inset-x-auto sm:right-5 sm:justify-start ${
         shown ? "translate-y-0 opacity-100" : "pointer-events-none translate-y-6 opacity-0"
       }`}
     >

@@ -1,8 +1,7 @@
 "use client";
 
-import { useEffect, useRef, type CSSProperties } from "react";
-
-type Vars = CSSProperties & Record<`--${string}`, string | number>;
+import { useEffect, useState } from "react";
+import { MeshGradient } from "@paper-design/shaders-react";
 
 /**
  * The one background the whole site sits on.
@@ -10,277 +9,207 @@ type Vars = CSSProperties & Record<`--${string}`, string | number>;
  * Every band above this is translucent, so this layer is not decoration
  * for a section — it is the room all of them are in.
  *
- * ── There are no objects in it any more ────────────────────────────────
+ * ── What this replaced, and why three times ────────────────────────────
  *
- * It used to hold six discrete things: glass spheres, then — when a
- * rimmed disc turned out to be unsalvageable on espresso — six edgeless
- * pools of light. Both were the same mistake at different strengths. A
- * background made of *countable things* asks to be counted: you see six
- * of them, you watch them travel, and while you are doing that you are
- * not reading the page. Softening a shape does not stop it being a
- * shape.
+ * First six glass spheres, then six edgeless pools of light, then three
+ * full-bleed sheets of CSS haze. The third one was the closest, and it
+ * still failed, but not for the reason the previous notes here assumed.
  *
- * What replaced them is atmosphere: three full-bleed sheets of haze,
- * each a stack of very wide gradients in a different part of the warm
- * range — champagne, gold, caramel, pearl — overlapping so no one hue
- * is anywhere on its own. That overlap is the whole idea. A single warm
- * wash on a brown ground is brown; three of them at different densities,
- * sliding across each other at different rates, disperse into something
- * that has depth and no edges to find.
+ * It was measured before it was replaced: hiding the three sheets and
+ * diffing the screenshot moved the mean channel by 7.8 of 255 — less than
+ * the static grain tile above them, which moved 15.4. The most complicated
+ * thing in the codebase contributed less to the picture than one line of
+ * `background-image`. Raising the alphas would only have produced brighter
+ * fog: three wide gradients overlapping on a dark ground have no edge
+ * anywhere for the eye to resolve, and a background with no structure
+ * reads as a smudge however bright it is.
  *
- * ── What moves, and what it costs ──────────────────────────────────────
+ * ── What is here now ──────────────────────────────────────────────────
  *
- * Three elements. Not eleven, and not one blur filter between them:
+ * A real mesh gradient, on the GPU: colour spots travelling along their
+ * own trajectories through an organic distortion field, which is the thing
+ * the three sheets were imitating and could not reach. Roughly 30 lines of
+ * configuration instead of 190 of hand-written parallax, and the scroll
+ * listener, the pointer easing and the sine-of-scroll trick are all gone
+ * with it — the motion is inside the shader now.
  *
- *   · Scroll drives a *sine* of the scroll position rather than a
- *     translation of it. A layer that is simply pushed upwards leaves
- *     the screen and has to be wrapped back, and a wrap in something
- *     this large is a visible jump. A sine is bounded, continuous, never
- *     repeats a seam, and still has the sheets passing each other at
- *     their own rates the whole way down the page.
- *   · The pointer drifts them, scaled by `--depth`, which is what makes
- *     the three read as distance rather than as one gradient sliding.
- *   · Inside each sheet a second element breathes on a slow keyframe, so
- *     the room is alive when nothing is being scrolled or hovered.
+ * ── The two levers, and why both ──────────────────────────────────────
  *
- * Softness comes from the gradient stops reaching transparency, never
- * from `filter: blur()`. A blur on a moving element is re-rasterised
- * every frame; these are three composited transforms and nothing else.
+ * Brightness is set twice, and the halves are not interchangeable.
+ *
+ * `colors` decides what the gradient is made of. Drop the light stops and
+ * everything sits lower — but the gold stops being gold and turns brown,
+ * which is the exact failure the espresso palette is prone to, so there is
+ * a floor to how far this lever goes.
+ *
+ * The scrim decides how much of it reaches the eye. It keeps the hue and
+ * takes the level, and it is the only one of the two that defends the
+ * type, because it darkens uniformly rather than wherever the shader
+ * happens to be pale this second. That matters more here than it did with
+ * the sheets: a shader is animated, so without it the contrast under a
+ * line of small text would be a function of *time*, and the reader does
+ * not control time.
+ *
+ * So: palette down to its floor, scrim for the remainder. All palette and
+ * bright patches drift under small type; all scrim and the result is grey.
  */
 
 /**
- * The three sheets, far to near.
- *
- * `paint` is a stack of gradients written in theme tokens — a preset
- * swaps the tokens in `app/globals.css` and this file never learns about
- * it. `depth` is how far the sheet follows the pointer. `ax`/`ay` are the
- * scroll travel as a fraction of the viewport, and `px`/`py` the scroll
- * distance in pixels that completes one cycle of it: the near sheet moves
- * furthest and turns over soonest, which is the whole of the parallax.
- * `phase` keeps the three from ever arriving at the same place at the
- * same time.
+ * Per preset, because a shader takes colours as uniforms and cannot read
+ * `--c-*` the way every other component does. This is the one place in the
+ * site that names a hex, and it is the price of the effect — so it is one
+ * map, next to the component, rather than hexes scattered through it.
  */
-const HAZE = [
-  {
-    // Far: the broad wash that decides the page's overall temperature.
-    depth: 0.34,
-    swim: 74,
-    ax: 0.03,
-    ay: 0.05,
-    px: 2600,
-    py: 1900,
-    phase: 0,
-    paint: `
-      radial-gradient(48% 36% at 16% 12%, rgb(var(--c-accent-soft) / 0.11), transparent 70%),
-      radial-gradient(42% 34% at 84% 24%, rgb(var(--c-accent) / 0.1), transparent 72%),
-      radial-gradient(60% 42% at 52% 78%, rgb(var(--c-clay) / 0.08), transparent 74%)
-    `,
+const PALETTES = {
+  base: {
+    colors: ["#100905", "#1c1109", "#3d2a12", "#9a7c34"],
+    /** Where the shader cannot run. Mirrors the palette above. */
+    still:
+      "radial-gradient(58% 44% at 22% 18%, #3d2a12 0%, transparent 68%)," +
+      "radial-gradient(52% 40% at 82% 32%, #9a7c34 0%, transparent 72%)," +
+      "radial-gradient(70% 50% at 50% 88%, #1c1109 0%, transparent 74%)," +
+      "#100905",
   },
-  {
-    // Middle: where most of the gold lives.
-    depth: 0.62,
-    swim: 58,
-    ax: 0.05,
-    ay: 0.09,
-    px: 1700,
-    py: 1200,
-    phase: 1.1,
-    paint: `
-      radial-gradient(40% 30% at 70% 56%, rgb(var(--c-accent) / 0.1), transparent 72%),
-      radial-gradient(34% 26% at 22% 46%, rgb(var(--c-accent-soft) / 0.09), transparent 74%),
-      radial-gradient(52% 34% at 46% 4%, rgb(var(--c-accent) / 0.07), transparent 70%)
-    `,
+  rose: {
+    colors: ["#141113", "#1d1719", "#3a2a2c", "#9b686a"],
+    still:
+      "radial-gradient(58% 44% at 22% 18%, #3a2a2c 0%, transparent 68%)," +
+      "radial-gradient(52% 40% at 82% 32%, #9b686a 0%, transparent 72%)," +
+      "radial-gradient(70% 50% at 50% 88%, #1d1719 0%, transparent 74%)," +
+      "#141113",
   },
-  {
-    // Near: a soft shaft across the top corner and two tight highlights.
-    // The linear gradient is the one directional thing in the field, and
-    // it is what stops the haze reading as fog rather than as light.
-    depth: 1,
-    swim: 46,
-    ax: 0.07,
-    ay: 0.14,
-    px: 1100,
-    py: 760,
-    phase: 2.3,
-    paint: `
-      linear-gradient(196deg, rgb(var(--c-pearl) / 0.055) 0%, transparent 44%),
-      radial-gradient(26% 20% at 30% 26%, rgb(var(--c-pearl) / 0.07), transparent 72%),
-      radial-gradient(30% 22% at 78% 84%, rgb(var(--c-accent-soft) / 0.08), transparent 74%)
-    `,
-  },
-];
+} as const;
+
+/**
+ * 0.42 was the value chosen by eye. It shipped at 4.20:1 under the small
+ * gold line above the price list — gold ink is the palette's dimmest, and
+ * the shader had lifted the ground under it from near-black to L≈0.108.
+ * 0.50 puts that worst case back over 4.5:1 and is indistinguishable from
+ * 0.42 anywhere else, which is the whole argument for tuning the scrim
+ * rather than the palette: it is the lever that does not cost any colour.
+ */
+const SCRIM = 0.5;
+
+const FILL = { position: "fixed", inset: 0, zIndex: 0 } as const;
+
+/**
+ * Is there a GPU path at all?
+ *
+ * Asked once, on a throwaway canvas, because the alternative is finding
+ * out by rendering nothing: a `<canvas>` that fails to get a context
+ * paints transparent, and transparent over `body` is a flat brown page
+ * with no warning that anything went wrong. Old Android, a blocklisted
+ * driver and a browser with hardware acceleration switched off all land
+ * here, and all of them get the still image instead.
+ */
+function hasWebGL() {
+  try {
+    const probe = document.createElement("canvas");
+    return Boolean(probe.getContext("webgl2") || probe.getContext("webgl"));
+  } catch {
+    return false;
+  }
+}
 
 export function AmbientField() {
-  const field = useRef<HTMLDivElement>(null);
+  // Server-rendered as the still image, always. It is the honest first
+  // frame — correct on its own, and what remains if script never arrives.
+  const [live, setLive] = useState(false);
+  const [preset, setPreset] = useState<keyof typeof PALETTES>("base");
 
   useEffect(() => {
-    const el = field.current;
-    if (!el) return;
-    if (document.documentElement.getAttribute("data-motion") !== "on") return;
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    const root = document.documentElement;
 
-    const sheets = Array.from(el.querySelectorAll<HTMLElement>("[data-haze]"));
+    const readPreset = () =>
+      setPreset(root.getAttribute("data-theme") === "rose" ? "rose" : "base");
+    readPreset();
 
-    // Pointer drift is a desktop affordance only — and the media query is
-    // the right test rather than the viewport width, because it asks the
-    // question that actually matters: is there a pointer to follow.
-    const fine = window.matchMedia("(hover: hover) and (pointer: fine)");
+    // The preset is written by the bootstrap in <head> before first paint,
+    // so this normally reads the final value on the first pass. The
+    // observer is for the case it does not — a preset applied later must
+    // not leave the background in the other palette.
+    const watch = new MutationObserver(readPreset);
+    watch.observe(root, { attributes: true, attributeFilter: ["data-theme"] });
 
-    // Where the pointer is (target) and where the field has got to
-    // (current). Easing the second towards the first each frame is what
-    // gives the layers weight; snapping them would read as a jitter.
-    let tx = 0;
-    let ty = 0;
-    let cx = 0;
-    let cy = 0;
-    let scrolled = window.scrollY;
-    let frame = 0;
-    let settled = false;
-
-    const paint = () => {
-      frame = 0;
-
-      if (fine.matches) {
-        cx += (tx - cx) * 0.06;
-        cy += (ty - cy) * 0.06;
-      } else {
-        cx = 0;
-        cy = 0;
-      }
-
-      el.style.setProperty("--fx", `${cx.toFixed(1)}px`);
-      el.style.setProperty("--fy", `${cy.toFixed(1)}px`);
-
-      /*
-       * Scroll drift, as a sine rather than a translation.
-       *
-       * The sheets are `inset: -30%`, so travel of up to 14% of the
-       * viewport never brings an edge into view — and because the
-       * position is a periodic function of the scroll rather than a
-       * multiple of it, there is nothing to wrap and therefore no jump.
-       * The three periods are coprime enough that the arrangement does
-       * not visibly repeat within the length of the page.
-       */
-      const width = window.innerWidth;
-      const height = window.innerHeight;
-
-      for (const sheet of sheets) {
-        const d = sheet.dataset;
-        const phase = Number(d.phase ?? 0);
-        const hx = Math.cos(scrolled / Number(d.px) + phase) * width * Number(d.ax);
-        const hy = Math.sin(scrolled / Number(d.py) + phase) * height * Number(d.ay);
-        sheet.style.setProperty("--hx", `${hx.toFixed(1)}px`);
-        sheet.style.setProperty("--hy", `${hy.toFixed(1)}px`);
-      }
-
-      // Keep the loop alive only while the pointer easing still has
-      // somewhere to go. Scroll and pointer events wake it again.
-      settled = Math.abs(tx - cx) < 0.4 && Math.abs(ty - cy) < 0.4;
-      if (!settled) frame = requestAnimationFrame(paint);
-    };
-
-    const schedule = () => {
-      if (!frame) frame = requestAnimationFrame(paint);
-    };
-
-    const onPointer = (e: PointerEvent) => {
-      if (!fine.matches) return;
-      // ±1 across the viewport, scaled to a travel of about 40px at the
-      // nearest layer. Enough to notice, not enough to chase.
-      tx = ((e.clientX / window.innerWidth) * 2 - 1) * 40;
-      ty = ((e.clientY / window.innerHeight) * 2 - 1) * 40;
-      settled = false;
-      schedule();
-    };
-
-    const onScroll = () => {
-      scrolled = window.scrollY;
-      settled = false;
-      schedule();
-    };
-
+    const reduced = window.matchMedia("(prefers-reduced-motion: reduce)");
     /*
-     * The pointer listener is only ever attached on a device that has a
-     * pointer.
+     * Touch gets the still image, and this is the expensive decision in
+     * the file, so here is the measurement behind it.
      *
-     * It used to be bound unconditionally and then bail out on the first
-     * line of the handler — which still means every `pointermove` a
-     * finger generates crosses into script during a scroll, on the one
-     * class of device that can least afford it. Binding it behind the
-     * media query means a phone never dispatches to it at all, and the
-     * query is watched so a tablet with a mouse plugged in mid-session
-     * still gets the drift.
+     * Scrolling a 390×844 viewport for four seconds, frames actually
+     * delivered:
+     *
+     *              with shader      still image
+     *   unthrottled   29 fps           60 fps
+     *   CPU ×4        16 fps           60 fps
+     *   CPU ×6        16 fps           57 fps
+     *
+     * The worst single frame with the shader running was 317 ms.
+     *
+     * That was measured on a software rasteriser with no GPU, so a real
+     * phone will do better — possibly much better, and the honest position
+     * is that the true number is unknown. But the direction is not in
+     * doubt, the audience for a studio in Kommunarka is overwhelmingly on
+     * a phone, and the thing being bought with that frame budget is a
+     * gradient nobody is looking at. The still image is the same palette;
+     * what is lost on touch is the drift, not the picture.
+     *
+     * The same media query already governs every other expensive effect on
+     * this site — see the touch block in `globals.css`.
      */
-    let bound = false;
-    const bindPointer = () => {
-      if (fine.matches === bound) return;
-      bound = fine.matches;
-      if (bound) {
-        window.addEventListener("pointermove", onPointer, { passive: true });
-      } else {
-        window.removeEventListener("pointermove", onPointer);
-        tx = 0;
-        ty = 0;
-        settled = false;
-        schedule();
-      }
-    };
+    const coarse = window.matchMedia("(hover: none) and (pointer: coarse)");
+    const decide = () => setLive(!reduced.matches && !coarse.matches && hasWebGL());
+    decide();
+    reduced.addEventListener("change", decide);
+    coarse.addEventListener("change", decide);
 
-    paint();
-    bindPointer();
-    fine.addEventListener("change", bindPointer);
-    window.addEventListener("scroll", onScroll, { passive: true });
-    window.addEventListener("resize", onScroll, { passive: true });
     return () => {
-      fine.removeEventListener("change", bindPointer);
-      window.removeEventListener("pointermove", onPointer);
-      window.removeEventListener("scroll", onScroll);
-      window.removeEventListener("resize", onScroll);
-      if (frame) cancelAnimationFrame(frame);
+      watch.disconnect();
+      reduced.removeEventListener("change", decide);
+      coarse.removeEventListener("change", decide);
     };
   }, []);
 
-  return (
-    <div ref={field} aria-hidden className="field">
-      {HAZE.map((h, i) => (
-        <div
-          key={i}
-          data-haze
-          data-ax={h.ax}
-          data-ay={h.ay}
-          data-px={h.px}
-          data-py={h.py}
-          data-phase={h.phase}
-          className="haze"
-          style={{ "--depth": h.depth } as Vars}
-        >
-          {/*
-            The paint is on an inner element because the outer one is
-            already carrying a transform written from script. Two writers
-            of one property is one too many, and the breathing keyframe
-            below needs a transform of its own — so the sheet moves, and
-            what is painted on it moves inside it.
-          */}
-          <div
-            className="haze-body"
-            style={{
-              background: h.paint,
-              animationDuration: `${h.swim}s`,
-              animationDirection: i % 2 ? "alternate-reverse" : "alternate",
-            }}
-          />
-        </div>
-      ))}
+  const palette = PALETTES[preset];
 
-      {/* Vignette. Over the haze, so the corners stay held down and the
-          middle of any screenful is the brightest part of it. */}
-      <div className="absolute inset-0 bg-[radial-gradient(120%_90%_at_50%_30%,transparent_38%,rgba(0,0,0,0.62)_100%)]" />
+  return (
+    <div aria-hidden className="field">
+      {live ? (
+        <MeshGradient
+          style={FILL}
+          colors={[...palette.colors]}
+          distortion={0.85}
+          swirl={0.55}
+          grainMixer={0.3}
+          grainOverlay={0.12}
+          speed={0.25}
+        />
+      ) : (
+        <div style={{ ...FILL, background: palette.still }} />
+      )}
+
+      {/*
+        The scrim. Darker at the edges than in the middle, so the corners —
+        where small type is least defended and where the eye is worst at
+        reading — get the most of it. This is also what the old vignette
+        did, so the two are one layer now rather than two stacked.
+      */}
+      <div
+        className="absolute inset-0"
+        style={{
+          background:
+            `radial-gradient(120% 90% at 50% 34%,` +
+            ` rgb(var(--c-base) / ${SCRIM * 0.55}) 0%,` +
+            ` rgb(var(--c-base) / ${SCRIM}) 62%,` +
+            ` rgb(var(--c-black) / ${Math.min(SCRIM + 0.22, 0.9)}) 100%)`,
+        }}
+      />
 
       {/* Grain, once, for the whole page. It used to be applied per band,
           which meant it restarted at every band edge and drew a seam
-          across the page wherever two of them met. On top of the haze it
-          does a second job: it breaks up the gradient banding that three
-          overlapping washes on a dark ground would otherwise show. */}
+          across the page wherever two of them met. Over the gradient it
+          does a second job: it breaks up the banding a wide wash on a dark
+          ground would otherwise show. */}
       <div className="grain" />
     </div>
   );

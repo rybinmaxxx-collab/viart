@@ -118,13 +118,13 @@
   /** Caramel, for the one band that wants heat rather than light. */
   --c-clay: 168 106 68;
   /**
-   * Pearl beige — the highlight in the near haze sheet, and the shaft of
-   * light across the top of it. Never a fill.
+   * Pearl beige — a highlight, never a fill.
    *
-   * There were five `--glow-N` variables here, one per colour pool in
-   * the old ambient field. The field is three sheets of haze now and
-   * each mixes its own gradients from the tokens above, so a pool no
-   * longer has a name of its own to be set by. See `.haze`.
+   * There were five `--glow-N` variables here, one per colour pool in the
+   * old ambient field. The field is a shader now and takes its colours as
+   * uniforms rather than as CSS, so its palette lives beside it in
+   * `components/AmbientField` — the one place in the site that names a
+   * hex, and the price of the effect.
    */
   --c-pearl: 245 235 224;
 
@@ -200,6 +200,22 @@
 html,
 body {
   overflow-x: clip;
+}
+
+/*
+ * Room for the docked booking bar.
+ *
+ * Below `sm` the sticky call to action is a bar across the bottom rather
+ * than a pill in the corner, and a fixed bar is out of flow: without this
+ * the last line of the page sits under it. Reserving the height is the
+ * only fix that ends the overlap rather than relocating it — every
+ * variant that keeps the bar overlaying content just picks a different
+ * paragraph to cover. See `StickyCta` in `components/motion`.
+ */
+@media (max-width: 639px) {
+  body {
+    padding-bottom: calc(4.5rem + env(safe-area-inset-bottom));
+  }
 }
 
 /*
@@ -507,13 +523,19 @@ section[id],
 /* ================================================================== *
  * AMBIENT FIELD — the one background the whole site sits on.
  *
- * A fixed layer behind every band: three full-bleed sheets of haze,
- * drifting across one another at their own rates. Bands above it are
- * translucent, so the same field shows through the entire page rather
- * than each section carrying its own decoration.
+ * A fixed layer behind every band, carrying a mesh gradient on the GPU,
+ * a scrim and the grain. Bands above it are translucent, so the same
+ * field shows through the entire page rather than each section carrying
+ * its own decoration.
  *
- * Nothing in it is a shape. See `.haze` below, and the note in
- * `components/AmbientField` for the two attempts that were.
+ * Almost nothing about it lives here any more. It used to be three
+ * full-bleed sheets of CSS haze driven from script, and both the sheets
+ * and the ~90 lines of rules that positioned, drifted and breathed them
+ * are gone: the motion is inside the shader now. What is left is the
+ * container, because a fixed full-bleed layer is still a CSS problem.
+ *
+ * See `components/AmbientField` for what replaced it and the measurement
+ * that condemned it.
  * ================================================================== */
 .field {
   position: fixed;
@@ -521,93 +543,8 @@ section[id],
   z-index: 0;
   pointer-events: none;
   overflow: hidden;
-  /* Written by script; 0 until then, and permanently 0 on touch. */
-  --fx: 0px;
-  --fy: 0px;
 }
 
-/*
- * A sheet of haze. Three of them make the field.
- *
- * ── What this replaced, and why twice ─────────────────────────────────
- *
- * First there were six glass spheres. An object has an edge, and on
- * espresso every colour available to draw that edge with — the fill, the
- * rim, the ground behind it — is one hue at three darknesses, so a
- * sphere came out a brown ball. Then there were six edgeless pools of
- * light, which fixed the mud and not the problem: a background made of
- * countable things asks to be counted, and while the eye is counting it
- * is not reading the page.
- *
- * A sheet is not a thing. It is full-bleed, it has no boundary anywhere
- * inside the viewport, and there is nothing in it to look at directly.
- * What you get instead is depth, which is what the spheres were only
- * ever a pretext for.
- *
- * ── Where the volume comes from ───────────────────────────────────────
- *
- * Dispersion, in the ordinary sense: three sheets, each a stack of very
- * wide gradients in a different part of the warm range — champagne,
- * gold, caramel, pearl — overlapping so that no single hue is anywhere
- * on its own, and sliding across one another at three different rates.
- * One warm wash on a brown ground is brown. Three at different densities
- * and different speeds separate into something with air in it.
- *
- * The near sheet carries the only directional element in the field, a
- * soft shaft down from the top corner. Without it the haze reads as fog;
- * with it, as light.
- *
- * ── The two transforms, and why they are on two elements ──────────────
- *
- * `.haze` carries the drift: `--hx`/`--hy` are a *sine* of the scroll
- * position rather than a multiple of it, written by script, plus the
- * pointer offset scaled by `--depth`. Sine because a sheet that is
- * simply pushed along has to be wrapped when it runs out, and a wrap in
- * something this large is a visible jump; a periodic position is bounded
- * and continuous and never seams.
- *
- * `.haze-body` carries the paint and one very slow keyframe, so the room
- * breathes when nothing is being scrolled or hovered. It has to be a
- * second element: script already owns the transform on the parent, and
- * two writers of one property is one too many.
- *
- * `inset: -30%` gives the travel room — at most 14% of the viewport —
- * so no edge ever comes into view. And there is no `filter: blur()`
- * anywhere in here: softness is in the gradient stops, which costs the
- * compositor nothing per frame.
- */
-.haze {
-  position: absolute;
-  inset: -30%;
-  transform: translate3d(
-    calc(var(--hx, 0px) + var(--fx) * var(--depth, 1)),
-    calc(var(--hy, 0px) + var(--fy) * var(--depth, 1)),
-    0
-  );
-  will-change: transform;
-}
-
-.haze-body {
-  position: absolute;
-  inset: 0;
-  animation-name: haze-swim;
-  animation-timing-function: cubic-bezier(0.45, 0, 0.55, 1);
-  animation-iteration-count: infinite;
-  will-change: transform;
-}
-
-/*
- * The breath. Small enough that you cannot catch it moving, large enough
- * that a screenshot taken a minute apart is a different room.
- */
-@keyframes haze-swim {
-  from {
-    transform: translate3d(-1.5%, 1%, 0) scale(1.04);
-  }
-  to {
-    transform: translate3d(1.5%, -1.5%, 0) scale(1.12);
-  }
-}
 
 /* Hairline that reads as a seam between plates. */
 .seam {
@@ -853,27 +790,27 @@ section[id],
  * TOUCH DEVICES — the expensive effects come off entirely.
  *
  * Everything below is either driven by a pointer that does not exist on
- * a phone, or is a compositor cost with no payoff on one: the ambient
- * field's parallax and the drifting photo rail.
+ * a phone, or is a compositor cost with no payoff on one.
  *
- * Two things that used to be neutralised here are gone from the
+ * Three things that used to be neutralised here are gone from the
  * stylesheet entirely: the `backdrop-filter` behind six glass spheres,
- * and the 120px `filter: blur()` on five colour pools. Both were paid
- * for every frame. The field is three gradients on the compositor now,
- * and on a phone even those hold still.
+ * the 120px `filter: blur()` on five colour pools, and the transforms on
+ * three sheets of haze. All were paid for every frame.
  * ================================================================== */
 @media (hover: none) and (pointer: coarse) {
-  /* The haze holds its paint and stops drifting: three composited
-     transforms a phone does not need while it is scrolling. The breath
-     goes with them — an infinite keyframe is a frame budget spent on
-     something nobody is looking at. */
-  .haze {
-    transform: none !important;
-  }
-
-  .haze-body {
-    animation: none;
-    transform: scale(1.08);
+  /*
+   * The grain stops blending.
+   *
+   * This block used to switch off three composited transforms for the
+   * sake of the frame budget and leave the most expensive layer of the
+   * lot running: a fixed, full-viewport element with `mix-blend-mode`,
+   * which has to be recomposited against a backdrop that changes on
+   * every scrolled pixel. Turning the blend off and dropping the opacity
+   * to compensate keeps the texture and makes it a plain overlay.
+   */
+  .grain {
+    mix-blend-mode: normal;
+    opacity: 0.16;
   }
 
   /* Hover-only affordances never fire on touch, and leaving them armed
@@ -911,13 +848,8 @@ section[id],
   .btn::before,
   .hover-fade,
   .card-lift,
-  .tile-zoom > *,
-  .haze {
+  .tile-zoom > * {
     transition: none;
-  }
-
-  .haze-body {
-    animation: none;
   }
 
   .btn:hover,
@@ -925,9 +857,10 @@ section[id],
     transform: none;
   }
 
-  .haze {
-    transform: none !important;
-  }
+  /* The field's shader is not switched off here — it is never mounted.
+     `AmbientField` asks the same media query in script and renders the
+     still image instead, because a canvas that has to be told to hold
+     still is a canvas that was created for nothing. */
 
   .stories {
     animation: none;
