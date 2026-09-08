@@ -38,7 +38,7 @@ export function Footer() {
                       {...(link.href.startsWith("http")
                         ? { target: "_blank", rel: "noopener noreferrer" }
                         : {})}
-                      className="text-body text-white/80 transition-colors hover:text-lav-soft"
+                      className="text-body text-white transition-colors hover:text-lav-soft"
                     >
                       {link.label}
                     </a>

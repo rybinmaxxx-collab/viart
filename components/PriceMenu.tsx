@@ -192,7 +192,7 @@ function PriceRow({ name, price }: { name: string; price: string }) {
         // Hidden on the narrowest phones: below ~400px the name, the figure
         // and a button do not fit on one line, and the panel's own two
         // calls to action are a thumb's reach away regardless.
-        className="hover-fade hidden shrink-0 rounded-full border border-white/25 px-3 py-1 text-cap text-white/80 transition-colors hover:border-lav hover:text-white sm:inline-flex"
+        className="hover-fade hidden shrink-0 rounded-full border border-white/25 px-3 py-1 text-cap text-white transition-colors hover:border-lav hover:text-white sm:inline-flex"
       >
         {pricing.bookLabel}
       </a>

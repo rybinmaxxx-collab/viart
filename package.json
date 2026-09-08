@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@paper-design/shaders-react": "^0.0.80",
     "next": "^16.3.3",
     "react": "19.0.0",
     "react-dom": "19.0.0"

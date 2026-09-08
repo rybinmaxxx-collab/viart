@@ -88,7 +88,7 @@ export default function Page() {
                 «{master.quote.text}»
               </blockquote>
             </M>
-            <M variant="rise" i={2} as="p" className="mt-6 max-w-xl text-body text-white/80">
+            <M variant="rise" i={2} as="p" className="mt-6 max-w-xl text-body text-white">
               {master.quote.body}
             </M>
             <M
@@ -119,7 +119,7 @@ export default function Page() {
                 <Heading level={3} size="h3" className="text-lav-soft">
                   {item.title}
                 </Heading>
-                <p className="mt-3 text-body text-white/80">{item.body}</p>
+                <p className="mt-3 text-body text-white">{item.body}</p>
               </Card>
             </M>
           ))}
@@ -171,7 +171,7 @@ export default function Page() {
           <M variant="rise" i={1} as="h2" className="mt-6 text-balance text-h1 font-bold">
             {master.trust.title}
           </M>
-          <M variant="rise" i={2} as="p" className="mt-6 text-lead text-white/80">
+          <M variant="rise" i={2} as="p" className="mt-6 text-lead text-white">
             {master.trust.body}
           </M>
           <M variant="pop" i={3} className="mt-9">
