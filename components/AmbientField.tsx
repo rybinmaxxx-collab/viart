@@ -62,7 +62,7 @@ import { MeshGradient } from "@paper-design/shaders-react";
  */
 const PALETTES = {
   base: {
-    colors: ["#100905", "#1c1109", "#3d2a12", "#9a7c34"],
+    colors: ["#100905", "#1c1109", "#3d2a12", "#9a7c34", "#2a1a0e", "#7c6329"],
     /** Where the shader cannot run. Mirrors the palette above. */
     still:
       "radial-gradient(58% 44% at 22% 18%, #3d2a12 0%, transparent 68%)," +
@@ -71,7 +71,7 @@ const PALETTES = {
       "#100905",
   },
   rose: {
-    colors: ["#141113", "#1d1719", "#3a2a2c", "#9b686a"],
+    colors: ["#141113", "#1d1719", "#3a2a2c", "#9b686a", "#241c1e", "#7d5456"],
     still:
       "radial-gradient(58% 44% at 22% 18%, #3a2a2c 0%, transparent 68%)," +
       "radial-gradient(52% 40% at 82% 32%, #9b686a 0%, transparent 72%)," +
@@ -84,11 +84,38 @@ const PALETTES = {
  * 0.42 was the value chosen by eye. It shipped at 4.20:1 under the small
  * gold line above the price list — gold ink is the palette's dimmest, and
  * the shader had lifted the ground under it from near-black to L≈0.108.
- * 0.50 puts that worst case back over 4.5:1 and is indistinguishable from
- * 0.42 anywhere else, which is the whole argument for tuning the scrim
- * rather than the palette: it is the lever that does not cost any colour.
+ * 0.50 put that worst case back over 4.5:1.
+ *
+ * 0.62 is a further 25% off the whole field, asked for so the page reads
+ * more easily, and taken here rather than out of the palette because the
+ * scrim is the lever that costs no colour: gold stays gold.
  */
-const SCRIM = 0.5;
+const SCRIM = 0.62;
+
+/**
+ * How far the light is allowed to wander.
+ *
+ * The field looked, in ordinary use, as though it were lit from the right.
+ * It is not: sampling the background alone every 2.6 s for a minute, the
+ * right third against the left ran
+ *
+ *   0.39 0.61 0.72 3.21 6.61 7.30 1.77 0.58 0.37 0.33 …
+ *
+ * — from the left being three times brighter to the right being seven
+ * times brighter, averaging 1.11 over a full cycle. So there is no bias to
+ * correct, and a fixed correction would have been wrong half of every
+ * turn. What there is, is *excursion*: the bright mass travels nearly the
+ * width of the viewport, and at 0.25 speed it sits far out on one side for
+ * ten or twenty seconds at a stretch, which is longer than anybody looks
+ * at a page.
+ *
+ * These three numbers are the amplitude, not the centre. `scale` above 1
+ * makes each colour spot wider than the frame, so a spot arriving cannot
+ * be *on a side* — it covers the width and only its density changes.
+ * Lower `distortion` and `swirl` shorten the path each spot takes. The
+ * gradient still moves and still never repeats; it just stops swinging.
+ */
+const SPREAD = { scale: 1.55, distortion: 0.45, swirl: 0.22 };
 
 const FILL = { position: "fixed", inset: 0, zIndex: 0 } as const;
 
@@ -178,8 +205,9 @@ export function AmbientField() {
         <MeshGradient
           style={FILL}
           colors={[...palette.colors]}
-          distortion={0.85}
-          swirl={0.55}
+          scale={SPREAD.scale}
+          distortion={SPREAD.distortion}
+          swirl={SPREAD.swirl}
           grainMixer={0.3}
           grainOverlay={0.12}
           speed={0.25}
@@ -198,6 +226,22 @@ export function AmbientField() {
         className="absolute inset-0"
         style={{
           background:
+            /*
+             * Second, and the reason it exists: the sides are held down
+             * whatever the shader is doing.
+             *
+             * Six colour stops narrowed the swing (worst sample 6.6× down
+             * to 4.7×) and could not end it — travelling colour spots are
+             * what a mesh gradient *is*, so past a point the only way to
+             * stop the light arriving at an edge is to darken the edges.
+             * Symmetric, so it corrects a lopsided frame without ever
+             * being a correction *to one side*, which would be wrong half
+             * of every cycle.
+             */
+            `linear-gradient(90deg,` +
+            ` rgb(var(--c-black) / ${(SCRIM * 0.55).toFixed(3)}) 0%,` +
+            ` transparent 26%, transparent 74%,` +
+            ` rgb(var(--c-black) / ${(SCRIM * 0.55).toFixed(3)}) 100%),` +
             `radial-gradient(120% 90% at 50% 34%,` +
             ` rgb(var(--c-base) / ${SCRIM * 0.55}) 0%,` +
             ` rgb(var(--c-base) / ${SCRIM}) 62%,` +
